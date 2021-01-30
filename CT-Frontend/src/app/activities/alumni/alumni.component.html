@@ -1,0 +1,86 @@
+<div class="main-wrapper">
+    <div class="cover">
+        <div class="cover-info">
+            <h1>Alumni Association</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure suscipit ipsum asperiores dolor, rem doloremque tenetur eius officia repellendus nemo amet perspiciatis possimus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quisquam molestiae assumenda quos tenetur. Inventore?</p>
+        </div>
+        <div class="cover-image">
+            <img src="assets/img/alumni/alumni2.jpg">
+        </div>
+    </div>
+    <div class="main">
+        <div class="alumni-wrapper">
+            <h2>
+                <span>Alumni - {{ year }}</span>
+                <select [(ngModel)]="year" (change)="getAlumniList()">
+                    <option 
+                        *ngFor="let year_option of years"
+                        [value]="year_option"
+                        [selected]="year_option == year">{{ year_option }}</option>
+                </select>
+            </h2>
+            <no-data class="no-data" *ngIf="!alumni.length" [message]="no_data" [sub_message]="no_data_sub"></no-data>
+            <div class="alumni-table-wrap">
+                <table class="alumni-table" *ngIf="alumni.length">
+                    <thead>
+                        <th class="alum-reg">Register Number</th>
+                        <th>Details</th>
+                        <th>Work Details</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let alu of alumni">
+                            <td>{{ alu.Register_No }}</td>
+                            <td>
+                                <div class="details">
+                                    <span>{{ alu.First_Name }} {{ alu.Last_Name[0] }}</span>
+                                    <span class="small">{{ alu.MailID }}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="details">
+                                    <span>{{ alu.Working_Org }}</span>
+                                    <span class="small">{{ alu.Designation }}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="alumni-register">
+            <div class="register-wrap">
+                <h3 class="reg-title">
+                    <span>Alumni Registration</span>
+                    <span class="filter-icon" title="Reset Form" (click)="resetForm()"></span>
+                </h3>
+                <div class="input-wrap">
+                    <input type="text" [(ngModel)]="reg_no" [disabled]="valid" required autocomplete="off">
+                    <span class="text" [class.active-text]="valid">Register Number</span>
+                </div>
+                <div class="input-wrap">
+                    <input type="date" [(ngModel)]="dob" [disabled]="valid" required autocomplete="off">
+                    <span class="text dob-text" [class.active-text]="valid">Date of Birth</span>
+                </div>
+                <span class="error-message" [class.correct]="valid" *ngIf="error_message" @slideDownUp>{{ error_message }}</span>
+                <button (click)="validateAlumni()" *ngIf="!valid">Validate</button>
+                <ng-container *ngIf="valid">
+                    <div class="input-wrap">
+                        <input type="text" [(ngModel)]="work" required autocomplete="off">
+                        <span class="text">Working Organization</span>
+                    </div>
+                    <div class="input-wrap">
+                        <input type="text" [(ngModel)]="role" required autocomplete="off">
+                        <span class="text">Designation</span>
+                    </div>
+                    <span 
+                        class="error-message" 
+                        *ngIf="valid && register_message" 
+                        [class.correct]="valid && success">
+                        {{ register_message }}
+                    </span>
+                    <button (click)="registerAlumni()" *ngIf="!success">Register</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

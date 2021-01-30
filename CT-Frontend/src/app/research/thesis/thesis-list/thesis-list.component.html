@@ -1,0 +1,23 @@
+<no-data class="data-no" *ngIf="thesis.length == 0" [message]="no_data" [sub_message]="no_data_sub"></no-data>
+<div class="pjct" *ngFor="let paper of thesis">
+    <h3 class="year-title">
+        <span class="cont">{{ paper.title }}</span>
+        <span class="proj-year">{{ thesis_year }}</span>
+    </h3>
+    <div class="fund-wrap">
+        <div class="fund-content">
+            <div class="proj-coord">
+                <p class="label-name">Authors</p>
+                <div class="label-value">{{ paper.authors }}</div>
+            </div>
+            <div class="fund-agency">
+                <p class="label-name">Supervisor</p>
+                <div class="label-value">{{ paper.supervisor }}</div>
+            </div>
+            <div class="fund-agency">
+                <p class="label-name">Domain</p>
+                <div class="label-value">{{ paper.domain }}</div>
+            </div>
+        </div>
+    </div>
+</div>

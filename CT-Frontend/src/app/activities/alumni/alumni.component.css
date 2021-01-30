@@ -1,0 +1,229 @@
+:host{
+    flex: 1;
+    background-color: whitesmoke;
+}
+.main-wrapper{
+    width: 60%;
+    margin: auto;
+    padding: 3em 1em;
+}
+.cover{
+    display: flex;
+    padding-bottom: 3em;
+}
+.cover-info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 2em;
+}
+.cover-image{
+    width: 50%;
+}
+.cover-info p{
+    font-size: 1.1em;
+    line-height: 1.75em;
+    margin-top: 1em;
+}
+.cover-image img{
+    width: 100%;
+    height: 250px;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+.main{
+    display: flex;
+    align-items: flex-start;
+}
+.no-data{
+    margin-top: 0.5em;
+    font-size: 0.7em;
+}
+.alumni-wrapper{
+    flex: 1;
+    margin-right: 2em;
+}
+.alumni-wrapper h2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25em;
+}
+.alumni-wrapper select{
+    width: 10em;
+    padding: 0.5em;
+}
+.alumni-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5em;
+    border: 1px solid gray;
+    font-size: 0.95em;
+}
+
+.alumni-table td,
+.alumni-table th{
+    padding: 0.75em 1em;
+}
+.alumni-table th{
+    background-color: #011f4d;
+    color: white;
+    text-align: left;
+}
+.alumni-table tr{
+    background-color: white;
+    border-bottom: 1px solid gray;
+}
+.alumni-table tr:nth-child(even){
+    background-color: #eff6ff;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+}
+.small{
+    font-size: 0.75em;
+    margin-top: 0.25em;
+    color: gray;
+}
+.error-message{
+    font-size: 0.75em;
+    color: red;
+    display: block;
+}
+.correct{
+    color: seagreen;
+}
+.reg-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.filter-icon{
+    width: 1em;
+    height: 1em;
+    background-size: 0.85em;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    background-image: url("../../../assets/svg/redo.svg");
+    cursor: pointer;
+}
+.alumni-register{
+    width: 30%;
+}
+.register-wrap{
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 gainsboro;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gainsboro;
+}
+.register-wrap h3{
+    margin-bottom: 1em;
+}
+.register-wrap button{
+    margin: 1em 0;
+    padding: 0.6em;
+    outline: none;
+    background-color: white;
+    color: #011f4d;
+    border: 1px solid #011f4d;
+    cursor: pointer;
+    transition: 0.35s ease-in-out;
+}
+.register-wrap button:hover{
+    background-color: #011f4d;
+    color: white;
+}
+@media only screen and (max-width:1700px) {
+    .main-wrapper {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width:1550px) {
+    .main-wrapper {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width:1440px) {
+    .main-wrapper {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width:1300px) {
+    .main-wrapper {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width:1150px) {
+    .main-wrapper {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width:1050px) {
+    .main{
+        flex-direction: column;
+    }
+    .alumni-wrapper{
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1.5em;
+    }
+    .alumni-register{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width:950px) {
+    .cover{
+        flex-direction: column;
+    }
+    .cover-info,
+    .cover-image{
+        width: 100%;
+    }
+    .cover-info{
+        margin-right: 0;
+        margin-bottom: 1.5em;
+    }
+    .cover-info p{
+        font-size: 1em;
+    }
+    .alumni-register{
+        width: 60%;
+    }
+}
+@media only screen and (max-width:768px) {
+    .alumni-register{
+        width: 65%;
+    }
+    .main-wrapper{
+        padding: 1.5em 0.5em;
+    }
+    .main-wrapper h1{
+        font-size: 1.75em;
+    }
+}
+@media only screen and (max-width:600px) {
+    .alumni-register{
+        width: 100%;
+    }
+    .alumni-table{
+        width: 550px;
+    }
+    .alumni-table-wrap{
+        overflow: auto;
+    }
+    .alum-reg{
+        width: 30%;
+    }
+}

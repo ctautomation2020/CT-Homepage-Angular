@@ -1,0 +1,80 @@
+.notfound{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4em;
+}
+.notfound *{
+    font-family: monospace;
+}
+.notfound p {
+    font-size: 5em;
+    margin-top: 1em;
+    text-align: center;
+    letter-spacing: 5px;
+    color: #011f4d;
+    font-weight: bolder;
+}
+    
+.notfound .notfound-code {
+    color: #949494;
+    text-align: center;
+    display: block;
+    font-size: 1.7em;
+    margin-bottom: 0.25em;
+}
+
+.notfound .notfound-code i {
+        color: #87bd68;
+        font-style: normal;
+    }
+
+.notfound .notfound-code em {
+        color: #7a468a;
+        font-style: unset;
+        font-weight: bold;
+    }
+
+.notfound .notfound-code b {
+        color: #81a2be;
+        font-weight: 500;
+    }
+
+.notfound .notfound-code span {
+        color: #d69718;
+    }
+
+.notfound a {
+    color: #011f4d;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 1em;
+    font-family: 'Lato';
+    background-color: white;
+    border: 2px solid #011f4d;
+    letter-spacing: .5px;
+    padding: 0.5em 1em;
+    transition: 0.35s;
+}
+.notfound a:hover{
+    background-color: #011f4d;
+    color: white;
+}
+
+@media only screen and (max-width:900px){
+    .notfound{
+        font-size: 0.85em;
+        padding: 2em;
+    }
+}
+@media only screen and (max-width:750px){
+    .notfound{
+        font-size: 0.75em;
+    }
+}
+@media only screen and (max-width:500px){
+    .notfound p{
+        font-size: 3.75em;
+    }
+}

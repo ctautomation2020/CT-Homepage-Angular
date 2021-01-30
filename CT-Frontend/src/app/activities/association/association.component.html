@@ -1,0 +1,89 @@
+<div class="primary-section bg-dull count">
+    <div class="section-wrap">
+      <div class="section-title">
+        <h1><span style="font-size: 0.65em;">Association of</span><br>Computer Technologists</h1>
+        <p>
+            ACT established in the year 2010, comprises of aspiring students and elite faculty members of the Department of Computer Technology, Anna University, MIT campus. Our association is a rendezvous for all technology enthusiasts to communicate their ideas and excel in the field of computer science. ACT fosters a strong spirit of collaboration and partnering with the industry .
+        </p>
+      </div>
+      <div class="diamond-section">
+        <div class="diamond">
+            <div class="diam-img">
+                <img src="assets/img/association/prayatna2019-03.jpg" alt="" srcset="">
+            </div>
+        </div>
+        <div class="diamond">
+            <div class="diam-img">
+                <img src="assets/img/association/prayatna2019-04.jpeg" alt="" srcset="">
+            </div>
+        </div>
+        <div class="diamond">
+            <div class="diam-img">
+                <img src="assets/img/association/assbg01.JPG" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="prayatna">
+    <div class="prayatna-bg">
+        <div class="section-wrap">
+            <div class="events-slide">
+                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                    <div ngxSlickItem *ngFor="let slide of slides.prayatna" class="slide">
+                        <img src="{{slide.path}}">
+                    </div>
+                </ngx-slick-carousel>
+            </div>
+            <div class="section-title">
+                <h1>Prayatana<br><span style="font-size: 0.65em;">A national level technical Symposium</span></h1>
+                <p>
+                    The Association of Computer Technologists take great pride in conducting Prayatna, our annual national level inter-college technical festival. Prayatna, a conglomeration of the brightest minds in India, is hosted by the Department of Computer Technology, Anna University, MIT Campus. Over 3000 students from over 150 colleges flock to take part in this festival. Special workshops with the help of experts from the industry enhance the participant’s knowledge and creative potentials.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="primary-section bg-dull count">
+    <div class="section-wrap trigger">
+        <div class="section-title">
+            <h1>Trigger<br><span style="font-size: 0.65em;">An intra college event</span></h1>
+            <p style="padding-right: 0;"> 
+                Trigger is an Intra college Technical Fest by Association of Computer Technologists. It is conducted annually during the period of August. More than 20+ on site technical and non-technical events will be conducted every year. Trigger witnesses participation of 500+ students from all the departments in college. Special events for first year students are also conducted.
+            </p>
+        </div>
+        <div class="events-slide">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                <div ngxSlickItem *ngFor="let slide of slides.trigger" class="slide">
+                    <img src="{{slide.path}}">
+                </div>
+            </ngx-slick-carousel>
+        </div>
+    </div>
+</div>
+<swiper [config]="swiperConfig" class="timeline">
+    <ng-template swiperSlide *ngFor="let event of events">
+        <div class="time-slide-wrapper {{ event.class }}">
+            <div class="time-slide-container">
+                <div class="grid-wrapper">
+                    <h1 style="opacity: 0.85;">A short recap!</h1>
+                    <ngx-slick-carousel class="slide-swipe-wrap" #slickModal="slick-carousel" [config]="slideSwipe">
+                        <div ngxSlickItem *ngFor="let img of event.images" class="slide-swipe">
+                            <img [src]="img">
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+                <div class="timeline-content">
+                    <h2 class="swiper-title">
+                        <span class="title-year">{{ event.year_name }}</span>
+                        <span>{{ event.event_name }}</span>
+                    </h2>
+                    <p>{{ event.description }}</p>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </swiper>

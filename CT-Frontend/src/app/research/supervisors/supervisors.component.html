@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="main">
+      <h1 class="blog-main-title">Supervisors</h1>
+      <div class="blog-post" *ngFor="let sup of supervisors">
+          <div class="blog-post-img">
+              <img src="{{ sup.image_link }}"/>
+          </div>
+          <div class="blog-post-info">
+              <div class="blog-post-date">
+                  <span>{{ sup.name }}</span>
+                  <span id="idnumber">ID : {{ sup.id }}</span>
+              </div>
+              <div class="blog-contact">
+                  <div class="blog-posting f-star">{{ sup.designation }}</div>
+                  <span class="f-mail">{{ sup.mail }}</span>
+                  <span class="f-cont">{{ sup.phone }}</span>
+              </div>
+              <hr />
+              <div class="blog-post-title">
+                  <div class="blog-label">Working Domain</div>
+                  <div class="blog-value">
+                    <span *ngFor="let interest of sup.interests; let i = index;">
+                          {{ interest }}
+                          <span *ngIf="i != (sup.interests.length - 1)">,</span>
+                    </span>
+                  </div>
+              </div>
+              <hr class="line-break">
+              <div class="blog-scholars">
+                  <div class="scholar-details">
+                      <span class="blog-sch-title">Present Scholars</span>
+                      <div class="blog-list-wrap">
+                          <ul class="blog-list">
+                              <li class="sch-head">
+                                  <b>Name</b>
+                                  <b>Type</b>
+                                  <b>Duration</b>
+                              </li>
+                              <li *ngFor="let scholar of sup.present_scholars">
+                                  <div class="sch-img-wrap">
+                                      <img src="{{ scholar.image_link }}" class="sch-img">
+                                      <a href="#">{{ scholar.name }}</a>
+                                  </div>
+                                  <span class="sch-type">{{ scholar.type }}</span>
+                                  <span class="sch-year">{{ scholar.admission }}</span> 
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="scholar-details">
+                      <span class="blog-sch-title">Past Scholars</span>
+                      <div class="blog-list-wrap">
+                          <ul class="blog-list">
+                              <li class="sch-head">
+                                  <b>Name</b>
+                                  <b>Type</b>
+                                  <b>Duration</b>
+                              </li>
+                              <li *ngFor="let scholar of sup.past_scholars">
+                                <div class="sch-img-wrap">
+                                    <img src="{{ scholar.image_link }}" class="sch-img">
+                                    <a href="#">{{ scholar.name }}</a>
+                                </div>
+                                <span class="sch-type">{{ scholar.type }}</span>
+                                <span class="sch-year">{{ scholar.admission }}</span> 
+                            </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>

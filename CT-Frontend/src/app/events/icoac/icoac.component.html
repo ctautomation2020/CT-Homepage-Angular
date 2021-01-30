@@ -1,0 +1,26 @@
+<div class="icoac">
+    <div class="icoac-header">
+        <h2>International Conference on Advanced Computing</h2>
+        <p>{{ event.title }}</p>
+    </div>
+    <div class="icoac-date">
+        <p>{{ event.start_date }} - {{ event.end_date }}</p>
+    </div>
+    <div class="icoac-desc">
+        <div class="text">
+            <h3>Conference Details</h3>
+            <p>ICoAC {{ event.year }} is an international conference in the field of Computer Science and Communication, focusing to address issues and developments in advanced computing. This conference seeks to bring together international researchers to present papers and generate discussions in recent trends and developments of computing. The conference will feature a range of presentations on latest research activities as well as stimulating talks and keynote addresses. It is organized by the Department of Computer Technology annually during December. <a href="http://www.icoac.mitindia.edu/">Click here for more details.</a>
+            </p>
+        </div>
+        <div class="image">
+            <h3>Co-sponsered By</h3>
+            <img src="http://www.icoac.mitindia.edu/images/Ieee.jpg">
+        </div>
+    </div>
+    <div class="icoac-gallary">
+        <h2>Gallery</h2>
+        <div class="grid-gallary">
+            <img *ngFor="let img of event.images" [src]="img" alt="">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.data-no{
+    grid-column: span 2;
+}
+.pub-pagination{
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    font-size: 1.05em;
+}
+@media only screen and (max-width:900px){
+    .pub-pagination{
+        grid-column: span 1;
+    }
+}
+@media only screen and (max-width:340px){
+    .pub-pagination{
+        font-size: 0.85em;
+    }
+}

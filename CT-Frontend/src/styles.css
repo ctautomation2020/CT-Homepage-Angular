@@ -1,0 +1,137 @@
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', 'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+.body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+select {
+    background-color: white;
+}
+
+.primary-section {
+    padding: 3rem 4rem;
+}
+
+.primary-section .section-title {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.primary-section .section-content {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
+.blue-line {
+    height: 100%;
+    background-color: #011f4b;
+    margin-right: 0.75rem;
+    border-radius: 2px;
+}
+
+.bg-blue {
+    background-color: #b9d6f4;
+}
+
+.bg-dull {
+    background-color: #f5f5f5;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 2rem;
+}
+
+.grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+    display: flex;
+    flex-flow: column;
+    border-radius: 3px;
+    overflow: hidden;
+    box-sizing: content-box;
+    font-weight: 500;
+    border: 0.5px solid gainsboro;
+    cursor: pointer;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+app-details,
+app-publications,
+app-projects,
+app-thesis,
+app-staffs,
+app-scholar,
+app-student {
+    background-color: whitesmoke;
+}
+
+app-projects,
+app-thesis,
+app-publications,
+app-scholar,
+app-student,
+app-page-not-found {
+    flex: 1;
+}
+
+.pub-graph .highcharts-background {
+    fill: transparent !important;
+}
+
+.pub-graph .highcharts-title {
+    fill: white !important;
+}
+
+.pub-graph .highcharts-point {
+    stroke: none;
+}
+
+.cover-graph .highcharts-background {
+    fill: transparent;
+}
+
+.cover-graph .highcharts-legend-item text {
+    fill: white !important;
+}

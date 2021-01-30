@@ -1,0 +1,22 @@
+.back-to-top {
+    width: 2.5em;
+    height: 2.5em;
+    position: fixed;
+    bottom: 1.5em;
+    right: 1.5em;
+    z-index: 4;
+    background-color: #0a7c64;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back-to-top img{
+    width: 1em;
+    height: 1em;
+}
+.back-to-top:hover {
+    opacity: 1;
+}

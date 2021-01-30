@@ -1,0 +1,21 @@
+<h1 class="faculty-heading">Non Teaching Staffs</h1>
+<div class="container">
+    <div class="faculty-wrapper">
+        <div class='faculty-wrap'>
+            <div
+                *ngFor="let staff of staffs" 
+                class='faculty'>
+                <div><img [src]="staff.photo" ></div>
+                <div class="faculty-details">
+                    <div class="faculty-name">{{ staff.name }}</div>
+                    <div class="faculty-post">{{ staff.designation }}</div>
+                    <div class="faculty-contact">
+                        <span class="f-mail">{{ staff.mail }}</span>
+        
+                        <span class="f-cont">{{ staff.contact }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

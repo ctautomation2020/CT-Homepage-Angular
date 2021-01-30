@@ -1,0 +1,28 @@
+<no-data class="data-no" 
+    *ngIf="!publications || publications.length == 0" 
+    [message]="no_data" 
+    [sub_message]="no_data_sub">
+</no-data>
+<div class="publication" *ngFor="let publ of publications | paginate: { itemsPerPage: 10, currentPage: pg_no }">
+    <a [href]="getDOI(publ.DOI) | safeUrl" class="pub-name" target="_blank">{{ publ.Paper_Title | titlecase }}</a>
+    <div class="authors">
+        <span>{{ publ.First_Author }}</span>
+        <span *ngIf="publ.Second_Author">, {{ publ.Second_Author }}</span> 
+        <span *ngIf="publ.Other_Authors">, {{ publ.Other_Authors }}</span>
+    </div>
+    <span class="pub-type">{{ publ.Journal_Name }}</span>
+    <div class="pub-details">
+        <span>Year : <b>{{ publ.Year_Of_Publish }}</b></span>
+        <span class="divider"></span>
+        <span>{{ ref_code[publ.Publication_Type_Ref] }}</span>
+        <span class="divider"></span>
+        <span>Publisher : {{ publ.Publisher }}</span>
+    </div>
+</div>
+<pagination-controls 
+    class="pub-pagination"
+    previousLabel="Prev"
+    autoHide="true"
+    maxSize="5" 
+    (pageChange)="pg_no = $event">
+</pagination-controls>

@@ -1,0 +1,204 @@
+<div class="image-wrapper">
+    <div class="front-image">
+        <div class="front-text"><span>Department of</span> Computer Technology</div>
+        <p class="front-sm-text">Anna University, MIT Campus</p>
+        <!-- <div class="front-button">Explore More</div> -->
+    </div>
+</div>
+<div class="announcement" (click)="goToAnnouncement($event)">
+    <div class="head"><span class="announce-head">Announcement</span></div>
+    <div class="data">
+        <marquee width="100%">
+            <li><a href="#" class="a-link">COVID-19 Announcement Timeline</a></li>
+            <span class="seperator">|</span>
+            <li><a href="#" class="a-link">MIT emerges as the top educational institute in India</a></li>
+            <span class="seperator">|</span>
+            <li><a href="#" class="a-link">Final Year End Semester Dates Announced</a></li>
+        </marquee>
+    </div>
+</div>
+
+<div class="primary-section bg-dull count">
+    <div class="section-wrap">
+        <div class="section-title">
+            <h1><span style="font-size: 0.65em;">Department of</span><br> Computer Technology </h1>
+            <p>The Department of Computer Technology was recently established in MIT campus of Anna University by
+                bifurcating the department of Information Technology. The department offers course in computer
+                science and engineering at undergraduate & postgraduate levels and full time/part time research
+                programs. The teaching and learning process emphasizes equally on theoretical and practical aspects
+                catering to the needs of industries.</p>
+            <div class="button">Learn more</div>
+        </div>
+        <div class="section-intro">
+            <div class="content-round">
+                <span class="image"></span>
+                <h3>
+                    <span class="number">{{ count.ug }}</span>
+                    <span class="sm-note">Under graduates</span>
+                </h3>
+            </div>
+            <div class="content-round">
+                <span class="image pg"></span>
+                <h3>
+                    <span class="number">{{ count.pg }}</span>
+                    <span class="sm-note">Post graduates</span>
+                </h3>
+            </div>
+            <div class="content-round">
+                <span class="image staff"></span>
+                <h3>
+                    <span class="number">{{ count.faculty }}</span>
+                    <span class="sm-note">Faculties</span>
+                </h3>
+            </div>
+            <div class="content-round">
+                <span class="image project"></span>
+                <h3>
+                    <span class="number">{{ count.publications }}</span>
+                    <span class="sm-note">Publications</span>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="primary-section vision-mission">
+    <div class="vm">
+        <div class="vm-card">
+            <span class="image vs"></span>
+            <h2>Vision</h2>
+            <p>To be premier in producing excellent computer professionals through comprehensive educational
+                programmes, promoting students with managerial skills to become competitive entrepreneurs, carrying
+                out research in collaboration with industries and adaptive to ever–changing technologies. </p>
+        </div>
+        <div class="vm-card">
+            <span class="image ms"></span>
+            <h2>Mission</h2>
+            <p>Developing problem solving and analytical skills with sound knowledge in basic sciences and
+                engineering. Providing quality of education in correlation with industrial needs. Facilitating for
+                carrying out research activities in collaboration with reputed national and international
+                organizations.</p>
+        </div>
+    </div>
+    <a class="button vm-button" routerLink="/vision-mission">Learn more about Vision and Mission</a>
+</div>
+
+<div class="primary-section bg-dull hod-wrapper">
+    <div class="hod-wrap">
+        <div class="section-title">
+            <h1>Message from the HOD</h1>
+        </div>
+        <div class="section-content">
+            <div class="hod grid">
+                <div><img src="assets/img/staffs/hod.jpg" alt=""></div>
+                <div class="bg-white">
+                    <p>Our department has a blooming bunch of cohesive groups working towards attaining global
+                        excellence in academics and research. The department strives hard in improving the
+                        communication skills, technical and analytical skills of our students through various
+                        programs, so that they could compete in the global front. We adopt the PIE formula for the
+                        success of our department, establishing synergism among students, faculty and institution
+                        <b>SUCCESS = P*I*E</b> , where ‘P’ stands for Planning, ‘I’ stands for Involvement and ‘E’
+                        stands for Execution.
+                    </p>
+                    <h4> - Dr. R. Gunasekaran</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="academics-wrapper">
+    <div class="academics-blur-wrap">
+        <div class="academics">
+            <h1 class="aca-title">Academics</h1>
+            <div class="aca-content">
+                <div class="aca-card">
+                    <div class="aca-image-wrap">
+                        <img src="assets/img/ug.jpg" class="aca-image">
+                    </div>    
+                    <div class="aca-info-wrap">
+                        <h2 class="aca-card-title">Under Graduate</h2>
+                        <span class="aca-symbol">B.E</span>
+                        <p class="aca-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur earum vero ipsam tempore esse, dignissimos ducimus dolor modi ab perspiciatis.</p>
+                        <a routerLink="/academics/ug" class="aca-button">Learn more</a>
+                    </div>
+                </div>
+                <div class="aca-card">
+                    <div class="aca-image-wrap">
+                        <img src="assets/img/pg.jpg" class="aca-image">
+                    </div>
+                    <div class="aca-info-wrap">
+                        <h2 class="aca-card-title">Post Graduate</h2>
+                        <span class="aca-symbol">M.E</span>
+                        <p class="aca-info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus corporis asperiores non veritatis, fuga officia esse porro quidem officiis ab!</p>
+                        <a routerLink="/academics/pg" class="aca-button">Learn more</a>
+                    </div>
+                </div>
+                <div class="aca-card">
+                    <div class="aca-image-wrap">
+                        <img src="assets/img/phd.jpg" class="aca-image">
+                    </div>
+                    <div class="aca-info-wrap">
+                        <h2 class="aca-card-title">Doctor of Philosophy</h2>
+                        <span class="aca-symbol">PhD</span>
+                        <p class="aca-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sit tempora eligendi, laborum iure sed itaque quam nostrum nihil reprehenderit.</p>
+                        <a routerLink="/academics/phd" class="aca-button">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+
+<div class="primary-section bg-dull res-wrapper">
+    <div class="res-wrap">
+        <div class="section-title">
+            <div class="section-content">
+                <h2 style="text-align: center; color: #011f4b;">Research</h2>
+                <br>
+                <div class="home-research">
+                    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                        <div ngxSlickItem *ngFor="let slide of slides" class="card slide">
+                            <div class="img-wrap">
+                                <img src="{{slide.details.path}}">
+                            </div>
+                            <div class="card-bottom">
+                                <h3>{{slide.details.name}}</h3>
+                                <span class="note">{{slide.details.content}}</span>
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="event-section">
+    <div class="event-wrap">
+        <div class="event-side-bar">
+            <h1>Events</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique ab inventore deleniti impedit
+                molestias itaque nobis aperiam harum esse rem. Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Blanditiis laudantium dolorem quisquam totam atque autem inventore explicabo beatae
+                perspiciatis cum?</p><br>
+            <a routerLink="/events" class="button">View Events</a>
+        </div>
+        <div class="event-main-bar">
+            <a class="event-card" *ngFor="let event of events" [href]="event.link">
+                <div class="eve-img-wrap">
+                    <img [src]="event.image">
+                </div>
+                <div class="event-content">
+                    <h2>{{ event.title }}</h2>
+                    <span class="event-date">
+                        <span class="month">{{ event.month }}</span>
+                        <span class="date">{{ event.date }}</span>
+                    </span>
+                    <p>{{ event.description }}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

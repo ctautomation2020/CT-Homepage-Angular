@@ -1,0 +1,49 @@
+<div class='container'>
+    <div class="pdf-wrapper">
+        <div class="filter-wrap">
+            <div class="filter-intro">
+                <h1 class="head-title">{{ student_type.title }} Students</h1>
+                <p class="head-note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, asperiores blanditiis repellat dolorem natus cumque ipsa non modi quibusdam voluptate nihil libero minima officia sit atque quod accusamus dolorum.</p>
+            </div>
+            <div class='dropdown'>
+                <h2>List filter</h2><hr>
+                <div class='year'>
+                    <span class="label">Batch Year</span>
+                    <select #select (change)="updateYear(select.value)">
+                        <option 
+                            *ngFor="let year_option of years" 
+                            value="{{ year_option }}"
+                            [selected]="year_option == year">
+                            {{ year_option }}
+                        </option>
+                    </select>
+                </div>
+                <div class='go' (click)="getStudents()">
+                    <button class="pdf-button">View Students-List</button>
+                </div>
+            </div>
+        </div>
+        <div class='pdf'>
+            <div class="student-list-wrapper">
+                <div class="list-title">
+                    <h3>M.I.T. Campus : Anna University : Chrompet : Chennai - 600 044</h3>
+                    <h4>{{ student_type.gtype }} {{ batch }}</h4>
+                </div>
+                <div class="table-wrap">
+                    <table class="student-list">
+                        <tr>
+                            <th>S.No</th>
+                            <th>Register No.</th>
+                            <th style="text-align: left;">Student Name</th>
+                        </tr>
+                        <tr *ngFor="let student of students; let i = index">
+                            <td>{{ (i+1) }}</td>
+                            <td>{{ student.Register_No }}</td>
+                            <td style="text-align: left;">{{ student.First_Name | titlecase }} <span *ngIf="student.Last_Name">{{ student.Last_Name }}</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

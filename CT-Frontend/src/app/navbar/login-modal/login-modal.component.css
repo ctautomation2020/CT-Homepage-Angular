@@ -1,0 +1,42 @@
+.login-wrap{
+    margin-left: auto;
+    display: flex;
+    padding: 0.5em 1em 1.5em 1em;
+    transition: 0.35s;
+}
+.login-wrap input{
+    margin-right: 1em;
+    padding: 0.4em 0.55em;
+    border: 1px solid gray;
+    outline: none;
+    font-size: 0.95em;
+}
+.login-wrap input:focus{
+    box-shadow: 0 0 0 1px #444444;
+}
+.login-wrap button{
+    padding: 0.35em 1em;
+    background-color: #0f4ead;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: 0.35s;
+}
+.login-wrap button:hover{
+    background-color: #05224d;
+}
+@media only screen and (max-width:600px){
+    .login-wrap{
+        width: inherit;
+        margin: auto;
+        flex-direction: column;
+    }
+    .login-wrap input,
+    .login-wrap button{
+        width: 100%;
+        margin-top: 1em;
+        padding: 0.5em;
+        margin-right: 0;
+    }
+}

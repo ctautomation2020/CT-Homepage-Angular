@@ -1,0 +1,29 @@
+<div class="project">
+    <div class="thesis-cover">
+        <div class="cover-wrap">
+            <div class="cover-content">
+                <h1><span style="font-size: 0.65em;">Completed</span><br>Research Thesis</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta vero, molestiae corrupti dolorem porro minus, neque ipsum voluptate illo fuga architecto facere sit veritatis eveniet earum, tempore culpa! Numquam, ipsum iusto quia perferendis eum voluptatum. Illo, maxime quidem! Beatae, suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum ducimus expedita molestiae placeat voluptatem a.</p>
+            </div>
+            <div class="cover-graph"></div>
+        </div>
+    </div>
+    <div class="project-page">
+        <h1>Thesis</h1>
+        <select class="project-select" #select (change)="updateYear(select.value)">
+            <option [selected]="selectFlag == true" disabled>Select Year</option>
+            <option 
+                *ngFor="let year_option of years" 
+                value="{{ year_option }}" 
+                [selected]="year_option == year">
+                {{ year_option }}
+            </option>
+        </select>
+    </div>
+    <div class="project-content">
+        <div class="project-wrap">
+            <h1 class="proj-title">Thesis completed in year - {{ year }}</h1>
+            <thesis-list [thesis_year]="year" class="year-projects"></thesis-list>
+        </div>
+    </div>
+</div>

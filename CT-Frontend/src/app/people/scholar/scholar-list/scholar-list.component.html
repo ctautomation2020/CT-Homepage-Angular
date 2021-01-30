@@ -1,0 +1,37 @@
+<no-data class="data-no" *ngIf="scholars.length == 0" [message]="no_data" [sub_message]="no_data_sub"></no-data>
+<div class="scholar" *ngFor="let scholar of scholars">
+    <div class="sch-card">
+        <div class="sch-res-details">
+            <img class = "sch-image" src="{{ scholar.image }}">
+            <div class="sch-details">
+                <span class="sch-name">{{ scholar.name }}</span>
+                <span class="f-mail">{{ scholar.email }}</span>
+                <span class="f-cont">{{ scholar.phone }}</span><hr>
+                <div class="sch-label-wrap">
+                    <div class="sch-label">Year of Admission</div>
+                    <b class="sch-value sch-year">{{ scholar.year }}</b>
+                </div>
+            </div>
+        </div>
+        <div class="sch-extras">
+            <h3 class="sch-extra-title">Research Details</h3>
+            <div class="sch-extra-wrap">
+                <div class="sch-label-wrap">
+                    <div class="sch-label">Supervisor</div>
+                    <span class="sch-value">
+                        <a href="{{ scholar.supervisor.link }}">{{ scholar.supervisor.name }}</a>
+                    </span>
+                </div>
+                <div class="sch-label-wrap">
+                    <div class="sch-label">Domain</div>
+                    <span class="sch-value">{{ scholar.domain }}</span>
+                </div>
+                <div class="sch-label-wrap">
+                    <div class="sch-label">Project Title</div>
+                    <span class="sch-value">{{ scholar.project_title }}</span>
+                </div>
+            </div>
+            <a class="sch-pub-button" href="">Publications</a>
+        </div> 
+    </div>
+</div>

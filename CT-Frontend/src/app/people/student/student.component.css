@@ -1,0 +1,211 @@
+.container{
+    margin: auto;
+    width: 60%;
+    margin-top: 0;
+}
+.head-title{
+    margin-top: 1em;
+    font-size: 1.75em;
+}
+.head-note{
+    padding: 1em 0;
+    padding-bottom: 2em;
+    line-height: 1.75em;
+    font-size: 0.85em;
+    margin-bottom: 1em;
+}
+.filter-wrap{
+    width: 40%;
+    margin-left: 1em;
+}
+.pdf-wrapper{
+    margin: auto;
+    display: flex;
+}
+.pdf{
+    width: 60%;
+    margin: 1.5em;
+    height: 80vh;
+}
+.pdf-wrapper select,
+.pdf-button{
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+    border: 1px solid #CCC;
+    cursor: pointer;
+}
+.pdf-button{
+    background-color: white;
+    color: #0b3b83;
+    border: 2px solid #063479;
+    transition: 0.35s ease-in-out;
+    font-weight: bold;
+    font-size: 1.05em;
+}
+.pdf-button:hover{
+    background-color: #011f4b;
+    color: white;
+}
+.pdf-mobile-button{
+    text-align: center;
+    display: none;
+}
+.label{
+    margin-bottom: 1em;
+    display: block;
+    color: #2266cc;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+.dropdown{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 1.5em;
+    border: 1px solid gainsboro;
+}
+.dropdown h2{
+    font-size: 1.35em;
+}
+.dropdown hr{
+    margin-top: 0.75em;
+}
+.type,.year,.go{
+    flex: 1;
+    margin: 0.75em 0;
+}
+.student-list-wrapper{
+    background-color: white;
+    padding: 1.5em;
+    box-shadow: 0 1px 2px 0 gray;
+    margin-left: 1em;
+}
+.table-wrap{
+    height: 65vh;
+    overflow: auto;
+}
+.table-wrap::-webkit-scrollbar{
+    width: 0.25em;
+    height: 0.25em;
+}
+.table-wrap::-webkit-scrollbar-track{
+    background: whitesmoke;
+}
+.table-wrap::-webkit-scrollbar-thumb{
+    background: #8f8f8f;
+}
+.student-list{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid gray;
+}
+.student-list th{
+    background-color: gainsboro;
+    color: black;
+}
+.student-list th,
+.student-list td{
+    border-bottom: 1px solid gray;
+    font-size: 0.95em;
+    padding: 0.7em;
+    text-align: center;
+}
+.student-list tr:nth-child(odd){
+    background-color: whitesmoke;
+}
+.list-title{
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.list-title h3{
+    color: #0b2750;
+    text-align: center;
+}
+.list-title h4{
+    margin: 1em 0;
+    font-size: 1.25em;
+    text-align: center;
+}
+@media only screen and (max-width:1700px){
+    .container{
+        width: 70%;
+    }
+}
+@media only screen and (max-width:1550px){
+    .container{
+        width: 80%;
+    }
+}
+@media only screen and (max-width:1440px){
+    .container{
+        width: 85%;
+    }
+}
+@media only screen and (max-width:1300px){
+    .container{
+        width: 90%;
+    }
+}
+@media only screen and (max-width:1150px){
+    .container{
+        width: 95%;
+    }
+}
+@media only screen and (max-width:1024px){
+    .pdf-wrapper{
+        flex-direction: column;
+    }
+    .filter-wrap{
+        width: 100%;
+        display: flex;
+        margin-left: 0;
+    }
+    .filter-intro,
+    .dropdown{
+        width: 50%;
+    }
+    .head-note{
+        font-size: 1em;
+        padding-right: 0.5em;
+    }
+    .dropdown{
+        margin: 2em 0;
+    }
+    .pdf{
+        margin: 0 0 2em 0;
+        width: 100%;
+        height: auto;
+    }
+    .pdf .student-list-wrapper{
+        margin: 0;
+    }
+}
+@media only screen and (max-width:750px){
+    .filter-wrap{
+        flex-direction: column;
+    }
+    .filter-intro,
+    .dropdown{
+        width: 100%;
+    }
+    .filter-intro{
+        padding: 1em;
+    }
+    .head-note{
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+    .dropdown{
+        margin-top: 1em;
+    }
+}
+@media only screen and (max-width:500px){
+    .student-list{
+        width: 420px;
+    }
+}

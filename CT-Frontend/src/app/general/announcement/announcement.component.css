@@ -1,0 +1,143 @@
+.container {
+    width: 60%;
+    margin: 2em auto;
+}
+
+.container>h2 {
+    text-align: center;
+    font-size: 1.85em;
+    color: black;
+}
+
+.latest,
+.past {
+    margin-top: 2em;
+}
+
+.latest>h2,
+.past>h2 {
+    text-align: left;
+    font-size: 1.1em;
+    color: #444444;
+}
+
+.grid-container {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5em;
+}
+
+.grid {
+    padding: 1em;
+    border: 1px solid #c0c0c0;
+    border-radius: 0.25em;
+    display: flex;
+    grid-gap: 0;
+    align-items: flex-start;
+}
+.grid:hover{
+    background-color: #f7f7f7;
+}
+.grid .calender {
+    border: 1px solid #ccc;
+    border-radius: 0.25em;
+    text-align: center;
+    min-width: 8em;
+    font-size: 0.7em;
+    background-color: white;
+}
+
+.calender .month {
+    background-color: #e7eaf5;
+    padding: 5px 10px;
+    color: black;
+    font-size: 1.15em;
+    font-weight: bold;
+}
+
+.calender .day {
+    margin-top: 0.5em;
+    color: #999;
+    font-weight: 500;
+}
+
+.calender .date {
+    margin-top: 0.1em;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.calender .year {
+    margin-top: 0.25em;
+    color: #999;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+}
+
+.text .announcement-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.announcement-title h2 {
+    font-size: 1.1em;
+}
+.text{
+    margin-left: 1em;
+}
+.text a {
+    display: inline-block;
+    color: #355fac;
+    font-size: 0.95em;
+    padding: 0.5em 0;
+    border-radius: 5px;
+}
+.text a:hover{
+    text-decoration: underline;
+}
+
+.text p {
+    color: gray;
+    font-size: 0.85em;
+    margin-top: 0.5em;
+}
+@media only screen and (max-width:1700px){
+    .container{
+        width: 70%;
+    }
+}
+@media only screen and (max-width:1550px){
+    .container{
+        width: 80%;
+    }
+}
+@media only screen and (max-width:1440px){
+    .container{
+        width: 85%;
+    }
+}
+@media only screen and (max-width:1300px){
+    .container{
+        width: 90%;
+    }
+}
+@media only screen and (max-width:1200px){
+    .container{
+        width: 95%;
+    }
+    .grid-container{
+        grid-template-columns: 1fr;
+    }
+}
+@media only screen and (max-width:500px){
+    .grid{
+        font-size: 0.875em;
+        padding: 0.5em;
+    }
+    .latest >h2,
+    .past >h2{
+        padding: 0 0.5em;
+    }
+}

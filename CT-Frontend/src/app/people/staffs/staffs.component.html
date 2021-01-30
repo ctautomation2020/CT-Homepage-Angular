@@ -1,0 +1,60 @@
+<h1 class="faculty-heading">Faculty Members</h1>
+<div class='container'>
+    <div class='faculty-wrapper'>
+        <ng-container>
+            <div class="hod" *ngIf="hod">
+                <a class='faculty' routerLink="/people/staffs/profile/{{ hod.Person_ID }}">
+                    <div><img [src]="hod.Photo" width = 100></div>
+                    <div class="faculty-details">
+                        <div class="faculty-name">{{ getStaffName(hod) }}</div>
+                        <div class="faculty-post">{{ ref_code[hod.Designation] }}</div>
+                        <div class="interest">
+                            <span class="interest-icon" title="Areas of Interest"></span>
+                            <span class="interest-list">
+                                <span *ngIf="hod.AOS1">{{ hod.AOS1 }}</span>
+                                <span *ngIf="hod.AOS2">, {{ hod.AOS2 }}</span>
+                                <span *ngIf="hod.AOS3">, {{ hod.AOS3 }}</span>
+                                <span *ngIf="hod.AOS4">, {{ hod.AOS4 }}</span>
+                                <span *ngIf="hod.AOS5">, {{ hod.AOS5 }}</span>
+                            </span>
+                        </div>
+                        <div class="faculty-contact">
+                            <span class="f-mail">{{ hod.Primary_MailID }}</span>
+    
+                            <span class="f-cont">{{ hod.Primary_ContactNumber }}</span>
+                        </div>
+                    </div>
+                    <span class="f-arrow" title="Visit Website"></span>
+                </a>
+            </div>
+            <div class='faculty-wrap' *ngIf="ref_code">
+                <a
+                    *ngFor="let staff of staffList" 
+                    routerLink="/people/staffs/profile/{{ staff.Person_ID }}" 
+                    class='faculty'>
+                    <div><img [src]="staff.Photo" ></div>
+                    <div class="faculty-details">
+                        <div class="faculty-name">{{ getStaffName(staff) }}</div>
+                        <div class="faculty-post">{{ ref_code[staff.Designation] }}</div>
+                        <div class="interest">
+                            <span class="interest-icon"></span>
+                            <span class="interest-list">
+                                <span *ngIf="staff.AOS1">{{ staff.AOS1 }}</span>
+                                <span *ngIf="staff.AOS2">, {{ staff.AOS2 }}</span>
+                                <span *ngIf="staff.AOS3">, {{ staff.AOS3 }}</span>
+                                <span *ngIf="staff.AOS4">, {{ staff.AOS4 }}</span>
+                                <span *ngIf="staff.AOS5">, {{ staff.AOS5 }}</span>
+                            </span>
+                        </div>
+                        <div class="faculty-contact">
+                            <span class="f-mail">{{ staff.Primary_MailID }}</span>
+    
+                            <span class="f-cont">{{ staff.Primary_ContactNumber }}</span>
+                        </div>
+                    </div>
+                    <span class="f-arrow" title="Visit Website"></span>
+                </a>
+            </div>
+        </ng-container>
+    </div>
+</div>

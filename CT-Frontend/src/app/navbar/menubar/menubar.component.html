@@ -1,0 +1,33 @@
+<h2 class="menu-title">
+    <span class="logo-img"></span>
+    <div class="title">
+        <span class="main-title">Menu bar</span>
+        <span class="sub-title">Computer Technology</span>
+    </div>
+    <span class="close-icon" (click)="closeMenuBar()"></span>
+</h2><br>
+<div class="menu-items">
+    <ng-container *ngFor="let menu of menubar">
+        <a *ngIf="!menu.submenu" [routerLink]="menu.path" class="menu-link">{{ menu.name }}</a>
+        <div class="sub-link" *ngIf="menu.submenu">
+            <div class="sub-drop-down">
+                <label 
+                    class="sub-menu-label" 
+                    (click)="toggleMenu(menu.name)" 
+                    [class.drop-check-open]="openMenu == menu.name">
+                    {{ menu.name }}
+                </label>
+                <div 
+                    class="sub-drop-list" 
+                    *ngIf="openMenu == menu.name" 
+                    @slideDownUp>
+                    <a *ngFor="let sub of menu.submenu"
+                        [routerLink]="sub.path" 
+                        class="menu-link" >
+                        {{ sub.name }}
+                    </a>
+                </div>
+            </div>
+        </div>    
+    </ng-container>
+</div>

@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Announcements</h2>
+    <div class="latest">
+      <h2>Latest updates</h2>
+      <div class="grid-container">
+        <div class="grid" *ngFor="let ann of announcements.latest">
+            <span class="calender">
+              <p class="month">{{ ann.date_time.month }}</p>
+              <p class="day">{{ ann.date_time.day }}</p>
+              <p class="date">{{ ann.date_time.date }}</p>
+              <p class="year">{{ ann.date_time.year }}</p>
+            </span>
+            <span class="text">
+              <div class="announcement-title">
+                <h2>{{ ann.title }}</h2>
+              </div>
+              <p>
+                  Announcement released on {{ ann.date_time.date}}-{{ ann.date_time.month }}-{{ ann.date_time.year }} at {{ ann.date_time.time }}.
+              </p>
+              <a [href]="ann.link">View Announcement</a>
+            </span>
+          </div>
+      </div>
+    </div>
+    <div class="past">
+      <h2>Past updates</h2>
+      <div class="grid-container">
+        <div class="grid" *ngFor="let ann of announcements.past">
+          <span class="calender">
+            <p class="month">{{ ann.date_time.month }}</p>
+            <p class="day">{{ ann.date_time.day }}</p>
+            <p class="date">{{ ann.date_time.date }}</p>
+            <p class="year">{{ ann.date_time.year }}</p>
+          </span>
+          <span class="text">
+            <div class="announcement-title">
+              <h2>{{ ann.title }}</h2>
+            </div>
+            <p>
+                Announcement released on {{ ann.date_time.date}}-{{ ann.date_time.month }}-{{ ann.date_time.year }} at {{ ann.date_time.time }}.
+            </p>
+            <a [href]="ann.link">View Announcement</a>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>

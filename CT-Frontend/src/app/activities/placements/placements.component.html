@@ -1,0 +1,88 @@
+<div class="primary-section bg-dull count placement">
+    <div class="section-wrap">
+        <div class="placement-wrap">
+            <div class="section-title">
+                <h1><span style="font-size: 0.65em;">Year 2021</span><br> CT Placements </h1>
+                <p>The CT-Department plays an integral role in guiding the students achieve their career goals. The department facilitates the training activities with the help of industry experts and seniors to prepare the students industry-ready. The department collaborates with some of the best organisations to provide on-campus job opportunities.</p>
+            </div>
+            <div class="section-intro">
+                <div class="content-round">
+                    <span class="image comp"></span>
+                    <h3>
+                        <span class="number">{{ placementStats.recruiters }}</span>
+                        <span class="sm-note">Recruiters</span>
+                    </h3>
+                </div>
+                <div class="content-round">
+                    <span class="image pg"></span>
+                    <h3>
+                        <span class="number">{{ placementStats.recruited }}</span>
+                        <span class="sm-note">Graduates recruited</span>
+                    </h3>
+                </div>
+                <div class="content-round">
+                    <span class="image money"></span>
+                    <h3>
+                        <span class="number">{{ placementStats.medium_package }}</span>
+                        <span class="sm-note">1-5 Lakh packages</span>
+                    </h3>
+                </div>
+                <div class="content-round">
+                    <span class="image more-money"></span>
+                    <h3>
+                        <span class="number">{{ placementStats.high_package }}</span>
+                        <span class="sm-note">5+ Lakh packages</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="primary-section bg-white placement-companies">
+    <div class="section-title">
+        <h1 style="text-align: center;">Recruiting Companies</h1><br>
+            <h3 class="sub-place">Over 800+ graduates successfully placed since 2010</h3>
+    </div>
+    <br>
+    <div class="section-content">
+        <div class="company-images">
+            <div *ngFor="let image of companyImages">
+                <img src="{{ image }}" alt="">
+            </div>
+        </div><br>
+    </div>
+</div>
+
+<div class="bg01">
+    <div class="bg02"><br>
+        <div class="container">
+            <br><h1 class="testi-head">Thought Provoking Tips from the Most Wanted Brains</h1><br><br>
+        <div class="testiSlide">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                <div ngxSlickItem *ngFor="let testi of testimonials" class="slide">
+                    <figure class="testimonial">
+                        <blockquote>
+                            {{ testi.sayings }}
+                            <div class="btn"></div>
+                        </blockquote>
+                        <img src="{{ testi.image }}" alt="Source not found" />
+                        <div class="peopl">
+                        <h3>{{ testi.name }}</h3>
+                        <p class="indentity">{{ testi.present_role }}</p>
+                        </div>
+                    </figure>
+                </div>
+            </ngx-slick-carousel>         
+        </div><br><br><br>
+        </div>
+    </div> 
+</div>
+<div class="primary-section chart-section">
+    <div class="section-title">
+        <h1 style="text-align: center;">Top Placement Chart</h1><br>
+    </div>
+    <div class="chart">
+        <highcharts-chart [Highcharts]="Highcharts" [options]="chartConfig" style="width: 100%; height: 100%; display: block;"></highcharts-chart>
+    </div>
+</div>

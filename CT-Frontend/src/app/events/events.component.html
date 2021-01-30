@@ -1,0 +1,84 @@
+<div class="primary-section bg-dull count">
+    <div class="section-wrap eve">
+        <div class="section-title">
+            <h1><span style="font-size: 0.65em;">ICoAC</span><br>Conference</h1>
+            <p>ICoAC is an international conference in the field of Computer Science and Communication, focusing to
+                address issues and developments in advanced computing. This conference seeks to bring together
+                international researchers to present papers and generate discussions in recent trends and
+                developments of computing. It is organized by the Department of Computer Technology annually during December. Know more about ICoAC in <a style="color: blue;" href="http://www.icoac.mitindia.edu/" >official website</a>.</p>
+
+            <a routerLink="/events/all-events" class="button">View Events</a>
+        </div>
+
+        <div class="events-slide">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                <div ngxSlickItem *ngFor="let slide of slides.events" class="slide">
+                    <img src="{{slide.path}}">
+                </div>
+            </ngx-slick-carousel>
+        </div>
+    </div>
+</div>
+
+<div class="primary-section bg-dull count">
+    <div class="section-wrap eve">
+        <div class="events-slide works-slide">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                <div ngxSlickItem *ngFor="let slide of slides.workshops" class="slide">
+                    <img src="{{slide.path}}">
+                </div>
+            </ngx-slick-carousel>
+        </div>
+        <div class="section-title workshop-title">
+            <h1><span style="font-size: 0.65em;">Department</span><br>Workshops</h1>
+            <p style="padding-right: 0;">ICoAC is an international conference in the field of Computer Science and Communication, focusing to address issues and developments in advanced computing. This conference seeks to bring together international researchers to present papers and generate discussions in recent trends and developments of computing.It is organized by the Department of Computer Technology annually during December.</p>
+            <a routerLink="/events/all-events" class="button">View Workshops</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="primary-section">
+    <div class="upcomming">
+        <h1>Department Events</h1>
+        <div class="events-grid">
+            <div class="item-text one">
+                <div>
+                    <h2 class="e-name">Prayatna</h2>
+                    <p class="e-desc">Prayatna, a conglomeration of the brightest minds in India, is hosted by the Department of Computer Technology, Anna University, MIT Campus. Over 3000 students from over 150 colleges flock to take part in this festival.</p>
+                    <p class="e-date">Even Semester</p>
+                </div>
+            </div>
+            <div class="item-image two">
+                <img src="assets/img/association/assbg02.JPG">
+            </div>
+            <div class="item-image three">
+                <img src="assets/img/association/assbg05.JPG">
+            </div>
+            <div class="item-text four">
+                <div>
+                    <h2 class="e-name">Trigger</h2>
+                    <p class="e-desc">Trigger is an Intra college Technical Fest by Association of Computer Technologists. It is conducted annually during the period of August. More than 20+ on site technical and non-technical events will be conducted every year.</p>
+                    <p class="e-date">Odd Semester</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="primary-section">
+    <div class="past-events">
+        <h1>Recent Events</h1>
+        <div class="grid past-grid">
+            <div class="card bg-white" *ngFor="let event of events">
+                <div class="card-bottom">
+                    <a class="event-head" routerLink="{{ event.link }}">{{ event.title }}</a>
+                    <label>{{ event.type }}</label>
+                    <p>{{ event.brief_note }}</p><br>
+                    <span class="note">{{ event.start_date }} - {{ event.end_date }}</span>
+                </div>
+            </div>
+        </div>
+        <a routerLink="/events/all-events" class="button">View All Events</a>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    box-shadow: 0 0 0 30px white inset !important;
+}
+.input-wrap{
+    position: relative;
+    width: 100%;
+}
+.input-wrap .text{
+    pointer-events: none;
+    position: absolute;
+    top: 1.75em;
+    left: 0.75em;
+    color: gray;
+    font-size: 0.85em;
+    background-color: white;
+    transition: 0.2s;
+
+}
+.input-wrap input{
+    border: 1.15px solid gray;
+    border-radius: 3px;
+    padding: 0.75em;
+    font-size: 0.85em;
+    margin: 1em 0em;
+    width: 100%;
+    outline: none;
+    transition: 0.2s;
+}
+.input-wrap input[type="date"]{
+    font-size: 0.8em;
+}
+.input-wrap input:focus{
+    box-shadow: inset 0 0 0 1px gray;
+}
+.input-wrap .dob-text{
+    padding: 0.25em 0;
+    top: 1.5em;
+}
+.input-wrap input:focus ~ .text,
+.input-wrap input:valid ~ .text,
+.input-wrap .active-text{
+    letter-spacing: 1px;
+    font-size: 0.7em;
+    top: 0.6em;
+    font-weight: bold;
+    color: #398fda;
+    padding: 0;
+}

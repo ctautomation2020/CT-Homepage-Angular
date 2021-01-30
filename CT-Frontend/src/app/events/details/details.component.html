@@ -1,0 +1,48 @@
+<div class="specific-event-container">
+    <div class="event-title">
+        <h2>{{ event.title }}</h2>
+        <!-- <a href="#" class="button button-primary">Register</a> -->
+    </div>
+    <div class="event-description">
+        <div class="left">
+            <h2>Description</h2>
+            <p>
+                {{ event.description }}
+            </p>
+            <div class="date">
+                <div>
+                    <h4>From</h4>
+                    <p>{{ event.start_date }}</p>
+                </div>
+                <div>
+                    <h4>To</h4>
+                    <p>{{ event.end_date }}</p>
+                </div>
+            </div>
+            <div class="coordinators">
+                <h4>Coordinated By</h4>
+                <p>
+                    <span *ngFor="let coor of event.coordinators">{{ coor }}</span>
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <div class='pdf'>
+                <object [data] = "event.brochure_link | safeUrl" type="application/pdf"></object>
+            </div>
+            <div class="pdf-mobile">
+                <!-- <button class="button button-primary">Register</button> -->
+                <a [href]="event.brochure_link | safeUrl" class="button button-secondary" download="brochure">Get Brochure</a>
+            </div>
+        </div>
+    </div>
+    <div class="event-gallary" *ngIf="event.images.length">
+        <div class="title">
+            <h2>Event Gallery</h2>
+        </div>
+        <div class="grid grid-auto">
+            <img src="{{ image }}" alt="" *ngFor="let image of event.images">
+        </div>
+    </div>
+    <br *ngIf="!event.images.length">
+</div>
