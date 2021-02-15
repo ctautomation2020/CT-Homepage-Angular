@@ -1,227 +1,325 @@
 <div class="primary-section bg-dull count">
     <div class="section-wrap">
-      <div class="section-title">
-        <h1><span style="font-size: 0.65em;">State of the Art</span><br> Infrastructure </h1>
-        <p>
-            Computer technology has become an integral part of our daily life. Technological advancements are so rapid in this field that continual learning is essential to keep the skill set of students up to date. In order to achieve this advancements, the Department of Computer Technology provides with Laboratories which are well equipped with high-end computers and high-speed Internet Access for both academic and research purposes.    
-        </p>
-      </div>
-      <div class="section-intro inf-intro">
-        <a routerLink="." fragment="academic-labs">
-            <div class="content-round">
-                <span class="image"></span>
-                <h3> <span class="sm-note">Academic lab</span> </h3>
-            </div>
-        </a>
-        <a routerLink="." fragment="research-labs">
-            <div class="content-round">
-                <span class="image pg"></span>
-                <h3> <span class="sm-note">Research lab</span> </h3>
-            </div>
-        </a>
-        <a routerLink="." fragment="servers-storage">
-            <div class="content-round">
-                <span class="image server-icon"></span>
-                <h3> <span class="sm-note">Servers</span> </h3>
-            </div>
-        </a>
-        <a routerLink="." fragment="data-center">
-            <div class="content-round">
-                <span class="image dc-icon"></span>
-                <h3> <span class="sm-note">Data Center</span> </h3>
-            </div>
-        </a>
-      </div>
+        <div class="section-title">
+            <h1>
+                <span style="font-size: 0.65em">State of the Art</span><br />
+                Infrastructure
+            </h1>
+            <p>
+                Computer technology has become an integral part of our daily
+                life. Technological advancements are so rapid in this field that
+                continual learning is essential to keep the skill set of
+                students up to date. In order to achieve this advancements, the
+                Department of Computer Technology provides with Laboratories
+                which are well equipped with high-end computers and high-speed
+                Internet Access for both academic and research purposes.
+            </p>
+        </div>
+        <div class="section-intro inf-intro">
+            <a routerLink="." fragment="academic-labs">
+                <div class="content-round">
+                    <span class="image"></span>
+                    <h3><span class="sm-note">Academic lab</span></h3>
+                </div>
+            </a>
+            <a routerLink="." fragment="research-labs">
+                <div class="content-round">
+                    <span class="image pg"></span>
+                    <h3><span class="sm-note">Research lab</span></h3>
+                </div>
+            </a>
+            <a routerLink="." fragment="servers-storage">
+                <div class="content-round">
+                    <span class="image server-icon"></span>
+                    <h3><span class="sm-note">Servers</span></h3>
+                </div>
+            </a>
+            <a routerLink="." fragment="data-center">
+                <div class="content-round">
+                    <span class="image dc-icon"></span>
+                    <h3><span class="sm-note">Data Center</span></h3>
+                </div>
+            </a>
+        </div>
     </div>
-  </div>
+</div>
 
-  <div class="infra-image">
-    <img src="../../assets/img/infrastructure/infra.jpg" alt="">
+<div class="infra-image">
+    <img src="assets/img/infrastructure/infra.jpg" alt="" />
     <span class="overlay"></span>
-  </div>
+</div>
 
-  <div class="infra_section"><br>
+<div class="infra_section">
+    <br />
     <div class="section_content" id="academic-labs">
-      <h2 class="section-header">Academic Labs</h2>
-      <div class="section">
-        <div *ngFor="let lab of labs.academic" class="section-contents" id="academic-labs">
-            <div class="lab-info">
-                <img class="icon" src="assets/svg/i.svg" title="Lab Information">
-                <div class="info-text">
-                    <h3>{{ lab.lab_name }}</h3>
-                    <p>{{ lab.description }}</p>
-                    <button class="vir-tour-button">Take a Virtual Tour</button>
+        <h2 class="section-header">Academic Labs</h2>
+        <div class="section">
+            <div
+                *ngFor="let lab of labs.academic"
+                class="section-contents"
+                id="academic-labs"
+            >
+                <div class="lab-info">
+                    <img
+                        class="icon"
+                        src="assets/svg/i.svg"
+                        title="Lab Information"
+                    />
+                    <div class="info-text">
+                        <h3>{{ lab.lab_name }}</h3>
+                        <p>{{ lab.description }}</p>
+                        <button class="vir-tour-button">
+                            Take a Virtual Tour
+                        </button>
+                    </div>
+                </div>
+                <div class="section-image">
+                    <img src="{{ lab.lab_image }}" alt="" />
+                    <span class="type">Academic</span>
+                </div>
+
+                <div class="section-text">
+                    <span class="lab-title">{{ lab.lab_name }}</span>
+                    <div class="text">
+                        <img src="assets/svg/desktop.svg" alt="" />
+                        <span class="cont">
+                            <b
+                                ><p class="dark">{{ lab.nodes }}</p></b
+                            >
+                            <p class="light">Computers</p>
+                        </span>
+                    </div>
+                    <div class="text">
+                        <img src="assets/svg/cpu.svg" alt="" />
+                        <span class="cont">
+                            <b
+                                ><p class="dark">{{ lab.processor }}</p></b
+                            >
+                            <p class="light">Processor</p>
+                        </span>
+                    </div>
+                    <div class="text">
+                        <img src="assets/svg/hard-disk.svg" alt="" />
+                        <span class="cont">
+                            <b
+                                ><p class="dark">
+                                    {{ lab.hard_disk }}/{{ lab.ram }}
+                                </p></b
+                            >
+                            <p class="light">Hard disk / Ram</p>
+                        </span>
+                    </div>
                 </div>
             </div>
-            <div class="section-image">
-                <img src="{{ lab.lab_image }}" alt="">
-                <span class="type">Academic</span>
-            </div>
-          
-          <div class="section-text">
-            <span class="lab-title">{{ lab.lab_name }}</span>
-            <div class="text">
-                <img src="assets/svg/desktop.svg" alt="">
-                <span class="cont">
-                  <b><p class="dark">{{ lab.nodes }}</p></b>
-                  <p class="light">Computers</p>
-                </span>
-              </div>
-            <div class="text">
-              <img src="assets/svg/cpu.svg" alt="">
-              <span class="cont">
-                <b><p class="dark">{{ lab.processor }}</p></b>
-                <p class="light">Processor</p>
-              </span>
-            </div>
-            <div class="text">
-              <img src="assets/svg/hard-disk.svg" alt="">
-              <span class="cont">
-                <b><p class="dark">{{ lab.hard_disk }}/{{ lab.ram }}</p></b>
-                <p class="light">Hard disk / Ram</p>
-              </span>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
     <div class="section_content" id="research-labs">
-      <h2 class="section-header">Research Labs</h2>
-      <div class="section">
-        <div *ngFor="let lab of labs.research" class="section-contents" id="research-labs">
-            <div class="lab-info">
-                <img class="icon" src="assets/svg/i.svg" title="Lab Information">
-                <div class="info-text">
-                    <h3>{{ lab.lab_name }}</h3>
-                    <p>{{ lab.description }}</p>
-                    <button class="vir-tour-button">Take a Virtual Tour</button>
+        <h2 class="section-header">Research Labs</h2>
+        <div class="section">
+            <div
+                *ngFor="let lab of labs.research"
+                class="section-contents"
+                id="research-labs"
+            >
+                <div class="lab-info">
+                    <img
+                        class="icon"
+                        src="assets/svg/i.svg"
+                        title="Lab Information"
+                    />
+                    <div class="info-text">
+                        <h3>{{ lab.lab_name }}</h3>
+                        <p>{{ lab.description }}</p>
+                        <button class="vir-tour-button">
+                            Take a Virtual Tour
+                        </button>
+                    </div>
+                </div>
+                <div class="section-image">
+                    <img src="{{ lab.lab_image }}" alt="" />
+                    <span class="type">Research</span>
+                </div>
+
+                <div class="section-text">
+                    <span class="lab-title">{{ lab.lab_name }}</span>
+                    <div class="text">
+                        <img src="assets/svg/desktop.svg" alt="" />
+                        <span class="cont">
+                            <b
+                                ><p class="dark">{{ lab.nodes }}</p></b
+                            >
+                            <p class="light">Computers</p>
+                        </span>
+                    </div>
+                    <div class="text">
+                        <img src="assets/svg/cpu.svg" alt="" />
+                        <span class="cont">
+                            <b
+                                ><p class="dark">{{ lab.processor }}</p></b
+                            >
+                            <p class="light">Processor</p>
+                        </span>
+                    </div>
+                    <div class="text">
+                        <img src="assets/svg/hard-disk.svg" alt="" />
+                        <span class="cont">
+                            <b
+                                ><p class="dark">
+                                    {{ lab.hard_disk }}/{{ lab.ram }}
+                                </p></b
+                            >
+                            <p class="light">Hard disk / Ram</p>
+                        </span>
+                    </div>
                 </div>
             </div>
-            <div class="section-image">
-                <img src="{{ lab.lab_image }}" alt="">
-                <span class="type">Research</span>
-            </div>
-          
-          <div class="section-text">
-            <span class="lab-title">{{ lab.lab_name }}</span>
-            <div class="text">
-                <img src="assets/svg/desktop.svg" alt="">
-                <span class="cont">
-                  <b><p class="dark">{{ lab.nodes }}</p></b>
-                  <p class="light">Computers</p>
-                </span>
-            </div>
-            <div class="text">
-              <img src="assets/svg/cpu.svg" alt="">
-              <span class="cont">
-                <b><p class="dark">{{ lab.processor }}</p></b>
-                <p class="light">Processor</p>
-              </span>
-            </div>
-            <div class="text">
-              <img src="assets/svg/hard-disk.svg" alt="">
-              <span class="cont">
-                <b><p class="dark">{{ lab.hard_disk }}/{{ lab.ram }}</p></b>
-                <p class="light">Hard disk / Ram</p>
-              </span>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
     <div class="section_content" id="servers-storage">
         <h2 class="section-header">Servers & Storage</h2>
         <div class="server-wrap">
             <div class="server" *ngFor="let server of labs.servers">
                 <div class="server-img">
-                    <img [src]="server.server_image">
+                    <img [src]="server.server_image" />
                     <span class="server-type">Rack Server</span>
                 </div>
                 <div class="section-text">
                     <span class="lab-title">{{ server.server_name }}</span>
                     <div class="text">
-                        <img src="assets/svg/server.svg" alt="">
+                        <img src="assets/svg/server.svg" alt="" />
                         <span class="cont">
-                          <b><p class="dark">{{ server.controller }}</p></b>
-                          <p class="light">Controller</p>
+                            <b
+                                ><p class="dark">{{ server.controller }}</p></b
+                            >
+                            <p class="light">Controller</p>
                         </span>
                     </div>
                     <div class="text">
-                      <img src="assets/svg/cpu.svg" alt="">
-                      <span class="cont">
-                        <b><p class="dark">{{ server.processor }}</p></b>
-                        <p class="light">Processor</p>
-                      </span>
+                        <img src="assets/svg/cpu.svg" alt="" />
+                        <span class="cont">
+                            <b
+                                ><p class="dark">{{ server.processor }}</p></b
+                            >
+                            <p class="light">Processor</p>
+                        </span>
                     </div>
                     <div class="text">
-                      <img src="assets/svg/hard-disk.svg" alt="">
-                      <span class="cont">
-                        <b><p class="dark">{{ server.hard_disk }} / {{ server.ram }}</p></b>
-                        <p class="light">Hard disk / Ram</p>
-                      </span>
+                        <img src="assets/svg/hard-disk.svg" alt="" />
+                        <span class="cont">
+                            <b
+                                ><p class="dark">
+                                    {{ server.hard_disk }} / {{ server.ram }}
+                                </p></b
+                            >
+                            <p class="light">Hard disk / Ram</p>
+                        </span>
                     </div>
-                  </div>
+                </div>
             </div>
             <div class="server" *ngFor="let storage of labs.storages">
                 <div class="server-img">
-                    <img [src]="storage.server_image">
+                    <img [src]="storage.server_image" />
                     <span class="server-type">Storage</span>
                 </div>
                 <div class="section-text">
                     <span class="lab-title">{{ storage.server_name }}</span>
                     <div class="text">
-                        <img src="assets/svg/server.svg" alt="">
+                        <img src="assets/svg/server.svg" alt="" />
                         <span class="cont">
-                          <b><p class="dark">{{ storage.type }}</p></b>
-                          <p class="light">Storage</p>
+                            <b
+                                ><p class="dark">{{ storage.type }}</p></b
+                            >
+                            <p class="light">Storage</p>
                         </span>
                     </div>
                     <div class="text">
-                      <img src="assets/svg/cpu.svg" alt="">
-                      <span class="cont">
-                        <b><p class="dark">{{ storage.processor }}</p></b>
-                        <p class="light">Processor</p>
-                      </span>
+                        <img src="assets/svg/cpu.svg" alt="" />
+                        <span class="cont">
+                            <b
+                                ><p class="dark">{{ storage.processor }}</p></b
+                            >
+                            <p class="light">Processor</p>
+                        </span>
                     </div>
                     <div class="text">
-                      <img src="assets/svg/hard-disk.svg" alt="">
-                      <span class="cont">
-                        <b><p class="dark">{{ storage.hard_disk }} / {{ storage.number }}</p></b>
-                        <p class="light">Hard disk / Count</p>
-                      </span>
+                        <img src="assets/svg/hard-disk.svg" alt="" />
+                        <span class="cont">
+                            <b
+                                ><p class="dark">
+                                    {{ storage.hard_disk }} /
+                                    {{ storage.number }}
+                                </p></b
+                            >
+                            <p class="light">Hard disk / Count</p>
+                        </span>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="section_content" id="smart-class-room">
-      <div class="lab-contents scr">
-        <img src="assets/img/infrastructure/s_class.png" alt="">
-        <div class="lab-details">
-            <h2>Smart Class Room</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, in molestias. Nemo non natus porro, quaerat, nisi ut dolor placeat consectetur totam nihil quod labore incidunt alias tempora id ullam provident, quasi sapiente maxime. Expedita, error dicta architecto delectus quia aut, veritatis deserunt, natus repudiandae similique nulla tempore a! Itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio laborum, quasi non ipsum natus veritatis nam, esse molestiae sequi, amet voluptate similique incidunt dolore quas minus doloribus fugit ratione pariatur.</p>
+        <div class="lab-contents scr">
+            <img src="assets/img/infrastructure/s_class.png" alt="" />
+            <div class="lab-details">
+                <h2>Smart Class Room</h2>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Eaque, in molestias. Nemo non natus porro, quaerat, nisi ut
+                    dolor placeat consectetur totam nihil quod labore incidunt
+                    alias tempora id ullam provident, quasi sapiente maxime.
+                    Expedita, error dicta architecto delectus quia aut,
+                    veritatis deserunt, natus repudiandae similique nulla
+                    tempore a! Itaque. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Optio laborum, quasi non ipsum natus
+                    veritatis nam, esse molestiae sequi, amet voluptate
+                    similique incidunt dolore quas minus doloribus fugit ratione
+                    pariatur.
+                </p>
+            </div>
         </div>
-      </div>
     </div>
 
     <div class="section_content" id="library">
-      <div class="lab-contents spl">       
-        <div class="lab-details">
-            <h2>Library</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, in molestias. Nemo non natus porro, quaerat, nisi ut dolor placeat consectetur totam nihil quod labore incidunt alias tempora id ullam provident, quasi sapiente maxime. Expedita, error dicta architecto delectus quia aut, veritatis deserunt, natus repudiandae similique nulla tempore a! Itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem recusandae labore earum, molestias qui nulla sint laudantium aut reiciendis illum obcaecati harum non fugit nihil atque exercitationem ipsum odit voluptate.</p>
+        <div class="lab-contents spl">
+            <div class="lab-details">
+                <h2>Library</h2>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Eaque, in molestias. Nemo non natus porro, quaerat, nisi ut
+                    dolor placeat consectetur totam nihil quod labore incidunt
+                    alias tempora id ullam provident, quasi sapiente maxime.
+                    Expedita, error dicta architecto delectus quia aut,
+                    veritatis deserunt, natus repudiandae similique nulla
+                    tempore a! Itaque. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Voluptatem recusandae labore earum,
+                    molestias qui nulla sint laudantium aut reiciendis illum
+                    obcaecati harum non fugit nihil atque exercitationem ipsum
+                    odit voluptate.
+                </p>
+            </div>
+            <img src="assets/img/infrastructure/lib.png" alt="" />
         </div>
-        <img src="assets/img/infrastructure/lib.png" alt="">
-      </div>
     </div>
 
     <div class="section_content" id="data-center">
-      <div class="lab-contents dc">
-        <img src="assets/img/infrastructure/data_center.jpg" alt="">
-        <div class="lab-details">
-            <h2>Data Center</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, in molestias. Nemo non natus porro, quaerat, nisi ut dolor placeat consectetur totam nihil quod labore incidunt alias tempora id ullam provident, quasi sapiente maxime. Expedita, error dicta architecto delectus quia aut, veritatis deserunt, natus repudiandae similique nulla tempore a! Itaque. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate aperiam in officiis, sapiente iure consequatur deserunt quas unde optio hic reiciendis enim fuga veritatis eaque alias esse, voluptatibus facilis exercitationem.</p>
+        <div class="lab-contents dc">
+            <img src="assets/img/infrastructure/data_center.jpg" alt="" />
+            <div class="lab-details">
+                <h2>Data Center</h2>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Eaque, in molestias. Nemo non natus porro, quaerat, nisi ut
+                    dolor placeat consectetur totam nihil quod labore incidunt
+                    alias tempora id ullam provident, quasi sapiente maxime.
+                    Expedita, error dicta architecto delectus quia aut,
+                    veritatis deserunt, natus repudiandae similique nulla
+                    tempore a! Itaque. Lorem ipsum dolor sit amet consectetur,
+                    adipisicing elit. Cupiditate aperiam in officiis, sapiente
+                    iure consequatur deserunt quas unde optio hic reiciendis
+                    enim fuga veritatis eaque alias esse, voluptatibus facilis
+                    exercitationem.
+                </p>
+            </div>
         </div>
-      </div>
     </div>
-
-  </div>
+</div>

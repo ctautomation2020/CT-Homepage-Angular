@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
     Router,
@@ -7,17 +6,17 @@ import {
     ActivatedRouteSnapshot,
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { API } from 'src/environments/environment';
+import { SupervisorsService } from './supervisors.service';
 
 @Injectable({
     providedIn: 'root',
 })
-export class ReferenceResolver implements Resolve<any> {
-    constructor(private http: HttpClient) {}
+export class SupervisorsResolver implements Resolve<boolean> {
+    constructor(private supService: SupervisorsService) {}
     resolve(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<any> {
-        return this.http.get(`${API}` + '/reference');
+        return this.supService.getSupervisors();
     }
 }

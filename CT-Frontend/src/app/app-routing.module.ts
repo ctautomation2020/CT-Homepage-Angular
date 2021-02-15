@@ -31,152 +31,157 @@ import { ReferenceResolver } from './general/reference.resolver';
 import { NonTeachingComponent } from './people/staffs/non-teaching/non-teaching.component';
 import { ProjectsResolver } from './research/projects/projects.resolver';
 import { StudentResolver } from './people/student/student.resolver';
+import { SupervisorsResolver } from './research/supervisors/supervisors.resolver';
 
 const routes: Routes = [
     {
-        path:"",
-        component:HomeComponent
+        path: '',
+        component: HomeComponent,
     },
     {
-        path:"announcements",
-        component:AnnouncementComponent
+        path: 'announcements',
+        component: AnnouncementComponent,
     },
     {
-        path:"vision-mission",
-        component:VisionMissionComponent
+        path: 'vision-mission',
+        component: VisionMissionComponent,
     },
     {
-        path:"infrastructure",
-        component:InfrastructureComponent
+        path: 'infrastructure',
+        component: InfrastructureComponent,
     },
     {
-        path:"events",
-        component:EventsComponent
+        path: 'events',
+        component: EventsComponent,
     },
     {
-        path:"events/all-events",
-        component:AllEventsComponent
+        path: 'events/all-events',
+        component: AllEventsComponent,
     },
     {
-        path:"events/details/:year",
-        redirectTo:"events/all-events",
-        pathMatch:"full"
+        path: 'events/details/:year',
+        redirectTo: 'events/all-events',
+        pathMatch: 'full',
     },
     {
-        path:"events/details/:year/:event-id",
-        component:DetailsComponent
+        path: 'events/details/:year/:event-id',
+        component: DetailsComponent,
     },
     {
-        path:"events/icoac/:year",
-        component:IcoacComponent
+        path: 'events/icoac/:year',
+        component: IcoacComponent,
     },
     {
-        path:"activities/placements",
-        component:PlacementsComponent
+        path: 'activities/placements',
+        component: PlacementsComponent,
     },
     {
-        path:"activities/association",
-        component:AssociationComponent
+        path: 'activities/association',
+        component: AssociationComponent,
     },
     {
-        path:"activities/alumni",
-        component:AlumniComponent,
-        resolve:{
-            data:AlumniResolver
-        }
+        path: 'activities/alumni',
+        component: AlumniComponent,
+        resolve: {
+            data: AlumniResolver,
+        },
     },
     {
-        path:"contact",
-        component:ContactComponent
+        path: 'contact',
+        component: ContactComponent,
     },
     {
-        path:"research/publications",
-        component:PublicationsComponent,
-        resolve:{
-            data:PublicationsResolver,
-            ref:ReferenceResolver
-        }
+        path: 'research/publications',
+        component: PublicationsComponent,
+        resolve: {
+            data: PublicationsResolver,
+            ref: ReferenceResolver,
+        },
     },
     {
-        path:"research/projects",
-        component:ProjectsComponent,
-        resolve:{
-            data:ProjectsResolver
-        }
+        path: 'research/projects',
+        component: ProjectsComponent,
+        resolve: {
+            data: ProjectsResolver,
+        },
     },
     {
-        path:"research/supervisors",
-        component:SupervisorsComponent
+        path: 'research/supervisors',
+        component: SupervisorsComponent,
+        resolve: {
+            data: SupervisorsResolver,
+            ref: ReferenceResolver,
+        },
     },
     {
-        path:"research/thesis",
-        component:ThesisComponent
+        path: 'research/thesis',
+        component: ThesisComponent,
     },
     {
-        path:"people/staffs",
-        component:StaffsComponent,
-        resolve:{
-            data:StaffsResolver,
-            ref:ReferenceResolver
-        }
-    },
-    {
-        path:"people/staffs/profile/:id",
-        component:ProfileComponent,
-        resolve:{
+        path: 'people/staffs',
+        component: StaffsComponent,
+        resolve: {
             data: StaffsResolver,
-            ref:ReferenceResolver
-        }
+            ref: ReferenceResolver,
+        },
     },
     {
-        path:"people/staffs/non-teaching",
-        component:NonTeachingComponent
+        path: 'people/staffs/profile/:id',
+        component: ProfileComponent,
+        resolve: {
+            data: StaffsResolver,
+            ref: ReferenceResolver,
+        },
     },
     {
-        path:"people/scholar",
-        component:ScholarComponent
+        path: 'people/staffs/non-teaching',
+        component: NonTeachingComponent,
     },
     {
-        path:"people/student/:type",
-        component:StudentComponent,
-        resolve:{
-            data:StudentResolver
-        }
+        path: 'people/scholar',
+        component: ScholarComponent,
     },
     {
-        path:"people/student/:type/:year",
-        component:StudentComponent,
-        resolve:{
-            data:StudentResolver
-        }
+        path: 'people/student/:type',
+        component: StudentComponent,
+        resolve: {
+            data: StudentResolver,
+        },
     },
     {
-        path:"people/student",
-        redirectTo:"people/student/be",
-        pathMatch:"full"
+        path: 'people/student/:type/:year',
+        component: StudentComponent,
+        resolve: {
+            data: StudentResolver,
+        },
     },
     {
-        path:"academics/phd",
-        component:PhdComponent
+        path: 'people/student',
+        redirectTo: 'people/student/be',
+        pathMatch: 'full',
     },
     {
-        path:"academics/:type",
-        component:AcademicsComponent
+        path: 'academics/phd',
+        component: PhdComponent,
     },
     {
-        path:"**",
-        component:PageNotFoundComponent
-    }
+        path: 'academics/:type',
+        component: AcademicsComponent,
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent,
+    },
 ];
 const routerOptions: ExtraOptions = {
     anchorScrolling: 'enabled',
     scrollPositionRestoration: 'enabled',
     scrollOffset: [0, 120],
-    relativeLinkResolution: 'legacy'
+    relativeLinkResolution: 'legacy',
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, routerOptions)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes, routerOptions)],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
