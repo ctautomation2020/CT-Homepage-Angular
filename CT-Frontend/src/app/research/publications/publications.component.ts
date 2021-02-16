@@ -5,67 +5,70 @@ import * as Highcharts from 'highcharts/highcharts.src';
 import { PublicationsService } from './publications.service';
 
 @Component({
-  selector: 'app-publications',
-  templateUrl: './publications.component.html',
-  styleUrls: ['./publications.component.css']
+    selector: 'app-publications',
+    templateUrl: './publications.component.html',
+    styleUrls: ['./publications.component.css'],
 })
 export class PublicationsComponent implements OnInit {
-
-    year:number;
-    selectedYear:number;
-    years:number[] = [];
+    year: number;
+    selectedYear: number;
+    years: number[] = [];
     Highcharts: typeof Highcharts = Highcharts;
-    graphConfig:any;
+    graphConfig: any;
 
-    @ViewChild('scroller') scroller : ElementRef;
+    @ViewChild('scroller') scroller: ElementRef;
 
     constructor(
-        private titleService:Title, 
-        private pubService:PublicationsService, 
-        private route:Router,
-        private activatedRoute:ActivatedRoute
+        private titleService: Title,
+        private pubService: PublicationsService,
+        private route: Router,
+        private activatedRoute: ActivatedRoute
     ) {
-        this.titleService.setTitle("Publications | CT");
-        this.activatedRoute.queryParams.subscribe(params=>{
+        this.titleService.setTitle('Publications | CT');
+        this.activatedRoute.queryParams.subscribe((params) => {
             let year = +params['year'];
-            if(isNaN(year)){
-                year = this.pubService.start_year;
+            if (isNaN(year)) {
             }
             this.selectedYear = year;
-        })
+        });
     }
-    getYears(start_year:number = 2013){
-        let years:number[] = [];
-        for(let year = this.year; year >= start_year; year--) years.push(year);
+    getYears(start_year: number = 2013) {
+        let years: number[] = [];
+        for (let year = this.year; year >= start_year; year--) years.push(year);
         return years;
     }
-    updateYear(year:number){
+    updateYear(year: number) {
         this.selectedYear = year;
-        this.route.navigate(['research/publications'], { queryParams: { year: this.selectedYear } });
+        this.route.navigate(['research/publications'], {
+            queryParams: { year: this.selectedYear },
+        });
     }
-    slideScrollBar(value:number){
-        this.scroller.nativeElement.scrollTo({ left: (this.scroller.nativeElement.scrollLeft + value), behavior:"smooth" });
+    slideScrollBar(value: number) {
+        this.scroller.nativeElement.scrollTo({
+            left: this.scroller.nativeElement.scrollLeft + value,
+            behavior: 'smooth',
+        });
     }
-    getGraphConfig(){
+    getGraphConfig() {
         let config = {
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: 0,
-                plotShadow: false
+                plotShadow: false,
             },
             title: {
                 text: 'Publications<br>2020',
                 align: 'center',
                 verticalAlign: 'middle',
-                y: 60
+                y: 60,
             },
             tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
             },
             accessibility: {
                 point: {
-                    valueSuffix: '%'
-                }
+                    valueSuffix: '%',
+                },
             },
             plotOptions: {
                 pie: {
@@ -74,33 +77,35 @@ export class PublicationsComponent implements OnInit {
                         distance: -50,
                         style: {
                             fontWeight: 'bold',
-                            color: 'white'
-                        }
+                            color: 'white',
+                        },
                     },
                     startAngle: -90,
                     endAngle: 90,
                     center: ['50%', '75%'],
-                    size: '110%'
-                }
+                    size: '110%',
+                },
             },
-            series: [{
-                type: 'pie',
-                name: 'Publications',
-                innerSize: '50%',
-                data: [
-                    ['IEEE', 45],
-                    ['Springer', 30],
-                    ['Elsiever', 13],
-                    ['Science Direct', 7],
-                    {
-                        name: 'Others',
-                        y: 5,
-                        dataLabels: {
-                            enabled: false
-                        }
-                    }
-                ]
-            }]
+            series: [
+                {
+                    type: 'pie',
+                    name: 'Publications',
+                    innerSize: '50%',
+                    data: [
+                        ['IEEE', 45],
+                        ['Springer', 30],
+                        ['Elsiever', 13],
+                        ['Science Direct', 7],
+                        {
+                            name: 'Others',
+                            y: 5,
+                            dataLabels: {
+                                enabled: false,
+                            },
+                        },
+                    ],
+                },
+            ],
         };
         return config;
     }
@@ -111,5 +116,4 @@ export class PublicationsComponent implements OnInit {
         this.years = this.getYears(2000);
         this.graphConfig = this.getGraphConfig();
     }
-
 }

@@ -2,11 +2,27 @@
     <div class="pub-cover">
         <div class="pub-wrap">
             <div class="pub-content">
-                <h1><span style="font-size: 0.65em;">Research</span><br> Publications </h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta vero, molestiae corrupti dolorem porro minus, neque ipsum voluptate illo fuga architecto facere sit veritatis eveniet earum, tempore culpa! Numquam, ipsum iusto quia perferendis eum voluptatum. Illo, maxime quidem! Beatae, suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum ducimus expedita molestiae placeat voluptatem a.</p>
+                <h1>
+                    <span style="font-size: 0.65em">Research</span><br />
+                    Publications
+                </h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Soluta vero, molestiae corrupti dolorem porro minus, neque
+                    ipsum voluptate illo fuga architecto facere sit veritatis
+                    eveniet earum, tempore culpa! Numquam, ipsum iusto quia
+                    perferendis eum voluptatum. Illo, maxime quidem! Beatae,
+                    suscipit. Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Dolorum ducimus expedita molestiae placeat voluptatem
+                    a.
+                </p>
             </div>
             <div class="pub-graph">
-                <highcharts-chart [Highcharts]="Highcharts" [options]="graphConfig" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+                <highcharts-chart
+                    [Highcharts]="Highcharts"
+                    [options]="graphConfig"
+                    style="width: 100%; height: 400px; display: block"
+                ></highcharts-chart>
             </div>
         </div>
     </div>
@@ -15,17 +31,26 @@
         <div class="year-slider">
             <span class="arrow left" (click)="slideScrollBar(-150)"></span>
             <div class="year-wrap" #scroller>
-                <span class="year" 
-                    *ngFor="let year of years" 
+                <span
+                    class="year"
+                    *ngFor="let year of years"
                     (click)="updateYear(year)"
-                    [ngClass]="{'year-selected' : selectedYear == year}">
+                    [ngClass]="{ 'year-selected': selectedYear == year }"
+                >
                     {{ year }}
                 </span>
             </div>
             <span class="arrow right" (click)="slideScrollBar(150)"></span>
-        </div><br>
-        <div class="year-name">Published in year - <span class="year-id">{{ selectedYear }}</span></div>
-        <br>
+        </div>
+        <br />
+        <div class="year-name">
+            <span *ngIf="!selectedYear; else no_year">Published so far</span>
+            <ng-template #no_year>
+                Published in year -
+                <span class="year-id">{{ selectedYear }}</span>
+            </ng-template>
+        </div>
+        <br />
         <publications-list class="publication-section"></publications-list>
     </div>
 </div>

@@ -1,71 +1,99 @@
 <div class="container">
     <div class="main">
-        <h1 class="acad-title">{{ acadTitle }} Computer Science and Engineering</h1>
+        <h1 class="acad-title">
+            {{ acadTitle }} Computer Science and Engineering
+        </h1>
         <div class="navigation">
-            <div 
-                class="nav-tabs" 
+            <div
+                class="nav-tabs"
                 [class.active-tab]="currentTab == 'regu'"
-                (click)="currentTab = 'regu'">
+                (click)="currentTab = 'regu'"
+            >
                 Regulation
             </div>
-            <div 
-                class="nav-tabs" 
+            <div
+                class="nav-tabs"
                 [class.active-tab]="currentTab == 'curr'"
-                (click)="currentTab = 'curr'">
+                (click)="currentTab = 'curr'"
+            >
                 Curriculum
             </div>
         </div>
-        <div class="main-content regulation" [class.active-content]="currentTab == 'regu'">
+        <div
+            class="main-content regulation"
+            [class.active-content]="currentTab == 'regu'"
+        >
             <div class="left-bar">
-                <div class="reg li-items" 
+                <div
+                    class="reg li-items"
                     *ngFor="let regu of regulations"
-                    [class.active-li]="regu.regu_type == currentRegulation.regu_type"
-                    (click)="updateRegulation(regu)">
+                    [class.active-li]="
+                        regu.regu_type == currentRegulation.regu_type
+                    "
+                    (click)="updateRegulation(regu)"
+                >
                     {{ regu.title }}
                 </div>
-                <select #select
+                <select
+                    #select
                     class="cur-mobile"
-                    [(ngModel)] = "currentRegulation"
-                    (ngModelChange)="updateRegulation(currentRegulation)">
-                    <option 
+                    [(ngModel)]="currentRegulation"
+                    (ngModelChange)="updateRegulation(currentRegulation)"
+                >
+                    <option
                         *ngFor="let regu of regulations"
                         [ngValue]="regu"
-                        [selected]="regu.regu_type == currentRegulation.regu_type">
+                        [selected]="
+                            regu.regu_type == currentRegulation.regu_type
+                        "
+                    >
                         {{ regu.title }}
                     </option>
                 </select>
             </div>
             <div class="right-bar">
                 <h2 class="rt regu-title">{{ currentRegulation.title }}</h2>
-                <div class="pdf">
-                    <object [data]="currentRegulation.link | safeUrl" type="application/pdf"></object>
-                </div>
+                <div class="pdf pdf-regu" [innerHTML]="reguPDF"></div>
                 <div class="mobile-pdf">
                     <p>{{ currentRegulation.description }}</p>
-                    <a class="download" 
-                        [href]="currentRegulation.link | safeUrl" 
-                        download="{{ currentRegulation.type }}">
+                    <a
+                        class="download"
+                        [href]="currentRegulation.link | safeUrl"
+                        download="{{ currentRegulation.type }}"
+                    >
                         Click here to download
                     </a>
                 </div>
             </div>
         </div>
-        <div class="main-content curriculum" [class.active-content]="currentTab == 'curr'">
+        <div
+            class="main-content curriculum"
+            [class.active-content]="currentTab == 'curr'"
+        >
             <div class="left-bar">
-                <div class="reg li-items" 
+                <div
+                    class="reg li-items"
                     *ngFor="let regu of regulations"
-                    [class.active-li]="regu.regu_type == currentRegulation.regu_type"
-                    (click)="updateRegulation(regu)">
+                    [class.active-li]="
+                        regu.regu_type == currentRegulation.regu_type
+                    "
+                    (click)="updateRegulation(regu)"
+                >
                     {{ regu.title }}
                 </div>
-                <select #select
+                <select
+                    #select
                     class="cur-mobile"
-                    [(ngModel)] = "currentRegulation"
-                    (ngModelChange)="updateRegulation(currentRegulation)">
-                    <option 
+                    [(ngModel)]="currentRegulation"
+                    (ngModelChange)="updateRegulation(currentRegulation)"
+                >
+                    <option
                         *ngFor="let regu of regulations"
                         [ngValue]="regu"
-                        [selected]="regu.regu_type == currentRegulation.regu_type">
+                        [selected]="
+                            regu.regu_type == currentRegulation.regu_type
+                        "
+                    >
                         {{ regu.title }}
                     </option>
                 </select>
@@ -73,18 +101,32 @@
             <div class="right-bar">
                 <h2 class="ct regu-title">{{ currentRegulation.title }}</h2>
                 <div class="quick-links">
-                    <div class="q-link" (click)="toggleContent('regu')">{{ currentRegulation.title }}</div>
+                    <div class="q-link" (click)="toggleContent('regu')">
+                        {{ currentRegulation.title }}
+                    </div>
                     <div class="slash">/</div>
                     <ng-container *ngIf="currentSem">
-                        <div class="q-link" (click)="toggleContent('sem')">{{ currentSem.sem_title }}</div>
+                        <div class="q-link" (click)="toggleContent('sem')">
+                            {{ currentSem.sem_title }}
+                        </div>
                         <div class="slash">/</div>
                     </ng-container>
                     <ng-container *ngIf="currentElective && !currentTrack">
-                        <div class="q-link ele-link" (click)="toggleContent('elective')">{{ currentElective }}</div>
+                        <div
+                            class="q-link ele-link"
+                            (click)="toggleContent('elective')"
+                        >
+                            {{ currentElective }}
+                        </div>
                         <div class="slash">/</div>
                     </ng-container>
                     <ng-container *ngIf="currentTrack">
-                        <div class="q-link ele-link" (click)="toggleContent('track')">{{ currentTrack }}</div>
+                        <div
+                            class="q-link ele-link"
+                            (click)="toggleContent('track')"
+                        >
+                            {{ currentTrack }}
+                        </div>
                         <div class="slash">/</div>
                     </ng-container>
                     <ng-container *ngIf="currentSub">
@@ -93,18 +135,28 @@
                     </ng-container>
                 </div>
                 <div class="content grid-layout" [class.show-grid]="semDisplay">
-                    <div class="grid-box" 
+                    <div
+                        class="grid-box"
                         *ngFor="let sem of sems"
                         (click)="updateSemester(sem.code, sem.title)"
-                        >
+                    >
                         {{ sem.title }}
                     </div>
                 </div>
                 <div class="content sem-layout" [class.show-grid]="subDisplay">
-                    <div class="sem-subject" 
+                    <div
+                        class="sem-subject"
                         *ngFor="let subject of subjects"
-                        [ngClass]="{'sub-no-link': subject.no_link}"
-                        (click)="setSubjectPDF(subject.code, subject.title, null, currentTrack)">
+                        [ngClass]="{ 'sub-no-link': subject.no_link }"
+                        (click)="
+                            setSubjectPDF(
+                                subject.code,
+                                subject.title,
+                                null,
+                                currentTrack
+                            )
+                        "
+                    >
                         <div class="sem-details">
                             <span class="sem-text">{{ subject.title }}</span>
                             <span class="sem-code">{{ subject.code }}</span>
@@ -124,13 +176,17 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="link-subject" 
+                    <div
+                        class="link-subject"
                         *ngFor="let elective of electives"
-                        [ngClass]="{'sub-no-link': elective.no_link}"
-                        (click)="showElectives(elective.code, elective.track)">
+                        [ngClass]="{ 'sub-no-link': elective.no_link }"
+                        (click)="showElectives(elective.code, elective.track)"
+                    >
                         <div class="link-details">
                             <span class="link-text">{{ elective.title }}</span>
-                            <span class="link-code ele-link">{{ elective.code }}</span>
+                            <span class="link-code ele-link">{{
+                                elective.code
+                            }}</span>
                         </div>
                         <table class="sem-credit" *ngIf="elective.credits">
                             <tr class="credit-label">
@@ -149,9 +205,18 @@
                     </div>
                 </div>
                 <div class="content sem-layout" [class.show-grid]="eleDisplay">
-                    <div class="sem-subject"
+                    <div
+                        class="sem-subject"
                         *ngFor="let sub of electiveSubs"
-                        (click)="setSubjectPDF(sub.code, sub.title, 'elective', currentTrack)">
+                        (click)="
+                            setSubjectPDF(
+                                sub.code,
+                                sub.title,
+                                'elective',
+                                currentTrack
+                            )
+                        "
+                    >
                         <div class="sem-details">
                             <span class="sem-text">{{ sub.title }}</span>
                             <span class="sem-code">{{ sub.code }}</span>
@@ -172,14 +237,47 @@
                         </table>
                     </div>
                 </div>
-                <div class="content pdf pdf-layout" [class.show-block]="pdfDisplay">
-                    <object [data]="subPDF | safeUrl" type="application/pdf" id="sub-pdf"></object>
+                <div
+                    class="content pdf pdf-layout"
+                    [class.show-block]="pdfDisplay"
+                >
+                    <object
+                        [data]="subPDF | safeUrl"
+                        type="application/pdf"
+                        id="sub-pdf"
+                    ></object>
                     <div class="mobile-pdf">
-                        <p>To view the {{ currentSub }} syllabus file ({{ currentSem?(currentSem.sem_title):"" }}) from the {{ currentRegulation.title }}, click on the button below.</p>
-                        <a class="download" [href]="subPDF | safeUrl" download>Click here to download</a>
+                        <p>
+                            To view the {{ currentSub }} syllabus file ({{
+                                currentSem ? currentSem.sem_title : ""
+                            }}) from the {{ currentRegulation.title }}, click on
+                            the button below.
+                        </p>
+                        <a class="download" [href]="subPDF | safeUrl" download
+                            >Click here to download</a
+                        >
+                    </div>
+                </div>
+                <div class="content pdf" *ngIf="curDisplay">
+                    <object
+                        [data]="curriculum | safeUrl"
+                        type="application/pdf"
+                    ></object>
+                    <div class="mobile-pdf">
+                        <p>
+                            To view the {{ currentRegulation.title }} curriculum
+                            file, click on the download button below.
+                        </p>
+                        <a
+                            class="download"
+                            [href]="curriculum | safeUrl"
+                            download
+                            >Click here to download</a
+                        >
                     </div>
                 </div>
             </div>
         </div>
-    </div><br>
+    </div>
+    <br />
 </div>

@@ -43,8 +43,8 @@ routes.post("/register-alumni", (req, res) => {
     });
 });
 
-routes.get("/publications-list", (req, res) => {
-    db.getPubList().then((value) => {
+routes.post("/publications-list", (req, res) => {
+    db.getAllPublications(req.body).then((value) => {
         res.send(value);
     });
 });

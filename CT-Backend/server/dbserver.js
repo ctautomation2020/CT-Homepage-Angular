@@ -131,25 +131,29 @@ class DBServer {
             return result;
         }
     }
-    async getPubYear() {
-        let query =
-            "SELECT `Year_Of_Publish`, COUNT(`Year_Of_Publish`) as number FROM `person_publication` GROUP BY `Year_Of_Publish` ORDER BY number DESC LIMIT 1";
+    async getPubCount() {
+        let query = "SELECT COUNT(*) as total FROM `person_publication`";
         return this.performQuery(query, []);
     }
     async getPubList(data = null) {
-        let year;
+        let year = null;
 
         if (data) year = data;
-        else {
-            year = await this.getPubYear();
-            year = year[0]["Year_Of_Publish"];
-        }
+        else year = new Date().getFullYear();
 
         let query =
             "SELECT * from `person_publication` WHERE `Year_Of_Publish` = ?";
         let result = await this.performQuery(query, [year]);
 
         return { result: result, year: year };
+    }
+    async getAllPublications(data) {
+        let count = await this.getPubCount();
+        let query =
+            "SELECT * from `person_publication` ORDER BY `Year_Of_Publish` DESC LIMIT ?, ?";
+
+        let pub = await this.performQuery(query, [data.start, data.per_page]);
+        return { result: pub, count: count[0]["total"] };
     }
     async getProjectsList() {
         let query =

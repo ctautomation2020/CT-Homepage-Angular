@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
     slideConfig: any;
     slides: any;
     events: any;
+    announcements: any;
     count: any;
 
     constructor(
@@ -147,15 +148,32 @@ export class HomeComponent implements OnInit {
             },
         ];
     }
-    goToAnnouncement(event) {
+    goToAnnouncement(event: any) {
         if (!event.target.closest('.a-link')) {
             this.route.navigate(['/announcements']);
         }
+    }
+    setAnnouncements() {
+        this.announcements = [
+            {
+                title: 'COVID-19 Announcement Timeline',
+                pdf_link: '#',
+            },
+            {
+                title: 'MIT emerges as the top educational institute in India',
+                pdf_link: '#',
+            },
+            {
+                title: 'Final Year End Semester Dates Announced',
+                pdf_link: '#',
+            },
+        ];
     }
     ngOnInit(): void {
         this.slideConfig = this.getCarouselConfig();
         this.slides = this.getResearchData();
         this.count = this.getCount();
         this.setLatestEvents();
+        this.setAnnouncements();
     }
 }
