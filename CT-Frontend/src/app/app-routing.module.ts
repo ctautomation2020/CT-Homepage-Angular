@@ -32,6 +32,7 @@ import { NonTeachingComponent } from './people/staffs/non-teaching/non-teaching.
 import { ProjectsResolver } from './research/projects/projects.resolver';
 import { StudentResolver } from './people/student/student.resolver';
 import { SupervisorsResolver } from './research/supervisors/supervisors.resolver';
+import { PhdResolver } from './academics/phd/phd.resolver';
 
 const routes: Routes = [
     {
@@ -163,6 +164,10 @@ const routes: Routes = [
     {
         path: 'academics/phd',
         component: PhdComponent,
+        resolve: {
+            data: PhdResolver,
+            ref: ReferenceResolver,
+        },
     },
     {
         path: 'academics/:type',

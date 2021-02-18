@@ -3,23 +3,30 @@
         <h1>
             <span class="logo-img"></span>
             <a class="title" routerLink="/">
-                <span class="main-title"><span>Department of</span> Computer Technology</span>
+                <span class="main-title"
+                    ><span>Department of</span> Computer Technology</span
+                >
                 <span class="sub-title">Anna University, MIT campus</span>
             </a>
-            <div class="login" title="Login" (click)="toggleLoginModal()">Login</div>
+            <div class="login" title="Login" (click)="toggleLoginModal()">
+                Login
+            </div>
             <span class="login-button" (click)="toggleLoginModal()"></span>
             <span class="menu-ham" (click)="openMenu()"></span>
         </h1>
-        <login-modal 
-            class="login-comp" 
-            (closeLogin)="toggleLoginModal()" 
-            [class.slide-down]="login_open">
+        <login-modal
+            class="login-comp"
+            (closeLogin)="toggleLoginModal()"
+            [class.slide-down]="login_open"
+        >
         </login-modal>
     </div>
-    <menubar class="menu-bar" 
-        [ngClass]="{'menu-open':menu_open}" 
+    <menubar
+        class="menu-bar"
+        [ngClass]="{ 'menu-open': menu_open }"
         (closeMenu)="closeMenu($event)"
-        (closeLogin)="closeLoginModal()">
+        (closeLogin)="closeLoginModal()"
+    >
     </menubar>
     <header class="navbar">
         <ul class="nav">
@@ -27,59 +34,123 @@
                 <li>Home</li>
             </a>
             <div class="nav-link">
-                <li class="drop-list"> <span>Academics</span> <span class="drop-arrow"></span> </li>
+                <li class="drop-list">
+                    <span>Academics</span> <span class="drop-arrow"></span>
+                </li>
                 <div class="drop-down-list">
-                    <a routerLink="/academics/ug" class="sub-menu-link"><span>Under Graduate</span></a>
-                    <a routerLink="/academics/pg" class="sub-menu-link"><span>Post Graduate</span></a>
-                    <a routerLink="/academics/phd" class="sub-menu-link"><span>PhD</span></a>
+                    <a routerLink="/academics/ug" class="sub-menu-link"
+                        ><span>Under Graduate</span></a
+                    >
+                    <a routerLink="/academics/pg" class="sub-menu-link"
+                        ><span>Post Graduate</span></a
+                    >
+                    <a routerLink="/academics/phd" class="sub-menu-link"
+                        ><span>PhD</span></a
+                    >
                 </div>
             </div>
             <a class="nav-link" routerLink="/infrastructure">
                 <li>Infrastructure</li>
             </a>
             <div class="nav-link">
-                <li class="drop-list"> <span>People</span> <span class="drop-arrow"></span> </li>
+                <li class="drop-list">
+                    <span>People</span> <span class="drop-arrow"></span>
+                </li>
                 <div class="drop-down-list">
                     <div class="sub-menu-link">
-                        <div class="drop-list"> <span>Student</span> <span class="drop-arrow"></span> </div>
+                        <div class="drop-list">
+                            <span>Student</span>
+                            <span class="drop-arrow"></span>
+                        </div>
                         <div class="drop-down-list">
-                            <a routerLink="/people/student/be" class="sub-menu-link"> <span>B.E</span></a>
-                            <a routerLink="/people/student/me" class="sub-menu-link"> <span>M.E</span> </a>
-                            <a routerLink="/people/student/mept" class="sub-menu-link"> <span>M.E Part Time</span> </a>
+                            <a
+                                routerLink="/people/student/be"
+                                class="sub-menu-link"
+                            >
+                                <span>B.E</span></a
+                            >
+                            <a
+                                routerLink="/people/student/me"
+                                class="sub-menu-link"
+                            >
+                                <span>M.E</span>
+                            </a>
+                            <a
+                                routerLink="/people/student/mept"
+                                class="sub-menu-link"
+                            >
+                                <span>M.E Part Time</span>
+                            </a>
                         </div>
                     </div>
                     <div class="sub-menu-link">
-                        <div class="drop-list"> <span>Staff</span> <span class="drop-arrow"></span> </div>
+                        <div class="drop-list">
+                            <span>Staff</span> <span class="drop-arrow"></span>
+                        </div>
                         <div class="drop-down-list">
-                            <a routerLink="/people/staffs" class="sub-menu-link"> <span>Teaching Staff</span></a>
-                            <a routerLink="/people/staffs/non-teaching" class="sub-menu-link"> <span>Non-Teaching Staff</span> </a>
+                            <a
+                                routerLink="/people/staffs"
+                                class="sub-menu-link"
+                            >
+                                <span>Teaching Staff</span></a
+                            >
+                            <a
+                                routerLink="/people/staffs/non-teaching"
+                                class="sub-menu-link"
+                            >
+                                <span>Non-Teaching Staff</span>
+                            </a>
                         </div>
                     </div>
-                    <a routerLink="/people/scholar" class="sub-menu-link"> <span>Research scholars</span> </a>
+                    <a routerLink="/people/scholar" class="sub-menu-link">
+                        <span>Research scholars</span>
+                    </a>
                 </div>
             </div>
             <div class="nav-link">
-                <li class="drop-list"> <span>Research</span> <span class="drop-arrow"></span> </li>
+                <li class="drop-list">
+                    <span>Research</span> <span class="drop-arrow"></span>
+                </li>
                 <div class="drop-down-list">
-                    <a routerLink="/research/supervisors" class="sub-menu-link"><span>List of Supervisors</span></a>
-                    <a routerLink="/research/thesis" class="sub-menu-link"><span>Thesis</span></a>
-                    <a routerLink="/research/publications" class="sub-menu-link"><span>Publications</span></a>
-                    <a routerLink="/research/projects" class="sub-menu-link"><span>Projects</span></a>
+                    <a routerLink="/research/supervisors" class="sub-menu-link"
+                        ><span>List of Supervisors</span></a
+                    >
+                    <a routerLink="/research/thesis" class="sub-menu-link"
+                        ><span>Thesis</span></a
+                    >
+                    <a routerLink="/research/publications" class="sub-menu-link"
+                        ><span>Publications</span></a
+                    >
+                    <a routerLink="/research/projects" class="sub-menu-link"
+                        ><span>Projects</span></a
+                    >
                 </div>
             </div>
             <a routerLink="/events" class="nav-link">
                 <li>Events</li>
             </a>
             <div class="nav-link">
-                <li class="drop-list"> <span>Activities</span> <span class="drop-arrow"></span> </li>
+                <li class="drop-list">
+                    <span>Activities</span> <span class="drop-arrow"></span>
+                </li>
                 <div class="drop-down-list">
-                    <a routerLink="/activities/placements" class="sub-menu-link"><span>Placements</span></a>
-                    <a routerLink="/activities/alumni" class="sub-menu-link"><span>Alumni</span></a>
-                    <a routerLink="/activities/association" class="sub-menu-link"><span>Association</span></a>
-                    <a href="industry-corner/" class="sub-menu-link"><span>Industry Corner</span></a>
+                    <a routerLink="/activities/placements" class="sub-menu-link"
+                        ><span>Placements</span></a
+                    >
+                    <a routerLink="/activities/alumni" class="sub-menu-link"
+                        ><span>Alumni</span></a
+                    >
+                    <a
+                        routerLink="/activities/association"
+                        class="sub-menu-link"
+                        ><span>Association</span></a
+                    >
+                    <a href="industry-corner/" class="sub-menu-link"
+                        ><span>Industry Corner</span></a
+                    >
                 </div>
             </div>
-            <a routerLink="/contact"class="nav-link">
+            <a routerLink="/contact" class="nav-link">
                 <li>Contact</li>
             </a>
         </ul>

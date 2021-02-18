@@ -111,7 +111,7 @@
                                 </div>
                                 <div class="staff-cont-wrap">
                                     <span class="s-icon linkedin"></span>
-                                    <a href="">gunasekaran-raja</a>
+                                    <a href="">linked-in-profile</a>
                                 </div>
                             </div>
                         </div>
@@ -207,10 +207,23 @@
             </div>
         </section>
 
-        <section id="publications" *ngIf="profile.publication.length">
-            <h2 class="section-title">Publications</h2>
+        <section
+            id="publications"
+            *ngIf="profile.publication && profile.publication.length"
+            style="padding-bottom: 1em"
+        >
+            <h2 class="section-title">
+                Publications
+                <span class="pub-count">{{ profile.publication.length }}</span>
+            </h2>
             <div class="staff-pub">
-                <div class="pub" *ngFor="let pub of profile.publication">
+                <div
+                    class="pub"
+                    *ngFor="
+                        let pub of profile.publication
+                            | paginate: { itemsPerPage: 8, currentPage: pg_no }
+                    "
+                >
                     <a [href]="getLink(pub.DOI) | safeUrl" class="pub-link">{{
                         pub.Paper_Title
                     }}</a>
@@ -222,14 +235,21 @@
                     <div class="details">
                         <p *ngIf="pub.DOI">DOI: {{ pub.DOI }}</p>
                         <p *ngIf="pub.Start_Page_No">
-                            Pages: {{ pub.Start_Page_No }} -
+                            | Pages: {{ pub.Start_Page_No }} -
                             {{ pub.End_Page_No }}
                         </p>
-                        <p *ngIf="pub.Volume">{{ pub.Volume }}</p>
-                        <p *ngIf="pub.Issue">{{ pub.Issue }}</p>
+                        <p *ngIf="pub.Volume">| Vol.{{ pub.Volume }}</p>
+                        <p *ngIf="pub.Issue">| Issue:{{ pub.Issue }}</p>
                     </div>
                 </div>
             </div>
+            <pagination-controls
+                class="pub-pagination"
+                previousLabel=""
+                nextLabel=""
+                autoHide="true"
+                (pageChange)="pg_no = $event"
+            ></pagination-controls>
         </section>
 
         <section id="awards" *ngIf="profile.awards.length">

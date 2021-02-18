@@ -4,12 +4,13 @@
             <div class="contact-details">
                 <div class="contact-group">
                     <i class="contact-icon"></i>
-                    <p>Department of Computer Technology,<br>
-                        Madras Institute of Technology,<br>
-                        MIT Road, Radha Nagar,<br>
-                        Chromepet, Chennai 44,<br>
-                        Tamil Nadu,
-                        India.</p>
+                    <p>
+                        Department of Computer Technology,<br />
+                        Madras Institute of Technology,<br />
+                        MIT Road, Radha Nagar,<br />
+                        Chromepet, Chennai 44,<br />
+                        Tamil Nadu, India.
+                    </p>
                 </div>
                 <div class="contact-group">
                     <i class="contact-icon phone"></i>
@@ -20,30 +21,68 @@
                     <p>ctmitindia@gmail.com</p>
                 </div>
             </div>
-            </div>
+        </div>
         <div class="form">
             <h1>Contact us</h1>
             <form>
                 <div class="input-group">
-                    <input type="text" placeholder="Name">
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        [(ngModel)]="user_name"
+                    />
                 </div>
                 <div class="input-group">
-                    <input type="text" placeholder="Email">
+                    <input
+                        type="text"
+                        name="email"
+                        placeholder="Email"
+                        [(ngModel)]="email"
+                    />
                 </div>
                 <div class="input-group">
-                    <input type="text" placeholder="Subject">
+                    <input
+                        type="text"
+                        name="subject"
+                        placeholder="Subject"
+                        [(ngModel)]="subject"
+                    />
                 </div>
                 <div class="input-group">
-                    <textarea placeholder="Message"></textarea>
+                    <textarea
+                        name="message"
+                        placeholder="Message"
+                        [(ngModel)]="content"
+                    ></textarea>
                 </div>
-                <button type="submit">Submit</button>
+                <div
+                    *ngIf="report && report.status"
+                    class="res-message"
+                    [class.error]="report.status == 'Error'"
+                >
+                    {{ report.description }}
+                </div>
+                <button
+                    type="button"
+                    [disabled]="progress"
+                    (click)="submitForm()"
+                >
+                    Submit
+                </button>
             </form>
         </div>
     </div>
     <div class="map-section">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.371743017595!2d80.13755331462842!3d12.948047990871276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525fac595c29ff%3A0xb76082ae18b51418!2sMadras%20Institute%20of%20Technology%2C%20Anna%20University!5e0!3m2!1sen!2sin!4v1605076225196!5m2!1sen!2sin"
-            width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-            tabindex="0"></iframe>
+            width="100%"
+            height="100%"
+            frameborder="0"
+            style="border: 0"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+        ></iframe>
     </div>
 </div>

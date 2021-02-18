@@ -1,5 +1,6 @@
 const routes = require("express").Router();
 const db = require("../server/dbserver");
+const mail = require("../server/mailserver");
 
 routes.get("/staffs", (req, res) => {
     db.getStaffList().then((value) => {
@@ -74,8 +75,20 @@ routes.get("/students/:type/:year", (req, res) => {
 });
 
 routes.get("/supervisors", (req, res) => {
+    db.getSupervisorScholar().then((value) => {
+        res.send(value);
+    });
+});
+
+routes.get("/supervisors-list", (req, res) => {
     db.getSupervisors().then((value) => {
         res.send(value);
+    });
+});
+
+routes.post("/send-mail", (req, res) => {
+    mail.sendMail(req.body).then((response) => {
+        res.send(response);
     });
 });
 

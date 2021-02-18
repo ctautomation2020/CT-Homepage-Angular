@@ -6,7 +6,7 @@
 section {
     padding: 2em;
 }
-.side-nav-logo{
+.side-nav-logo {
     width: 8em;
     height: 8em;
     object-fit: contain;
@@ -37,33 +37,33 @@ header {
     left: auto;
     box-shadow: 0 1px 10px 0 gainsboro;
 }
-header h2{
+header h2 {
     width: 100%;
     font-size: 1.25em;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.home-link{
+.home-link {
     font-size: 0.85em;
     color: #0f1e77;
     display: flex;
     align-items: center;
 }
-.home-link .li-icon{
+.home-link .li-icon {
     width: 1em;
     height: 1em;
     background-size: 1em;
     background-image: url("../../../../assets/svg/home.svg");
 }
-.home-link:hover{
+.home-link:hover {
     text-decoration: underline;
 }
-.profile-head{
+.profile-head {
     display: flex;
     flex-direction: column;
 }
-.profile-sub{
+.profile-sub {
     margin-top: 0.25em;
     font-size: 0.6em;
     font-weight: normal;
@@ -97,18 +97,18 @@ header h2{
     object-fit: cover;
     margin-right: 2rem;
 }
-.staff-cont-wrap{
+.staff-cont-wrap {
     display: flex;
     align-items: center;
     margin-bottom: 0.5em;
 }
-.staff-cont-wrap a{
+.staff-cont-wrap a {
     color: black;
 }
-.staff-cont-wrap a:hover{
+.staff-cont-wrap a:hover {
     text-decoration: underline;
 }
-.s-icon{
+.s-icon {
     width: 1em;
     height: 1em;
     background-size: 1em;
@@ -118,40 +118,40 @@ header h2{
     background-image: url("../../../../assets/svg/phone.svg");
     margin-right: 1em;
 }
-.mail{
+.mail {
     background-image: url("../../../../assets/svg/message.svg");
 }
-.linkedin{
+.linkedin {
     background-image: url("../../../../assets/svg/linkedin.svg");
 }
-.document{
+.document {
     background-image: url("../../../../assets/svg/document.svg");
 }
-.staff-details-wrap{
+.staff-details-wrap {
     display: flex;
     margin-top: 1em;
 }
-.staff-interest{
+.staff-interest {
     margin-left: 1em;
     padding-left: 1em;
     border-left: 1px solid gainsboro;
 }
-.staff-interest h3{
+.staff-interest h3 {
     color: gray;
     font-size: 1.1em;
 }
-.staff-interest ul{
+.staff-interest ul {
     margin-top: 0.5em;
     display: grid;
-    grid-template-columns: repeat(2,auto);
+    grid-template-columns: repeat(2, auto);
     column-gap: 1em;
     row-gap: 0.5em;
 }
-.staff-interest li{
+.staff-interest li {
     display: flex;
     align-items: center;
 }
-.li-icon{
+.li-icon {
     width: 0.5em;
     height: 0.5em;
     background-image: url("../../../../assets/svg/right.svg");
@@ -193,10 +193,11 @@ header h2{
 
 .staff-general .info h4 {
     margin-bottom: 0.5rem;
-    color: #011F4B;
+    color: #011f4b;
 }
 
-.staff-general .info p, .staff-general .info p a {
+.staff-general .info p,
+.staff-general .info p a {
     color: #000;
 }
 
@@ -222,7 +223,7 @@ header h2{
     border-radius: 0.5em;
 }
 
-.staff-qulf-wrapper{
+.staff-qulf-wrapper {
     border-radius: 5px;
     overflow: hidden;
     border: 1px solid gainsboro;
@@ -252,20 +253,20 @@ header h2{
     color: #555;
 }
 
-.staff-exp{
+.staff-exp {
     background: #fff;
     padding: 1.5rem 2rem;
     border: 1px solid gainsboro;
 }
 
-.staff-exp .exp{
+.staff-exp .exp {
     display: flex;
     margin: 1em 0;
     border-radius: 3px;
     overflow: hidden;
 }
 
-.staff-exp .exp .period{
+.staff-exp .exp .period {
     font-size: 0.95em;
     padding: 0.75rem;
     color: #5e5e5e;
@@ -274,23 +275,24 @@ header h2{
     text-align: right;
 }
 
-.staff-exp .exp .status{
+.staff-exp .exp .status {
     flex: 1;
     padding: 0.75rem 1em;
     background-color: #fafafa;
     display: flex;
     flex-direction: column;
 }
-.staff-exp .exp .status h4{
+.staff-exp .exp .status h4 {
     font-size: 1.1em;
     margin-bottom: 0.25em;
 }
-.staff-exp .exp .status span{
+.staff-exp .exp .status span {
     color: #444444;
     font-size: 0.85em;
     line-height: 1.5em;
 }
-.pub,.award{
+.pub,
+.award {
     background: #fff;
     padding: 1.25em;
     border: 1px solid #ddd;
@@ -298,50 +300,52 @@ header h2{
 }
 
 .pub .tags,
-.award .tags{
+.award .tags {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 0.5em;
 }
-.pub .tags{
+.pub .tags {
     margin: 0.75em 0;
 }
 
-.pub .tags p,.award .tags p{
+.pub .tags p,
+.award .tags p {
     padding: 0.25em 0.35em;
     margin-right: 0.75rem;
     border-radius: 2px;
     background-color: #f0f0f0;
     font-size: 0.9rem;
 }
-.pub .tags p{
+.pub .tags p {
     padding: 0.3em 0.5em;
     background-color: #f5f9ff;
     border: 1px solid #edf4ff;
 }
 .pub-link,
 .award h3,
-.activity h3{
+.activity h3 {
     color: black;
     font-size: 1.1em;
     margin-bottom: 0.25rem;
 }
-.pub-link{
+.pub-link {
     display: block;
     font-weight: bold;
 }
-.pub-link:hover{
+.pub-link:hover {
     text-decoration: underline;
 }
 
-.pub h4,.award h4{
+.pub h4,
+.award h4 {
     color: #113e79;
     font-size: 1.01em;
 }
 
-.pub .details{
+.pub .details {
     color: #383838;
     display: flex;
     align-items: center;
@@ -350,67 +354,81 @@ header h2{
     margin-top: 0.25em;
 }
 
-.pub .details p{
+.pub .details p {
     margin-right: 0.65rem;
+}
+
+.pub-pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1em;
+}
+
+.pub-count {
+    margin-left: 0.5em;
+    font-size: 0.7em;
+    padding: 0.25em 0.5em;
+    background-color: white;
+    border: 1px solid gainsboro;
 }
 
 .staff-pub,
 .staff-award,
-.staff-activity{
+.staff-activity {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
 
 .staff-award,
-.staff-activity{
+.staff-activity {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.award h3{
+.award h3 {
     margin-bottom: 0.45rem;
 }
-.staff-projects{
+.staff-projects {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1em;
 }
-.project{
+.project {
     background-color: white;
     padding: 1.25em;
     display: flex;
     flex-direction: column;
     border: 1px solid gainsboro;
 }
-.proj-title{
+.proj-title {
     font-size: 1.1em;
 }
-.proj-type{
+.proj-type {
     font-size: 0.95em;
     color: gray;
     font-weight: normal;
 }
-.proj-fund, 
-.proj-coor{
+.proj-fund,
+.proj-coor {
     margin-top: 0.75em;
     display: flex;
     flex-direction: column;
 }
-.proj-sub{
+.proj-sub {
     margin-bottom: 0.35em;
     font-size: 0.85em;
     font-weight: bold;
     color: #1369b9;
 }
-.section-sub-title{
+.section-sub-title {
     margin-bottom: 1em;
     color: #2b5285;
     display: flex;
     align-items: center;
     margin-left: 0.25em;
 }
-.section-sub-title::before{
-    content: '';
+.section-sub-title::before {
+    content: "";
     width: 0.75em;
     height: 0.75em;
     background-image: url("../../../../assets/svg/right.svg");
@@ -421,26 +439,26 @@ header h2{
     margin-right: 0.35em;
     opacity: 0.75;
 }
-.staff-activity{
+.staff-activity {
     margin-bottom: 1.25em;
 }
-.activity{
+.activity {
     background-color: white;
     border: 1px solid gainsboro;
     padding: 1.25em;
 }
-.activity h3{
+.activity h3 {
     font-size: 1.05em;
 }
-.act-details b{
+.act-details b {
     color: #256fb4;
 }
-.act-details{
+.act-details {
     font-size: 0.9em;
     margin-top: 0.75em;
     color: #5a5a5a;
 }
-.act-divi{
+.act-divi {
     display: inline-block;
     margin: 0 0.35em;
 }
@@ -450,7 +468,7 @@ header h2{
     left: 0;
     height: 100vh;
     width: 350px;
-    background-color: #011F4B;
+    background-color: #011f4b;
     padding: 3em 0;
     text-align: center;
     border-right: 1px solid gainsboro;
@@ -468,17 +486,17 @@ header h2{
     margin-top: 1em;
     font-size: 1.1em;
 }
-.side-nav h5{
+.side-nav h5 {
     margin-top: 0.5em;
     margin-bottom: 2em;
     color: #6d7f9b;
     letter-spacing: 1px;
 }
-.side-nav h2{
+.side-nav h2 {
     padding-top: 1em;
     border-top: 1px solid #c4c4c4;
 }
-.side-nav ul{
+.side-nav ul {
     margin-top: 1em;
 }
 .side-nav ul li a {
@@ -495,7 +513,7 @@ header h2{
 .side-nav ul li a:hover {
     background-color: #1369b9;
 }
-.staff-sub-icon{
+.staff-sub-icon {
     width: 1.5em;
     height: 1.5em;
     background-repeat: no-repeat;
@@ -505,29 +523,29 @@ header h2{
     filter: invert(1);
     margin-right: 1em;
 }
-.user{
+.user {
     background-size: 1.1em;
     background-image: url("../../../../assets/svg/user-staff.svg");
 }
-.educ{
+.educ {
     background-image: url("../../../../assets/svg/student-cap.svg");
 }
-.expe{
+.expe {
     background-image: url("../../../../assets/svg/briefcase.svg");
 }
-.publ{
+.publ {
     background-image: url("../../../../assets/svg/book-pub.svg");
 }
-.awar{
+.awar {
     background-image: url("../../../../assets/svg/ribbon.svg");
 }
-.acti{
+.acti {
     background-image: url("../../../../assets/svg/result.svg");
 }
-.proj-icon{
+.proj-icon {
     background-image: url("../../../../assets/svg/project-side.svg");
 }
-.footer{
+.footer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -535,113 +553,116 @@ header h2{
     background-color: gainsboro;
     font-size: 0.8em;
 }
-@media only screen and (max-width:1550px){
-    .side-nav{
+@media only screen and (max-width: 1550px) {
+    .side-nav {
         width: 300px;
         font-size: 0.975em;
     }
-    .side-nav h3{
+    .side-nav h3 {
         padding: 0 0.5em;
     }
-    .staff-details-wrap{
+    .staff-details-wrap {
         flex-direction: column;
     }
-    .staff-interest{
+    .staff-interest {
         padding: 0;
         margin: 1.5em 0 0 0;
         border: none;
     }
 }
-@media only screen and (max-width:1440px){
-    .staff-projects{
+@media only screen and (max-width: 1440px) {
+    .staff-projects {
         grid-template-columns: 1fr 1fr;
     }
 }
-@media only screen and (max-width:1300px){
+@media only screen and (max-width: 1300px) {
     .staff-award,
-    .staff-activity{
+    .staff-activity {
         grid-template-columns: 1fr 1fr;
     }
     .staff-pub,
-    .staff-projects{
+    .staff-projects {
         grid-template-columns: 1fr;
     }
-    .staff-interest ul{
+    .staff-interest ul {
         grid-template-columns: 1fr;
     }
 }
-@media only screen and (max-width:1050px){
-    .staff-award{
+@media only screen and (max-width: 1050px) {
+    .staff-award {
         grid-template-columns: 1fr;
     }
-    .side-nav{
+    .side-nav {
         display: none;
     }
 }
-@media only screen and (max-width:700px){
-    .staff-activity{
+@media only screen and (max-width: 700px) {
+    .staff-activity {
         grid-template-columns: 1fr;
     }
-    .staff-exp .exp{
+    .staff-exp .exp {
         flex-direction: column;
         margin: 0 0 1em 0;
     }
-    .staff-exp .exp .period{
+    .staff-exp .exp .period {
         text-align: left;
     }
 }
-@media only screen and (max-width:600px){
-    .staff-header{
+@media only screen and (max-width: 600px) {
+    .staff-header {
         flex-direction: column;
     }
-    .main-area .staff-header .profile-image{
+    .main-area .staff-header .profile-image {
         border-right: none;
         align-self: center;
         margin-bottom: 1em;
     }
-    .profile-image img{
+    .profile-image img {
         margin-right: 0;
     }
-    .main-area .staff-header .text{
+    .main-area .staff-header .text {
         margin: 0.5em 0 0 0;
     }
-    .text-details{
+    .text-details {
         display: flex;
         flex-direction: column;
         align-items: center;
         padding-bottom: 1em;
         border-bottom: 1px solid gainsboro;
     }
-    .staff-details-wrap{
+    .text-details h2 {
+        text-align: center;
+    }
+    .staff-details-wrap {
         margin-top: 0.25em;
     }
 }
-@media only screen and (max-width:550px){
-    section{
+@media only screen and (max-width: 550px) {
+    section {
         padding: 1em;
     }
-    header{
+    header {
         padding: 0.75em 1em;
     }
-    .main-area .staff-header{
+    .main-area .staff-header {
         padding: 1.5em;
     }
-    .staff-qulf .text-icon{
+    .staff-qulf .text-icon {
         display: none;
     }
     .staff-qulf,
-    .staff-exp{
+    .staff-exp {
         padding: 1em;
     }
 }
-@media only screen and (max-width:450px){
-    .pub .details{
+@media only screen and (max-width: 450px) {
+    .pub .details {
         display: none;
     }
-    .perso-title{
+    .perso-title {
         display: none;
     }
-    .pub .tags{
+    .pub .tags {
         margin-bottom: 0.25em;
     }
 }

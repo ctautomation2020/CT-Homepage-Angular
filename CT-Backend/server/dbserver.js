@@ -199,7 +199,10 @@ class DBServer {
     async getSupervisors() {
         let query =
             "SELECT `Person_ID`, `Designation`, `Reg_No`, `Prefix_Ref`, `First_Name`, `Last_Name`, `Primary_MailID`, `Primary_ContactNumber`, `Photo`, `AOS1`, `AOS2`, `AOS3`, `AOS4`, `AOS5` FROM `person` INNER JOIN `person_supervision` USING (`Person_ID`) INNER JOIN `person_specialization` USING (`Person_ID`) ORDER BY `Designation`";
-        let supervisor = await this.performQuery(query, []);
+        return this.performQuery(query, []);
+    }
+    async getSupervisorScholar() {
+        let supervisor = await this.getSupervisors();
         let scholar = await this.getScholars();
         return { supervisor: supervisor, scholar: scholar };
     }

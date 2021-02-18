@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { API } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root',
@@ -899,72 +902,7 @@ export class AcademicsService {
             },
         },
     };
-    private supervisors = [
-        {
-            name: 'Dr. R. Gunasekaran',
-            designation: 'Professor and Head',
-            image: 'assets/img/staffs/hod.jpg',
-            mail: 'gunasekaran@mitindia.edu',
-            link: 'people/staffs/profile/66392',
-        },
-        {
-            name: 'Dr. P. Jayashree',
-            designation: 'Associate Professor',
-            image: 'assets/img/staffs/Dr.P.Jayashree.jpg',
-            mail: 'pjshree@annauniv.edu',
-            link: 'people/staffs/profile/60623',
-        },
-        {
-            name: 'Dr. P. Varalakshmi',
-            designation: 'Associate Professor',
-            image: 'assets/img/staffs/DrPVaralakshmi.jpg',
-            mail: 'varanip@annauniv.edu',
-            link: 'people/staffs/profile/66517',
-        },
-        {
-            name: 'Dr. C. Valliyammai',
-            designation: 'Associate Professor',
-            image: 'assets/img/staffs/valliyammaiC.jpg',
-            mail: 'cva@annauniv.edu',
-            link: 'people/staffs/profile/60779',
-        },
-        {
-            name: 'Dr. Ponsy R.K. Sathia Bhama',
-            designation: 'Associate Professor',
-            image: 'assets/img/staffs/ponsy.jpg',
-            mail: 'ponsy@mitindia.edu',
-            link: 'people/staffs/profile/66449',
-        },
-        {
-            name: 'Dr. B. Thanasekhar',
-            designation: 'Assistant Professor (Sl. Gr)',
-            image: 'assets/img/staffs/thanasekhar.jpg',
-            mail: 'thanasekhar@mitindia.edu',
-            link: 'people/staffs/profile/66269',
-        },
-        {
-            name: 'Dr. Y. Nancy Jane',
-            designation: 'Assistant Professor',
-            image: 'assets/img/staffs/MsNancyJane.jpg',
-            mail: 'nancyjaney@mitindia.edu',
-            link: 'people/staffs/profile/67079',
-        },
-        {
-            name: 'Dr. P. Pabitha',
-            designation: 'Assistant Professor',
-            image: 'assets/img/staffs/pabitha.jpg',
-            mail: 'pabithap@gmail.com',
-            link: 'people/staffs/profile/67507',
-        },
-        {
-            name: 'Dr. S. Muthuraj Kumar',
-            designation: 'Assistant Professor',
-            image: 'assets/img/staffs/S.Muthurajkumar.jpg',
-            mail: 'muthuraj@annauniv.edu',
-            link: 'people/staffs/profile/69520',
-        },
-    ];
-    constructor() {}
+    constructor(private http: HttpClient) {}
     getSemesters(acadType: string, type: string, count: number) {
         if (!this.subjects[acadType][type]) return [];
 
@@ -1008,7 +946,7 @@ export class AcademicsService {
     getPath(acadType: string, regu: string, sem: string) {
         return this.getCurrPath(acadType, regu) + sem + '/';
     }
-    getSupervisorList() {
-        return this.supervisors;
+    getSupervisorList(): Observable<any> {
+        return this.http.get(`${API}` + '/supervisors-list');
     }
 }
