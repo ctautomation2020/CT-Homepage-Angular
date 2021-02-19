@@ -11,7 +11,7 @@
                         <div class="blog-post-date">
                             <a
                                 class="staff-link"
-                                routerLink="./people/staffs/profile/{{
+                                routerLink="../../people/staffs/profile/{{
                                     sup.Person_ID
                                 }}"
                                 >{{ getStaffName(sup) }}</a
@@ -69,9 +69,10 @@
                                         "
                                     >
                                         <div class="sch-img-wrap">
-                                            <a routerLink="./people/scholar">{{
-                                                scholar.Scholar_Name
-                                            }}</a>
+                                            <a
+                                                routerLink="../../people/scholar"
+                                                >{{ scholar.Scholar_Name }}</a
+                                            >
                                         </div>
                                         <span class="sch-type">{{
                                             scholar.Research_Area

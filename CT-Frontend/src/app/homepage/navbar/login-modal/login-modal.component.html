@@ -1,5 +1,5 @@
 <div class="login-wrap">
-    <input type="text" placeholder="User Name" />
-    <input type="password" placeholder="Password" />
-    <button>Login</button>
+    <input type="text" placeholder="User Name" [(ngModel)]="user_name" />
+    <input type="password" placeholder="Password" [(ngModel)]="password" />
+    <button (click)="loginPortal()">Login</button>
 </div>

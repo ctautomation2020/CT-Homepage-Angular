@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { LoginService } from './login.service';
 
 @Component({
     selector: 'login-modal',
@@ -8,10 +9,21 @@ import { EventEmitter } from '@angular/core';
 })
 export class LoginModalComponent implements OnInit {
     @Output() closeLogin = new EventEmitter<boolean>();
-    constructor() {}
+
+    user_name: string;
+    password: string;
+
+    constructor(private loginService: LoginService) {}
 
     ngOnInit(): void {}
     closeModal() {
         this.closeLogin.emit(false);
+    }
+    loginPortal() {
+        // Authenticate User
+        this.loginService.authenticateUser({
+            user_name: this.user_name,
+            password: this.password,
+        });
     }
 }
