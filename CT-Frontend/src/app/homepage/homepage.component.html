@@ -1,0 +1,6 @@
+<div class="body">
+    <home-page-navbar class="nav-header" *ngIf="displayBar"></home-page-navbar>
+    <router-outlet></router-outlet>
+    <home-page-footbar class="footer" *ngIf="displayBar"></home-page-footbar>
+    <back-to-top></back-to-top>
+</div>

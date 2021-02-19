@@ -1,9 +1,0 @@
-.thesis-cover{
-    width: 100%;
-    background: url("../../../assets/img/thesis-back.JPG") rgba(0, 0, 0, 0.7);
-    background-blend-mode: multiply;
-    display: block;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-}

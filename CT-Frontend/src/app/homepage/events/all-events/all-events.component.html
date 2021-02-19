@@ -1,0 +1,42 @@
+<h1 class="event-title">
+    <span>Events of year {{ selectedYear }}</span>
+    <select
+        class="events-select"
+        #selected
+        (change)="getEventsByYear(selected.value)"
+    >
+        <option
+            *ngFor="let year_option of years"
+            [value]="year_option"
+            [selected]="year_option == selectedYear"
+        >
+            {{ year_option }}
+        </option>
+    </select>
+</h1>
+<div class="all-events-section">
+    <div class="selected-year-events">
+        <no-data
+            *ngIf="events.length == 0"
+            [message]="no_data"
+            [sub_message]="no_data_sub"
+        ></no-data>
+        <div class="grid all-events-grid">
+            <div class="card bg-white" *ngFor="let event of events">
+                <div class="card-bottom">
+                    <a
+                        routerLink="../../{{ event.link }}"
+                        class="eve-card-title"
+                        >{{ event.title }}</a
+                    >
+                    <label>{{ event.type }}</label>
+                    <p>{{ event.brief_note }}</p>
+                    <br />
+                    <span class="note"
+                        >{{ event.start_date }} - {{ event.end_date }}</span
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

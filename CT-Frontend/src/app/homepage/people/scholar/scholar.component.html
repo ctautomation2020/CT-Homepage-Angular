@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="main">
+        <h1 class="head-title">Research Scholars</h1>
+        <div class="filter-wrap">
+            <p class="scholar-info">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consequuntur iure ducimus iusto animi ab quasi quo eveniet
+                expedita, molestias perspiciatis aspernatur ea asperiores
+                voluptatibus et ratione.
+            </p>
+            <div class="dropdown">
+                <h2>List filter</h2>
+                <hr />
+                <div class="year">
+                    <br />
+                    <span class="label">Year of Admission</span>
+                    <select #select (change)="updateYear(select.value)">
+                        <option value="0" selected>All Years</option>
+                        <option
+                            *ngFor="let year_option of years"
+                            [value]="year_option"
+                            [selected]="year_option == year"
+                        >
+                            {{ year_option }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <h1 class="sch-title">
+            <span>Scholars joined </span>
+            <span *ngIf="year">in the year {{ year }}</span>
+            <span *ngIf="!year">so far</span>
+        </h1>
+        <scholar-list [scholar_year]="year" class="scholar-wrap"></scholar-list>
+    </div>
+</div>

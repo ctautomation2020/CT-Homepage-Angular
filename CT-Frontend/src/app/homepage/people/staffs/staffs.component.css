@@ -1,0 +1,203 @@
+:host {
+    background-color: whitesmoke;
+}
+.container {
+    padding-bottom: 2em;
+}
+.faculty-wrapper {
+    width: 60%;
+    margin: auto;
+}
+.faculty-wrap {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+.faculty-heading {
+    margin: 3rem 0;
+    text-align: center;
+}
+.faculty {
+    display: flex;
+    padding: 1em;
+    background-color: white;
+    border: 1px solid gainsboro;
+    border-radius: 0.25em;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    font-size: 0.9em;
+    color: black;
+}
+.hod {
+    width: 60%;
+    margin: auto;
+    padding-bottom: 2em;
+}
+.hod .faculty {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.faculty-details {
+    flex: 1;
+    margin-left: 1.25em;
+}
+.interest {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgb(211, 211, 211);
+    padding-top: 0.5em;
+    margin-top: 0.75em;
+}
+.interest-list {
+    width: calc(100% - 2.15em);
+}
+.f-arrow {
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    display: block;
+    top: 1.25em;
+    right: 1em;
+    background-image: url("../../../../assets/svg/right.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.8em;
+    transition: 0.2s ease-in-out;
+    opacity: 0.5;
+}
+.f-arrow:hover {
+    opacity: 1;
+}
+.faculty img {
+    width: 9em;
+    height: 9em;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 0.5em;
+}
+.faculty-name {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 0.25em 0;
+}
+.faculty-post {
+    color: #0b307e;
+    font-size: 1.05em;
+}
+.horizontal-line-break {
+    width: 100%;
+    height: 1px;
+    background-color: gainsboro;
+    margin: 0.15em 0.15em;
+}
+.faculty-contact {
+    display: flex;
+    flex-direction: column;
+}
+.f-mail,
+.f-cont {
+    display: flex;
+    align-items: center;
+    margin-top: 0.3em;
+}
+.f-mail::before,
+.f-cont::before,
+.interest-icon {
+    content: "";
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.65em;
+    background-image: url("../../../../assets/svg/phone.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.95em;
+    display: block;
+}
+.f-mail::before {
+    background-image: url("../../../../assets/svg/message.svg");
+}
+.interest-icon {
+    background-image: url("../../../../assets/svg/star.svg");
+}
+.faculty:hover {
+    box-shadow: 5px 10px 10px 0 gainsboro;
+}
+@media only screen and (max-width: 1700px) {
+    .faculty-wrapper {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 1550px) {
+    .faculty-wrapper {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .faculty-wrapper {
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .faculty-wrapper {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 1150px) {
+    .faculty-wrapper {
+        width: 95%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .faculty-wrap {
+        gap: 1em;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .faculty-wrap {
+        grid-template-columns: 1fr;
+    }
+    .faculty-heading {
+        font-size: 1.75em;
+        padding: 0 1em;
+    }
+    .hod {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .faculty-wrap,
+    .hod {
+        font-size: 0.9em;
+    }
+    .faculty-heading {
+        font-size: 1.5em;
+        margin: 1.5em 0;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .faculty {
+        flex-direction: column;
+    }
+    .faculty-details {
+        margin-left: 0;
+    }
+    .faculty-name,
+    .faculty-post {
+        text-align: center;
+    }
+    .faculty-name {
+        margin-top: 1em;
+    }
+    .faculty img {
+        border-radius: 0.5em;
+        margin-top: 0.5em;
+    }
+    .faculty > div:first-of-type {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

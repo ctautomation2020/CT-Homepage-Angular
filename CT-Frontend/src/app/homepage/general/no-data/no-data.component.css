@@ -1,0 +1,31 @@
+.no-data-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-data {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+
+.no-data img {
+    width: 4em;
+    height: 4em;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+    display: block;
+}
+
+.no-data h2 {
+    font-size: 1.35rem;
+    color: #444444;
+}
+.no-data span {
+    display: block;
+    margin-top: 0.25em;
+    color: gray;
+}

@@ -1,0 +1,302 @@
+<div class="staff-profile-container">
+    <div class="side-nav" *ngIf="profile">
+        <img src="assets/img/ct-logo-staff.png" class="side-nav-logo" />
+        <h3>Department of Computer Technology</h3>
+        <h5>Anna University, MIT Campus</h5>
+        <h2>Staff Profile Section</h2>
+        <ul>
+            <li>
+                <a routerLink="." fragment="profile">
+                    <span class="staff-sub-icon user"></span>
+                    <span>Personal Info</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="." fragment="educational">
+                    <span class="staff-sub-icon educ"></span>
+                    <span>Educational Qualifications</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="." fragment="experience">
+                    <span class="staff-sub-icon expe"></span>
+                    <span>Professional Experience</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="." fragment="projects">
+                    <span class="staff-sub-icon proj-icon"></span>
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="." fragment="publications">
+                    <span class="staff-sub-icon publ"></span>
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="." fragment="awards">
+                    <span class="staff-sub-icon awar"></span>
+                    <span>Honors & Awards</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="." fragment="professional-activities">
+                    <span class="staff-sub-icon acti"></span>
+                    <span>Professional Activities</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-area" *ngIf="profile">
+        <header *ngIf="profile.personal">
+            <h2>
+                <div class="profile-head">
+                    <span>{{ getStaffName() }}</span>
+                    <span class="profile-sub">{{
+                        ref_code[profile.personal.Designation]
+                    }}</span>
+                </div>
+                <a routerLink="" class="home-link">
+                    <span class="li-icon"></span>
+                    <span>Home</span>
+                </a>
+            </h2>
+        </header>
+        <section
+            class="profile-section"
+            id="profile"
+            *ngIf="profile.personal && (profile.personal | keyvalue).length"
+        >
+            <h2 class="section-title perso-title">Personal Details</h2>
+            <div class="staff-header">
+                <div class="profile-image">
+                    <img [src]="profile.personal.Photo" alt="" />
+                </div>
+                <div class="text">
+                    <div class="text-details">
+                        <h2>{{ getStaffName() }}</h2>
+                        <h4>{{ ref_code[profile.personal.Designation] }}</h4>
+                        <p>Department of Computer Technology</p>
+                        <p>Madras Institute of Technology</p>
+                    </div>
+                    <br />
+                    <div class="staff-details-wrap">
+                        <div>
+                            <div class="staff-contact">
+                                <div class="staff-cont-wrap">
+                                    <span class="s-icon contact"></span>
+                                    <a
+                                        href="tel:+{{
+                                            profile.personal
+                                                .Primary_ContactNumber
+                                        }}"
+                                        >{{
+                                            profile.personal
+                                                .Primary_ContactNumber
+                                        }}</a
+                                    >
+                                </div>
+                                <div class="staff-cont-wrap">
+                                    <span class="s-icon mail"></span>
+                                    <a
+                                        href="mailto:{{
+                                            profile.personal.Primary_MailID
+                                        }}"
+                                        >{{
+                                            profile.personal.Primary_MailID
+                                        }}</a
+                                    >
+                                </div>
+                                <div class="staff-cont-wrap">
+                                    <span class="s-icon linkedin"></span>
+                                    <a routerLink="../../">linked-in-profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="staff-interest">
+                            <h3>Areas of Interests</h3>
+                            <ul>
+                                <li
+                                    *ngFor="
+                                        let interest of profile.interest
+                                            | keyvalue
+                                    "
+                                >
+                                    <ng-container *ngIf="interest.value">
+                                        <span class="li-icon"></span>
+                                        <span>{{ interest.value }}</span>
+                                    </ng-container>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="educational" *ngIf="profile.education.length">
+            <h2 class="section-title">Educational Qualifications</h2>
+            <div class="staff-qulf-wrapper">
+                <div
+                    class="staff-qulf"
+                    *ngFor="let edu of profile.education; let i = index"
+                >
+                    <div
+                        class="text-icon"
+                        [ngClass]="classColor[i % 3]"
+                        *ngIf="edu.Degree_Ref"
+                    >
+                        <h3>{{ ref_code[edu.Degree_Ref] }}</h3>
+                    </div>
+                    <div class="text" *ngIf="edu.Degree_Ref">
+                        <h3>
+                            {{ ref_code[edu.Degree_Ref] }} in
+                            {{ ref_code[edu.Branch_Ref] | titlecase }}
+                        </h3>
+                        <h4>{{ edu.Institution }}</h4>
+                        <p>{{ edu.University }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" *ngIf="profile.experience.length">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="staff-exp">
+                <div class="exp" *ngFor="let exp of profile.experience">
+                    <div class="period">
+                        {{ getTimePeriod(exp.Start_Date, exp.End_Date) }}
+                    </div>
+                    <div class="status">
+                        <h4>{{ ref_code[exp.Designation_Ref] }}</h4>
+                        <span
+                            >{{ exp.Department }}<br />{{
+                                exp.Organization
+                            }}</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" *ngIf="profile.projects.length">
+            <h2 class="section-title">Projects</h2>
+            <div class="staff-projects">
+                <div class="project" *ngFor="let project of profile.projects">
+                    <h3 class="proj-title">
+                        <span>{{ project.Title }} </span>
+                        <span class="proj-type"
+                            >(
+                            {{ ref_code[project["Project_Type_Ref"]] }} )</span
+                        >
+                    </h3>
+                    <div class="proj-fund">
+                        <span class="proj-sub">Funding Agency</span>
+                        <span
+                            >{{ project.Fund_Agency }} [
+                            {{ getFund(project.TotalSanctionedAmount) }} ]</span
+                        >
+                    </div>
+                    <div class="proj-coor">
+                        <span class="proj-sub">Co-ordinators</span>
+                        <span>{{ getProjectStaffs(project) }}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="publications"
+            *ngIf="profile.publication && profile.publication.length"
+            style="padding-bottom: 1em"
+        >
+            <h2 class="section-title">
+                Publications
+                <span class="pub-count">{{ profile.publication.length }}</span>
+            </h2>
+            <div class="staff-pub">
+                <div
+                    class="pub"
+                    *ngFor="
+                        let pub of profile.publication
+                            | paginate: { itemsPerPage: 8, currentPage: pg_no }
+                    "
+                >
+                    <a [href]="getLink(pub.DOI) | safeUrl" class="pub-link">{{
+                        pub.Paper_Title
+                    }}</a>
+                    <h4>{{ pub.Journal_Name }}</h4>
+                    <div class="tags">
+                        <p>Publisher: {{ pub.Publisher }}</p>
+                        <p>Year: {{ pub.Year_Of_Publish }}</p>
+                    </div>
+                    <div class="details">
+                        <p *ngIf="pub.DOI">DOI: {{ pub.DOI }}</p>
+                        <p *ngIf="pub.Start_Page_No">
+                            | Pages: {{ pub.Start_Page_No }} -
+                            {{ pub.End_Page_No }}
+                        </p>
+                        <p *ngIf="pub.Volume">| Vol.{{ pub.Volume }}</p>
+                        <p *ngIf="pub.Issue">| Issue:{{ pub.Issue }}</p>
+                    </div>
+                </div>
+            </div>
+            <pagination-controls
+                class="pub-pagination"
+                previousLabel=""
+                nextLabel=""
+                autoHide="true"
+                (pageChange)="pg_no = $event"
+            ></pagination-controls>
+        </section>
+
+        <section id="awards" *ngIf="profile.awards.length">
+            <h2 class="section-title">Honors & Awards</h2>
+            <div class="staff-award">
+                <div class="award" *ngFor="let award of profile.awards">
+                    <div class="tags">
+                        <p>{{ award.Start_Year }}</p>
+                    </div>
+                    <h3>{{ award.Title }}</h3>
+                    <h4>{{ award.Organization }}</h4>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="professional-activities"
+            *ngIf="(profile.activity | keyvalue).length"
+        >
+            <h2 class="section-title">Professional Activities</h2>
+            <div
+                class="activity-wrap"
+                *ngFor="let type of profile.activity | keyvalue"
+            >
+                <h3 class="section-sub-title">{{ type.key }}</h3>
+                <div class="staff-activity">
+                    <div class="activity" *ngFor="let act of type.value">
+                        <h3>{{ act.Event_Title }}</h3>
+                        <div class="act-details">
+                            <b>{{
+                                ref_code[act["Participation_Status_Ref"]]
+                            }}</b>
+                            <ng-container *ngIf="act.Hosting_Organization">
+                                <span class="act-divi"> | </span>
+                                <span>{{ act.Hosting_Organization }}</span>
+                            </ng-container>
+                            <ng-container *ngIf="act.End_Date">
+                                <span class="act-divi"> | </span>
+                                <span>{{ getActYear(act.End_Date) }}</span>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <p>Copyright © Computer Technology | Designed by MIT Web Team</p>
+        </footer>
+    </div>
+</div>

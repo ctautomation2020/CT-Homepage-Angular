@@ -1,0 +1,238 @@
+.diamond-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.diamond {
+    width: 9em;
+    height: 9em;
+    transform: rotate(45deg);
+}
+.diam-img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.diamond img {
+    transform: rotate(-45deg) scale(1.5);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.35s ease-in-out;
+}
+.diamond img:hover {
+    transform: rotate(-45deg) scale(1.6);
+}
+.diamond:nth-child(even) {
+    margin-top: -10em;
+}
+.prayatna {
+    background: url("../../../../assets/img/association/assbg03.JPG")
+        rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    color: white;
+}
+.prayatna-bg {
+    backdrop-filter: blur(10px);
+    padding: 5em 0 3em 0;
+}
+.events-slide {
+    align-self: flex-start;
+    width: 50%;
+    margin-right: 3em;
+}
+.slide img {
+    width: 100%;
+    height: 350px;
+    border-radius: 1em;
+    object-fit: cover;
+    object-position: center;
+}
+.section-title p {
+    padding-right: 0;
+}
+.trigger .events-slide {
+    margin-left: 3em;
+    margin-right: 0;
+}
+.timeline {
+    width: 100%;
+    height: 600px;
+    margin: 2em 0;
+}
+.time-slide-container {
+    padding: 3em 0;
+    margin: auto;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    position: relative;
+}
+.grid-wrapper {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.grid-wrapper h1 {
+    margin-bottom: 1em;
+    font-size: 1.85em;
+}
+.slide-swipe-wrap {
+    width: 100%;
+    border-radius: 0.5em;
+}
+.slide-swipe {
+    padding-right: 1em;
+}
+.slide-swipe img {
+    object-position: center;
+    object-fit: cover;
+    height: 300px;
+    border-radius: 0.5em;
+}
+.swiper-title {
+    display: flex;
+    flex-direction: column;
+    font-size: 3em;
+}
+.title-year {
+    font-size: 0.5em;
+    color: #d4b345;
+    letter-spacing: 1px;
+}
+.timeline-content {
+    z-index: 5;
+    align-self: center;
+    text-align: right;
+    margin-right: 1em;
+}
+.timeline-content p {
+    margin-top: 1em;
+    margin-left: 1em;
+    font-size: 0.8em;
+    line-height: 1.5em;
+}
+.pr-20 {
+    background: url("../../../../assets/img/association/assbg04.jpeg")
+        rgba(0, 0, 0, 0.7);
+}
+.pr-19 {
+    background: url("../../../../assets/img/association/assbg02.JPG")
+        rgba(0, 0, 0, 0.7);
+}
+.pr-18 {
+    background: url("../../../../assets/img/association/assbg03.JPG")
+        rgba(0, 0, 0, 0.7);
+}
+.time-slide-wrapper {
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+}
+@media only screen and (max-width: 1700px) {
+    .time-slide-container {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 1550px) {
+    .time-slide-container {
+        width: 80%;
+    }
+    .timeline-content {
+        margin-right: 3em;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .time-slide-container {
+        width: 85%;
+    }
+    .timeline-content {
+        margin-right: 5em;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .time-slide-container {
+        width: 90%;
+    }
+    .timeline-content {
+        margin-right: 1em;
+    }
+}
+@media only screen and (max-width: 1150px) {
+    .time-slide-container {
+        width: 95%;
+    }
+    .timeline-content {
+        margin-right: 3em;
+    }
+}
+@media only screen and (max-width: 1050px) {
+    .prayatna-bg {
+        padding-top: 3em;
+    }
+    .events-slide {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 1em;
+    }
+    .trigger .events-slide {
+        margin: 0;
+    }
+    .prayatna .section-wrap {
+        flex-direction: column-reverse;
+    }
+    .diamond-section {
+        margin-top: 6em;
+        margin-bottom: 3em;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .grid-wrapper {
+        width: 85%;
+        margin: auto;
+    }
+    .grid-wrapper h1 {
+        font-size: 1.5em;
+        margin-bottom: 0.75em;
+    }
+    .swiper-title {
+        font-size: 2.25em;
+    }
+    .timeline {
+        height: 700px;
+    }
+    .time-slide-container {
+        flex-direction: column-reverse;
+        margin: auto;
+        padding-bottom: 0.5em;
+    }
+    .timeline-content {
+        margin: 0;
+        text-align: left;
+        width: 85%;
+    }
+    .timeline-content p {
+        margin: 1.5em 0;
+    }
+    .slide-swipe {
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .diamond-section {
+        display: none;
+    }
+    .slide img {
+        height: 250px;
+    }
+}

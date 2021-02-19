@@ -1,0 +1,353 @@
+.title-bar {
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.login-comp {
+    display: flex;
+    width: 60%;
+    max-height: 0;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.slide-down {
+    max-height: 100px;
+}
+.title-bar h1 {
+    padding: 0.25em 0;
+    font-size: 1.25em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    position: relative;
+}
+.title {
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: unset;
+}
+.sub-title {
+    font-weight: normal;
+    font-size: 0.55em;
+    margin-top: 0.2em;
+    color: #446ba5;
+    letter-spacing: 1px;
+}
+.login {
+    color: #063b8a;
+    text-decoration: none;
+    font-size: 0.75em;
+    padding: 0.5em 1em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.login::before {
+    content: "";
+    width: 1.25em;
+    height: 1.25em;
+    background-size: 1.15em;
+    background-image: url("../../../assets/svg/login.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 0.5em;
+    display: block;
+}
+.separate {
+    font-size: 0.75em;
+    margin: 0 0.25em;
+}
+.login:hover {
+    background-color: #2b71db;
+    color: white;
+    font-weight: normal;
+}
+.login:hover::before {
+    filter: invert(1);
+}
+.logo-img {
+    background-image: url("../../../assets/img/download.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 3em;
+    height: 3em;
+    background-size: 2.25em;
+    margin-right: 0.5em;
+    cursor: pointer;
+    display: block;
+}
+.menu-ham,
+.login-button {
+    background-image: url("../../../assets/svg/menu.svg");
+    width: 2em;
+    height: 2em;
+    background-size: 1em;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+    cursor: pointer;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #011f4b;
+}
+.nav {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 0.8em;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+.drop-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.drop-arrow {
+    width: 0.5em;
+    height: 0.5em;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    transform: rotate(225deg);
+    display: block;
+    margin-left: 0.75em;
+}
+.nav-link:hover {
+    background-color: #2b71db;
+}
+.drop-down-list {
+    position: absolute;
+    top: 2.75em;
+    left: 0;
+    background-color: white;
+    z-index: 2;
+    width: 15em;
+    transform-origin: 0 0 0;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: all 0.35s ease-in-out;
+    box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 0.25);
+}
+.sub-menu-link {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 0.85em 1.75em;
+    text-align: left;
+    border-bottom: 1px solid gainsboro;
+}
+.sub-menu-link .drop-list {
+    justify-content: space-between;
+}
+.sub-menu-link .drop-arrow {
+    border-color: black;
+    transform: rotate(135deg);
+}
+.sub-menu-link .drop-down-list {
+    top: 0;
+    left: 15em;
+}
+.sub-menu-link:hover .drop-arrow {
+    border-color: white;
+}
+.sub-menu-link:hover {
+    background-color: #063b8a;
+    color: white;
+    border-bottom-color: #063b8a;
+}
+.nav-link:hover > .drop-down-list,
+.sub-menu-link:hover > .drop-down-list {
+    opacity: 1;
+    transform: scaleY(1);
+}
+/* Menu-bar */
+.menu-bar {
+    display: block;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 105%;
+    background-color: white;
+    opacity: 0;
+    visibility: hidden;
+    overflow: auto;
+    transition: 0.3s ease-in-out;
+}
+.menu-open {
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+.menu-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.3em;
+    box-shadow: 0 5px 5px 0 gainsboro;
+    padding: 0.4em 0;
+    padding-left: 0.35em;
+}
+.menu-bar .logo-img {
+    width: 2.5em;
+    height: 2.5em;
+    background-size: 2em;
+    margin-left: 0.25em;
+}
+.close-icon {
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: 0.35em;
+    cursor: pointer;
+    opacity: 0.75;
+}
+.close-icon:hover {
+    opacity: 1;
+}
+.close-icon::after,
+.close-icon::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 0.75em;
+    background-color: black;
+    display: block;
+    transform: rotate(45deg);
+}
+.close-icon::before {
+    transform: rotate(-45deg);
+}
+.menu-items {
+    display: flex;
+    flex-direction: column;
+}
+.menu-link {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 1.25em 1em;
+    border-bottom: 1px solid gainsboro;
+}
+.sub-drop-list {
+    transition: 0.3s ease-in-out;
+    background-color: whitesmoke;
+}
+.drop-check:checked ~ .sub-menu-label {
+    border-left: 2px solid #444444;
+}
+.sub-menu-label {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 1px solid gainsboro;
+}
+.sub-menu-label::after {
+    content: "";
+    width: 0.35em;
+    height: 0.35em;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    transform: rotate(225deg);
+    display: block;
+    margin-left: 0.75em;
+    transition: 0.35s;
+}
+.drop-check-open::after {
+    transform: rotate(45deg);
+}
+.login-button {
+    background-image: url("../../../assets/svg/login.svg");
+}
+@media only screen and (max-width: 1700px) {
+    .nav,
+    .title-bar h1,
+    .login-comp {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 1550px) {
+    .nav,
+    .title-bar h1,
+    .login-comp {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .nav,
+    .title-bar h1,
+    .login-comp {
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .nav,
+    .title-bar h1,
+    .login-comp {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 1150px) {
+    .nav,
+    .title-bar h1,
+    .login-comp {
+        width: 95%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .login,
+    .separate,
+    .nav {
+        display: none;
+    }
+    .menu-ham,
+    .login-button {
+        display: block;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .title {
+        font-size: 0.9em;
+    }
+    .login-comp {
+        margin: auto;
+    }
+    .slide-down {
+        max-height: 300px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .main-title span {
+        display: none;
+    }
+    .logo-img {
+        width: 2em;
+        height: 2em;
+        background-size: 1.75em;
+    }
+    .title-bar h1 {
+        padding: 0.5em 0;
+    }
+}

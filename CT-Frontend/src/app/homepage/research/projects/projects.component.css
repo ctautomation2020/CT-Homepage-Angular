@@ -1,0 +1,231 @@
+:host {
+    background-color: whitesmoke;
+    flex: 1;
+}
+.project {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    background: #f4f4f4;
+}
+.project-cover {
+    width: 100%;
+    background: url("../../../../assets/img/proj-back.JPG") rgba(0, 0, 0, 0.7);
+    background-blend-mode: multiply;
+    display: block;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cover-wrap {
+    width: 60%;
+    padding: 3em 0;
+    margin: auto;
+    color: white;
+    display: flex;
+}
+.cover-content {
+    width: 50%;
+    padding-left: 1em;
+}
+.cover-content h1 {
+    font-size: 2.5em;
+}
+.cover-graph {
+    width: 50%;
+}
+.cover-content p {
+    line-height: 1.75em;
+    font-size: 1.05em;
+    margin-top: 1em;
+}
+.project-page {
+    width: 60%;
+    margin: 2em auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1em;
+}
+
+.project-page h1 {
+    font-size: 1.75rem;
+}
+.project-select {
+    padding: 0.5em;
+    font-size: 1em;
+    width: 25%;
+}
+.project-content {
+    width: 60%;
+    margin: 1.5em auto;
+    padding-left: 1em;
+}
+
+.project-content h1 {
+    display: flex;
+    align-self: center;
+}
+
+.year-projects {
+    margin: 2.3rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+}
+.proj-title {
+    width: 100%;
+    justify-content: left;
+    font-size: 1.25em;
+    color: #5e5e5e;
+}
+
+.pjct {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1.5em;
+    background: #fff;
+    cursor: pointer;
+}
+.pjct:hover {
+    box-shadow: 0 10px 10px 0 gainsboro;
+}
+.year-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.75em;
+    border-bottom: 1px solid gainsboro;
+}
+.proj-year {
+    padding: 0.5em 0.75em;
+    font-size: 0.8em;
+    background-color: whitesmoke;
+    margin-left: 1em;
+    border: 1px solid gainsboro;
+}
+.fund-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.fund-content {
+    flex: 1;
+}
+.label-name {
+    display: block;
+    color: #2a64bb;
+    margin-top: 0.5em;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.label-value {
+    margin-top: 0.25em;
+}
+.fund-agency {
+    margin-top: 1em;
+}
+.fund-amt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    background-color: #1d65c409;
+    border-radius: 0.5em;
+    margin-left: 0.5em;
+}
+.amount {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+    display: block;
+    color: seagreen;
+}
+@media only screen and (max-width: 1700px) {
+    .project-page,
+    .project-content,
+    .cover-wrap {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 1550px) {
+    .project-page,
+    .project-content,
+    .cover-wrap {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .project-page,
+    .project-content,
+    .cover-wrap {
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .project-page,
+    .project-content,
+    .cover-wrap {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 1150px) {
+    .project-page,
+    .project-content,
+    .cover-wrap {
+        width: 95%;
+    }
+    .project-select {
+        width: 30%;
+    }
+}
+@media only screen and (max-width: 1050px) {
+    .year-projects {
+        grid-template-columns: 1fr;
+        gap: 1.25em;
+    }
+    .project-page {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+    .project-content {
+        margin: 1.5em auto;
+        padding-left: 0;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .cover-wrap {
+        flex-direction: column;
+        padding: 2em 1em;
+    }
+    .cover-content,
+    .cover-graph {
+        width: 100%;
+    }
+    .cover-content {
+        margin-bottom: 2em;
+        padding-left: 0;
+    }
+    .project-select {
+        width: 35%;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .project-select {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .project-page {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .project-page h1 {
+        font-size: 1.5em;
+    }
+    .project-select {
+        margin-top: 1em;
+        width: 100%;
+    }
+}

@@ -1,0 +1,222 @@
+:host {
+    background-color: whitesmoke;
+    flex: 1;
+}
+.container {
+    flex: 1;
+    padding-bottom: 2em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+.main {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+    margin: auto;
+}
+.pub-cover {
+    width: 100%;
+    background: url("../../../../assets/img/pub-back.JPG") rgba(0, 0, 0, 0.7);
+    background-blend-mode: multiply;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 1.5em;
+}
+.pub-wrap {
+    width: 60%;
+    margin: auto;
+    color: white;
+    display: flex;
+    padding: 2em 0;
+}
+.pub-content {
+    width: 50%;
+    padding: 0 1em;
+}
+.pub-content h1 {
+    font-size: 2.5em;
+}
+.pub-content p {
+    margin-top: 1.5em;
+    line-height: 1.75em;
+    font-size: 1.05em;
+}
+.pub-graph {
+    width: 50%;
+}
+.highcharts-background {
+    fill: transparent;
+}
+.highcharts-title {
+    fill: white !important;
+}
+.highcharts-point {
+    stroke: transparent;
+}
+.pub-title {
+    margin-bottom: 0.75em;
+    font-size: 1.75em;
+}
+.year-slider {
+    display: flex;
+    align-items: center;
+}
+.arrow {
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url("../../../../assets/svg/right.svg");
+    background-size: 0.75em;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.left {
+    transform: rotate(180deg);
+}
+.year-wrap {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    overflow-x: auto;
+    transition: 0.25s;
+}
+.year-wrap::-webkit-scrollbar {
+    display: none;
+}
+.year {
+    padding: 0 1em;
+    cursor: pointer;
+    font-size: 1.05em;
+    transition: 0.25s;
+}
+.year-selected {
+    color: #113074;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.year-name {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-size: 1.15em;
+    font-weight: bold;
+    color: #5f5f5f;
+}
+.publication-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+.publication {
+    background-color: white;
+    padding: 1em;
+    border: 1px solid gainsboro;
+    border-radius: 0.5em;
+    transition: 0.35s ease-in-out;
+}
+.publication:hover {
+    box-shadow: 0 10px 10px 0 gainsboro;
+}
+.pub-name {
+    color: black;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 0.95em;
+}
+.pub-name:hover {
+    color: #2452a7;
+    text-decoration: underline;
+}
+.authors {
+    display: block;
+    color: #61686e;
+    margin-top: 0.1em;
+}
+.dot,
+.divider {
+    width: 0.25em;
+    height: 0.25em;
+    background-color: grey;
+    display: block;
+    border-radius: 50%;
+    margin: 0 0.5em;
+}
+.divider {
+    width: 1px;
+    height: 1em;
+    border-radius: unset;
+}
+.pub-type {
+    color: #2451b3;
+    margin: 0.5em 0;
+    display: block;
+}
+.pub-details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 0.35em;
+}
+@media only screen and (max-width: 1700px) {
+    .main,
+    .pub-wrap {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 1550px) {
+    .main,
+    .pub-wrap {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .main,
+    .pub-wrap {
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .main,
+    .pub-wrap {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 1150px) {
+    .main,
+    .pub-wrap {
+        width: 95%;
+    }
+    .main {
+        padding: 0 0.5em;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .publication {
+        border-radius: 0;
+    }
+    .publication-section {
+        grid-template-columns: 1fr;
+    }
+    .pub-wrap {
+        flex-direction: column;
+    }
+    .pub-graph,
+    .pub-content {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .year-wrap {
+        font-size: 0.95em;
+    }
+    .pub-name {
+        font-size: 1.05em;
+    }
+}

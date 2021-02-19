@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="main">
+        <h1 class="blog-main-title">Supervisors</h1>
+        <div class="blog-post-grid-wrapper">
+            <div class="blog-post" *ngFor="let sup of supervisors">
+                <div class="blog-img-info-wrap">
+                    <div class="blog-post-img">
+                        <img [src]="sup.Photo" />
+                    </div>
+                    <div class="blog-post-info">
+                        <div class="blog-post-date">
+                            <a
+                                class="staff-link"
+                                routerLink="./people/staffs/profile/{{
+                                    sup.Person_ID
+                                }}"
+                                >{{ getStaffName(sup) }}</a
+                            >
+                            <span id="idnumber">ID : {{ sup.Reg_No }}</span>
+                        </div>
+                        <div class="blog-contact">
+                            <div class="blog-posting f-star">
+                                {{ ref_code[sup.Designation] }}
+                            </div>
+                            <span class="f-mail">{{ sup.Primary_MailID }}</span>
+                            <span class="f-cont">{{
+                                sup.Primary_ContactNumber
+                            }}</span>
+                        </div>
+                        <hr />
+                    </div>
+                </div>
+                <div class="blog-scholar-wrap">
+                    <div class="blog-post-title">
+                        <div class="blog-label">Working Domain</div>
+                        <div class="blog-value">
+                            <span>{{
+                                getSpecialization([
+                                    sup.AOS1,
+                                    sup.AOS2,
+                                    sup.AOS3,
+                                    sup.AOS4,
+                                    sup.AOS5
+                                ])
+                            }}</span>
+                        </div>
+                    </div>
+                    <hr class="line-break" />
+                    <div class="blog-scholars">
+                        <div
+                            class="scholar-details"
+                            *ngIf="scholars[sup.Person_ID]"
+                        >
+                            <span class="blog-sch-title"
+                                >Research Scholars</span
+                            >
+                            <div class="blog-list-wrap">
+                                <ul class="blog-list">
+                                    <li class="sch-head">
+                                        <b>Name</b>
+                                        <b>Domain</b>
+                                        <b>Duration</b>
+                                    </li>
+                                    <li
+                                        *ngFor="
+                                            let scholar of scholars[
+                                                sup.Person_ID
+                                            ]
+                                        "
+                                    >
+                                        <div class="sch-img-wrap">
+                                            <a routerLink="./people/scholar">{{
+                                                scholar.Scholar_Name
+                                            }}</a>
+                                        </div>
+                                        <span class="sch-type">{{
+                                            scholar.Research_Area
+                                        }}</span>
+                                        <span class="sch-year"
+                                            >{{ scholar.start_year }} -
+                                            {{
+                                                scholar.end_year
+                                                    ? scholar.end_year
+                                                    : "Present"
+                                            }}</span
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
