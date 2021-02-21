@@ -79,7 +79,7 @@ class DBServer {
     }
     async getStaffList() {
         let query =
-            "SELECT `Prefix_Ref`, `person`.`Person_ID`, `Photo`, `Designation`,`First_Name`, `Last_Name`, `Primary_MailID`, `Primary_ContactNumber`, `AOS1`, `AOS2`, `AOS3`, `AOS4`, `AOS5` FROM `person` LEFT OUTER JOIN `person_specialization` ON `person`.`Person_ID` = `person_specialization`.`Person_ID`";
+            "SELECT `Prefix_Ref`, `person`.`Person_ID`, `Photo`, `Designation`,`First_Name`, `Last_Name`, `Primary_MailID`, `Primary_ContactNumber`, `AOS1`, `AOS2`, `AOS3`, `AOS4`, `AOS5` FROM `person` LEFT OUTER JOIN `person_specialization` ON `person`.`Person_ID` = `person_specialization`.`Person_ID` ORDER BY `Designation` = 40 DESC,`Designation` = 41 DESC, `Designation` = 43 DESC, `Designation` = 42 DESC, `Designation` = 44 DESC, `Designation` = 45 DESC, `Person_ID` ASC";
         return this.performQuery(query, []);
     }
     async getAlumniYear() {
