@@ -11,12 +11,12 @@ class DBServer {
         }).catch((err) => {});
         return result;
     }
-    async getReference() {
+    getReference() {
         let query =
             "SELECT `Ref_Code`, `Ref_Name` FROM `person_reference_table`";
         return this.performQuery(query);
     }
-    async getStaffInfo(id) {
+    getStaffInfo(id) {
         let query =
             "SELECT `Prefix_Ref`, `First_Name`, `Last_Name`, `Primary_MailID`, `Primary_ContactNumber`, `Designation`, `Photo` FROM `person` WHERE `Person_ID`= ?";
         return this.performQuery(query, [id]);
@@ -26,31 +26,31 @@ class DBServer {
             "SELECT `AOS1`,`AOS2`,`AOS3`,`AOS4`,`AOS5` FROM `person_specialization` WHERE `Person_ID`= ?";
         return this.performQuery(query, [id]);
     }
-    async getStaffEducation(id) {
+    getStaffEducation(id) {
         let query =
             "SELECT `Qualification_Level_Ref`, `Degree_Ref`, `Branch_Ref`, `Institution`, `University` FROM `person_qualification` WHERE `Person_ID`= ? ORDER BY `Start_Date` DESC";
         return this.performQuery(query, [id]);
     }
-    async getStaffExperience(id) {
+    getStaffExperience(id) {
         let query =
             "SELECT `Designation_Ref`, `Organization`, `Department`, `Start_Date`, `End_Date` FROM `person_experience` WHERE `Person_ID`= ?";
         return this.performQuery(query, [id]);
     }
-    async getStaffPublications(id) {
+    getStaffPublications(id) {
         let query = "SELECT * FROM `person_publication` WHERE `Person_ID`= ?";
         return this.performQuery(query, [id]);
     }
-    async getProjects(id) {
+    getProjects(id) {
         let query =
             "SELECT `Title`, `Project_Type_Ref`, `PI_Name`, `COI1_Name`, `COI2_Name`, `Fund_Agency`, `TotalSanctionedAmount` FROM `person_project_proposal` WHERE `Person_ID`= ?";
         return this.performQuery(query, [id]);
     }
-    async getStaffAwards(id) {
+    getStaffAwards(id) {
         let query =
             "SELECT `Title`, `Organization`, `Place`, `Start_Year` FROM `person_awards` WHERE `Person_ID`= ?";
         return this.performQuery(query, [id]);
     }
-    async getActivities(id) {
+    getActivities(id) {
         let query =
             "SELECT `Event_Title`,`Hosting_Organization`, `Participation_Status_Ref`, `Event_Type_Ref`, `Place`, `End_Date` FROM `person_events_attended` WHERE `Person_ID`= ?";
         return this.performQuery(query, [id]);
@@ -77,12 +77,12 @@ class DBServer {
         };
         return staff_json;
     }
-    async getStaffList() {
+    getStaffList() {
         let query =
             "SELECT `Prefix_Ref`, `person`.`Person_ID`, `Photo`, `Designation`,`First_Name`, `Last_Name`, `Primary_MailID`, `Primary_ContactNumber`, `AOS1`, `AOS2`, `AOS3`, `AOS4`, `AOS5` FROM `person` LEFT OUTER JOIN `person_specialization` ON `person`.`Person_ID` = `person_specialization`.`Person_ID` ORDER BY `Designation` = 40 DESC,`Designation` = 41 DESC, `Designation` = 43 DESC, `Designation` = 42 DESC, `Designation` = 44 DESC, `Designation` = 45 DESC, `Person_ID` ASC";
         return this.performQuery(query, []);
     }
-    async getAlumniYear() {
+    getAlumniYear() {
         let query =
             "SELECT DISTINCT LEFT(`Register_No`, 4) as year FROM `student` ORDER BY year LIMIT 1";
         return this.performQuery(query, []);
@@ -110,7 +110,7 @@ class DBServer {
         let result = await this.performQuery(query, [data.reg_no, data.dob]);
         return result;
     }
-    async checkRegistration(data) {
+    checkRegistration(data) {
         let query =
             "SELECT `Register_No` FROM `alumni` WHERE `Register_No` = ? AND `Alumni_Status` = 1";
         return this.performQuery(query, [data]);
@@ -131,7 +131,7 @@ class DBServer {
             return result;
         }
     }
-    async getPubCount() {
+    getPubCount() {
         let query = "SELECT COUNT(*) as total FROM `person_publication`";
         return this.performQuery(query, []);
     }
@@ -155,12 +155,12 @@ class DBServer {
         let pub = await this.performQuery(query, [data.start, data.per_page]);
         return { result: pub, count: count[0]["total"] };
     }
-    async getProjectsList() {
+    getProjectsList() {
         let query =
             "SELECT `Title`, `Project_Type_Ref`, `PI_Name`, `COI1_Name`, `COI2_Name`, `Fund_Agency`, `TotalSanctionedAmount`,YEAR(`End_Date`) as `Year` FROM `person_project_proposal` ORDER BY `Year` DESC";
         return this.performQuery(query, []);
     }
-    async getRecentYear(type) {
+    getRecentYear(type) {
         let query =
             "SELECT DISTINCT LEFT(`Register_No`, 4) as year FROM `student` WHERE `Programme_Ref` = ? ORDER BY year DESC LIMIT 1";
         return this.performQuery(query, [type]);
@@ -196,7 +196,7 @@ class DBServer {
         }
         return {};
     }
-    async getSupervisors() {
+    getSupervisors() {
         let query =
             "SELECT `Person_ID`, `Designation`, `Reg_No`, `Prefix_Ref`, `First_Name`, `Last_Name`, `Primary_MailID`, `Primary_ContactNumber`, `Photo`, `AOS1`, `AOS2`, `AOS3`, `AOS4`, `AOS5` FROM `person` INNER JOIN `person_supervision` USING (`Person_ID`) INNER JOIN `person_specialization` USING (`Person_ID`) ORDER BY `Designation`";
         return this.performQuery(query, []);
