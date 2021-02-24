@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="main">
+      <h2>Internals</h2>
+      <div class="quick-links" *ngIf="courseTitle != null && session!=null">
+        <a routerLink="/student-details/academics" class="link">Academics</a>
+          <span class="slash"></span>
+          <a [routerLink]="['/student-details', 'academics', 'course-list', session.reference_id]" class="link">{{session.description}}</a>
+          <span class="slash"></span>
+          <a [routerLink]="['/student-details', 'academics', 'course-features', cregst_id]" class="link" >{{courseTitle}}</a>
+          <span class="slash"></span>
+          <a class="link">Internals</a>
+      </div>
+      <div class="outer-div">
+        <div class="table-container">
+          <table class="t-table" *ngIf="caComp!=null">
+            <tr class="t-tr">
+                <th class="t-th" style="width: 30%;background-color:rgb(22, 95, 168);">
+                    Name
+                </th>
+                <th class="t-th" style="background-color:rgb(34, 108, 182);">
+                    Marks Obtained
+                </th>
+                <th class="t-th" style="background-color:rgb(53, 125, 197);">
+                    Maximum marks
+                </th>
+                <th class="t-th" style="background-color:rgb(76, 144, 212);">
+                    Weightage
+                </th>
+                <th class="t-th" style="background-color:rgb(93, 159, 224);">
+                    Score Obtained
+                </th>
+            </tr>
+            <tr class="t-tr" *ngFor="let i of caComp;let ind=index">
+                <td class="t-td">
+                    {{filterType(i.type)+' '+i.number}}
+                </td>
+                <td class="t-td">
+                    {{i.marks_obtained}}
+                </td>
+                <td class="t-td">
+                    {{i.total_mark}}
+                </td>
+                <td class="t-td">
+                    {{i.weightage}}
+                </td>
+                <td class="t-td">
+                    {{i.weighted_marks}}
+                </td>
+            </tr>
+          </table>
+        </div>
+        <div class="final" *ngIf="internals!=null">
+            <div><span class="topic">CA </span>:  {{internals.ca}} / 100</div>
+            <div><span class="topic">Midsem </span>: {{internals.midterm}} / 100</div>
+            <div><span class="topic">Total </span>: {{internals.total_marks}} / 60</div>
+        </div>
+      </div>
+    </div>
+</div>

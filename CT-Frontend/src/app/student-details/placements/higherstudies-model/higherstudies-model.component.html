@@ -1,0 +1,73 @@
+<h2 mat-dialog-title class="dialog-title">Higher Study Details</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="higherStudiesForm">
+    <mat-form-field class="form-field three-field"> 
+      <mat-label>University</mat-label>
+      <input matInput formControlName="University" required>
+      <mat-error *ngIf="higherStudiesForm.get('University').invalid">Please Enter Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Degree</mat-label>
+      <input matInput formControlName="Degree" required>
+      <mat-error *ngIf="higherStudiesForm.get('Degree').invalid">Please Enter Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Specialization</mat-label>
+      <input matInput formControlName="Specialization" required>
+      <mat-error *ngIf="higherStudiesForm.get('Specialization').invalid">Please Enter Number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field" appearance="fill">
+      <mat-label>Mode</mat-label>
+      <mat-select formControlName="Admission_Mode_Ref" required>
+        <mat-option *ngFor="let hs of data.admissionMode" [value]="hs.Ref_Code">{{hs.Ref_Name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="higherStudiesForm.get('Admission_Mode_Ref').invalid">Please Choose an Option</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field">
+      <mat-label>Score</mat-label>
+      <input matInput formControlName="Score" required>
+      <mat-error *ngIf="higherStudiesForm.get('Score').invalid">Please Enter Number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Country</mat-label>
+      <input matInput formControlName="Country" required>
+      <mat-error *ngIf="higherStudiesForm.get('Country').invalid">Please Enter Number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Location</mat-label>
+      <input matInput formControlName="Location" required>
+      <mat-error *ngIf="higherStudiesForm.get('Location').invalid">Please Enter Number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>LOR Details</mat-label>
+      <input matInput formControlName="LOR_Details" required>
+      <mat-error *ngIf="higherStudiesForm.get('LOR_Details').invalid">Please Enter Number</mat-error>
+    </mat-form-field>
+
+    <div class="form-field">
+      <label class="file-label" for="file">File</label>
+      <div class="input-view">
+        <input class="file-input" type="file" formControlName="file" (change)="onFileChange($event)">
+        <a class="pdf-link" *ngIf="data.higherstudy!=null && data.higherstudy.Score_Card_Copy!=''"[href]="fileSrc" target="_blank">view file</a>
+        <div *ngIf="fileToUpload!=null">
+          <mat-error *ngIf="!sizeValid" style="font-size: small;">Filesize > 1 MB<br></mat-error>
+          <mat-error *ngIf="!typeValid" style="font-size: small;">Not PDF file</mat-error>
+        </div>
+      </div>
+    </div>
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-btns">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="higherStudiesForm.invalid || !(sizeValid && typeValid)" (click)="onSubmit()">Save</button>
+</mat-dialog-actions>
+

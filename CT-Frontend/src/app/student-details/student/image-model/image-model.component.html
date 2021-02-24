@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Upload Image</h2>
+<mat-dialog-content>
+<form [formGroup]="imageForm">
+    <div class="form-group">
+        <input formControlName="file" type="file" class="form-control file-input" (change)="onFileChange($event)" required>                    
+        <button class="del-icon" (click)="deletephoto()"></button>
+        <div *ngIf="fileToUpload!=null">
+            <mat-error *ngIf="!sizeValid" style="font-size: small;">Filesize > 100 KB<br></mat-error>
+            <mat-error *ngIf="!typeValid" style="font-size: small;">Not an image file</mat-error>
+        </div>
+        <br><br>
+        
+        <img [src]="imageSrc" style="height: 10em; width:10em">
+    </div>
+</form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="!imageForm.valid || !(sizeValid && typeValid)" (click)="onSubmit()">Save</button>
+</mat-dialog-actions>

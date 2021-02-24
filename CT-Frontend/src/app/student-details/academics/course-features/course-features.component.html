@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="main">
+        <h2>Course</h2>
+        <div class="quick-links" *ngIf="session != null">
+          <a routerLink="/student-details/academics" class="link">Academics</a>
+            <span class="slash"></span>
+            <a [routerLink]="['/student-details', 'academics', 'course-list', session.reference_id]" class="link">{{session.description}}</a>
+            <span class="slash"></span>
+            <a  class="link" *ngIf="courseTitle != null">{{courseTitle}}</a>
+        </div>
+        <div class="time-period">
+            <div class="outer-layout">
+              <div class="layout">
+                    <div class="time" [routerLink]="['/student-details','academics', 'assessment-list', cregst_id]">
+                        <span class="point assessment"></span>
+                        <div class="period">
+                            <span class="feature">Assessment</span>
+                            <span class="session"></span>
+                        </div>
+                    </div>
+                    <div class="time" [routerLink]="['/student-details','academics', 'assignment-list', cregst_id]">
+                        <span class="point assignment"></span>
+                        <div class="period">
+                            <span class="feature">Assignment</span>
+                            <span class="session"></span>
+                        </div>
+                    </div>
+                    <div class="time" [routerLink]="['/student-details','academics', 'attendence',cregst_id]">
+                        <span class="point calendar"></span>
+                        <div class="period">
+                            <span class="feature">Attendance</span>
+                            <span class="session"></span>
+                        </div>
+                    </div>
+                    <div class="time" [routerLink]="['/student-details','academics', 'internals',cregst_id]">
+                        <span class="point internals"></span>
+                        <div class="period">
+                            <span class="feature">Internals</span>
+                            <span class="session"></span>
+                        </div>
+                    </div>
+                    <div class="time" [routerLink]="['/student-details','academics', 'materials',cregst_id]">
+                        <span class="point materials"></span>
+                        <div class="period">
+                            <span class="feature">Materials</span>
+                            <span class="session"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="vertical-line"></div>
+                <div class="fac-info">
+                    <div class="fac-details" *ngIf="faculty!=null && course!=null">
+                        <table class="fac-table">
+                            <tr>
+                                <th colspan="3">Faculty Info</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3">
+                                    <div class="fac-img"></div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <td>:</td>
+                                <td>{{faculty.First_Name+" "+faculty.Last_Name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Course</th>
+                                <td>:</td>
+                                <td>{{course.course_code}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email Id</th>
+                                <td>:</td>
+                                <td>{{faculty.Primary_MailID}}</td>
+                            </tr>
+                            <tr>
+                                <th>Mobile No.</th>
+                                <td>:</td>
+                                <td>{{faculty.Primary_ContactNumber}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="main">
+      <h2>Courses</h2>
+      <div class="quick-links">
+          <a routerLink="/student-details/academics" class="link">Academics</a>
+          <span class="slash"></span>
+          <a class="link" *ngIf="session != null">{{ session.description }}</a>
+      </div>
+      <div class="subjects">
+          <div class="sem-layout">
+              <div class="sem-subject" *ngFor="let c of courseList" (click)="onCourseSelect(c)">
+                  <span class="sem-symbol">{{ findKeyWord(c.course_list.title) }}</span>
+                  <div class="sem-details">
+                      <span class="sem-text">{{ c.course_list.title }}</span>
+                      <span class="sem-code">{{ c.course_code }}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

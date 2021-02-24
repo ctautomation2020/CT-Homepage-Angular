@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="main">
+
+      <div class="assignment-section">
+        <h2 class="section-title">Assignment {{assign_num}}</h2>
+        <div class="quick-links" *ngIf="courseTitle != null && session!=null">
+            <a routerLink="/student-details/academics" class="link">Academics</a>
+            <span class="slash"></span>
+            <a [routerLink]="['/student-details', 'academics', 'course-list', session.reference_id]" class="link">{{session.description}}</a>
+            <span class="slash"></span>
+            <a [routerLink]="['/student-details', 'academics', 'course-features', cregst_id]" class="link" >{{courseTitle}}</a>
+            <span class="slash"></span>
+            <a [routerLink]="['/student-details', 'academics', 'assignment-list', cregst_id]" class="link">Assignments</a>
+        </div>
+        <div class="header">
+          <div class="college-details">
+              <h1 class="college-title">Madras Institute of Technology</h1>
+          </div>
+          <div class="assignment-details">
+              <h2 class="assesment-name" *ngIf="course!=null && courseTitle!=null">{{course.course_code}} - {{courseTitle}}</h2>
+              <div class="assignment-values">
+                  <p class="assignment-time" *ngIf="deadline!=null" >Deadline : {{deadline | date:'dd-MM-yyyy'}}</p>
+                  <p class="total-marks">Marks : {{totalEval}} / {{total}}</p>
+              </div>
+          </div>
+        </div>
+        <div class="horizontal-line-break"></div>
+        <div>
+          <div class="question-number bold">
+            Q.No.
+          </div>
+          <div class="question bold">
+            Question
+          </div>
+          <div  class="mark bold">
+            Marks
+          </div>
+        </div>
+        <div *ngFor="let q of assignment">
+          <div>
+            <div class="question-number">
+              {{q.question_num}}.
+            </div>
+            <div class="question" [innerHTML]="q.question_stmt"></div>
+            <div class="mark">
+              <span *ngIf="marks!=null">{{filterMarks(q.question_num)}} /</span> {{q.marks}}
+            </div>
+          </div>
+        </div>
+        <div class="horizontal-line-break"></div>
+        <!-- <br><br>
+        <div class="btn">
+          <button mat-raised-button class="button" color="primary" (click)="submitAssignment()" >Submit</button>
+        </div> -->
+      </div>
+  </div>
+</div>

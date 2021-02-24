@@ -1,0 +1,147 @@
+*,::after,::before{
+  font-family: 'Source Sans Pro','Open Sans', serif;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+.container{
+  background-color: whitesmoke;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+.main{
+  background-color: white;
+  width: 95%;
+  padding: 2em;
+  margin: 1em auto;
+  border: 1px solid gainsboro;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+.quick-links{
+  display: flex;
+  align-items: center;
+  margin: 0.5em 0;
+}
+.link, .disabled-link{
+  text-decoration: none;
+  color: #061c64;
+  font-size: 0.975em;
+  margin: 0 0.75em;
+}
+.link:first-of-type{
+  margin-left: 0;
+}
+.slash{
+  width: 0.5em;
+  height: 0.5em;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  transform: rotate(135deg);
+}
+.link:hover{
+  text-decoration: underline;
+}
+.point{
+  width: 3em;
+  height: 3em;
+  background-image: url("../../../../assets/img/student/calendar.svg");
+  background-position: center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  margin-right: 0.75em;
+  display: block;
+}
+@media only screen and (max-width:450px){
+  .main{
+      padding: 1em;
+  }
+}
+.tables table, .tables td, .tables th{
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+.tables table {
+  border-width: 2px;
+}
+.tables td, .tables th {
+   height: 50px;
+   width: 50px;
+}
+.date {
+  color: #025233;
+}
+.day {
+   background-color: #78a5df;
+}
+.month {
+  background-color: #4793f7;
+}
+.att-layout{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tables {
+  width: 40%;
+  margin: 20px;
+}
+@media only screen and (max-width:800px) {
+  .att-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tables {
+    width: auto;
+    margin: 20px auto;
+  } 
+}
+.hours {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.period[data-tooltip] {
+  position: relative;
+}
+.period[data-tooltip]:before,
+.period[data-tooltip]:after {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+.period[data-tooltip]:before {
+  border-bottom: .6em solid #09f;
+  border-bottom: .6em solid rgba(0,153,255,0.8);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  content: "";
+  left: 20px;
+  margin-bottom: 1em;
+}
+.period[data-tooltip]:after {
+  background-color: #0099ff;
+  background-color: rgba(0,153,255,0.8);
+  border: 4px solid #0099ff;
+  border: 4px solid rgba(0,153,255,0.8);
+  border-radius: 7px;
+  color: #ffffff;
+  content: attr(data-tooltip-label) ":\A" attr(data-tooltip-message);
+  left: 0;
+  margin-bottom: 1.5em;
+  padding: 5px 15px;
+  white-space: pre-wrap;
+  width: fit-content;
+}
+.period[data-tooltip]:hover:after,
+.period[data-tooltip]:hover:before {
+  display: block;
+}
+.multiline-tooltip {
+  white-space: pre-line;
+}

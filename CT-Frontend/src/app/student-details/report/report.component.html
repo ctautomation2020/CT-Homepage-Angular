@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="main">
+        <div class="content">
+            <div id="report" #report>
+                <h1>Report</h1>
+                <div class="details-container">
+                    <div>
+                    Name: {{student.name}}<br>
+                    Regno: {{student.regno}} 
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Course No.</th>
+                            <th>Course Name</th>
+                            <th>Mark</th>
+                            <th>Grade</th>
+                        </tr>
+                        <tr *ngFor="let c of course">
+                            <td>{{c.no}}</td>
+                            <td>{{c.courseno}}</td>
+                            <td>{{c.coursename}}</td>
+                            <td>{{c.Mark}}</td>
+                            <td>{{c.Grade}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button class="btn" (click)="downloadAsPDF()">Download Report</button>
+            </div>
+        </div>
+    </div>
+</div>

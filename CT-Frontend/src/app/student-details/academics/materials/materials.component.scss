@@ -1,0 +1,153 @@
+*,::after,::before{
+  font-family: 'Source Sans Pro','Open Sans', serif;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+.button{
+  width: max-content;
+  padding: 0.5em 1.1em;
+}
+.container{
+  background-color: whitesmoke;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+.main{
+  background-color: white;
+  width: 95%;
+  padding: 2em;
+  margin: 1em auto;
+  border: 1px solid gainsboro;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+.quick-links{
+  display: flex;
+  align-items: center;
+  margin: 0.5em 0;
+}
+.link{
+  text-decoration: none;
+  color: #061c64;
+  font-size: 0.975em;
+  margin: 0 0.75em;
+}
+.link:first-of-type{
+  margin-left: 0;
+}
+.slash{
+  width: 0.5em;
+  height: 0.5em;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  transform: rotate(135deg);
+}
+.link:hover{
+  text-decoration: underline;
+}
+.layout{
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+}
+.time{
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+  width: 400px;
+  padding: 0.5em;
+  border: 1px solid gainsboro;
+  border-radius: 0.5em;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+.syllabus {
+  width: 3em;
+  height: 3em;
+  background-image: url("../../../../assets/img/student/syllabus.png");
+  background-position: center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  margin-right: 0.75em;
+  display: block;
+}
+.period{
+  display: flex;
+  flex-direction: column;
+}
+.material{
+  color: black;
+  font-weight: 600;
+}
+.session{
+  font-size: 0.9em;
+  margin-top: 0.1em;
+  color: gray;
+}
+.time:hover{
+  background-color: whitesmoke;
+  border-color: gray;
+}
+@media only screen and (max-width:768px){
+  .time{
+      width: 300px;
+  }
+}
+@media only screen and (max-width:450px){
+  .material{
+      font-size: 0.975em;
+  }
+  .main{
+      padding: 1em;
+  }
+}
+@media only screen and (max-width:360px){
+  .material{
+      font-size: 0.95em;
+  }
+}
+.syllabus-pdf {
+  width: 100%;
+  height: 450px;
+  margin: auto;
+  border: 1px solid black;
+}
+.outer {
+   display: flex;
+   flex-wrap: wrap;
+}
+.aside {
+  width: 40%;
+  margin: 20px auto;
+  //margin: 20px 100px;
+}
+@media only screen and (max-width:1200px){
+  .syllabus-pdf {
+    height: 400px;
+  }
+}
+@media only screen and (max-width:1000px){
+  .aside {
+    margin: 20px;
+  }
+}
+@media only screen and (max-width:850px){
+  .syllabus-pdf{
+    height: 300px;
+  }
+}
+@media only screen and (max-width:665px){
+  .aside {
+    width: 300px;
+    margin: 0;
+  }
+}
+@media only screen and (max-width:350px){
+  .aside, .time{
+    width: 90%;
+  }
+}

@@ -1,0 +1,74 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 100%;
+    min-height: 100vh;
+}
+.main{
+    display: flex;
+    flex-direction: column; 
+    padding: 1.25em;
+    width: 85%;
+    margin: 0 auto;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em 2em;
+    background-color: white;
+    border-radius: 0.75em;
+    border: 1px solid gainsboro;
+}
+table  {
+  margin-top:3rem;
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+  width: 80%;
+}
+th  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+  background-color: #7e94a7;
+}
+td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+}
+.table-container, .details-container, .btn-container{
+    display: flex;
+    justify-content: center;
+}
+.btn::before{
+    background-image: url("../../../assets/img/student/download.png");
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    content: '';
+    width: 1.5em;
+    height: 1.5em;
+    background-size: 1em;
+    margin-right: 0.25em;
+    filter: invert(1);
+}
+.btn{
+    font-size: 0.80em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 1em 0.5em 0.5em;
+    cursor: pointer;
+    border: none;
+    background-color: #1982e4;
+    margin-top: 15px;
+}

@@ -1,0 +1,107 @@
+<h2 mat-dialog-title class="dialog-title">Family Details</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="familyForm">
+    <mat-form-field class="form-field three-field"> 
+      <mat-label>Father Name</mat-label>
+      <input matInput formControlName="Father_Name" required>
+      <mat-error *ngIf="familyForm.get('Father_Name').invalid">Please Enter Valid Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Father Contact Number</mat-label>
+      <input matInput  formControlName="Father_ContactNumber" required maxlength="10">
+      <mat-error *ngIf="familyForm.get('Father_ContactNumber').invalid">Please Enter Valid Mobile Number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Father Email</mat-label>
+      <input matInput formControlName="Father_MailID" required>
+      <mat-error *ngIf="familyForm.get('Father_MailID').invalid">Please Enter Valid Email</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="form-field three-field">
+      <mat-label>Father Occupation</mat-label>
+      <input matInput formControlName="Father_Occupation" required>
+      <mat-error *ngIf="familyForm.get('Father_Occupation').invalid">Please Enter Valid Occupation</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Father Affilation</mat-label>
+      <input matInput formControlName="Father_Affilation" required>
+      <mat-error *ngIf="familyForm.get('Father_Affilation').invalid">Please Enter Valid Affilation</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Father Company</mat-label>
+      <input matInput formControlName="Father_Company">
+      <mat-error *ngIf="familyForm.get('Father_Company').invalid">Please Enter Valid Company</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Mother Name</mat-label>
+      <input matInput formControlName="Mother_Name" required>
+      <mat-error *ngIf="familyForm.get('Mother_Name').invalid">Please Enter Valid Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Mother Contact Number</mat-label>
+      <input matInput  formControlName="Mother_ContactNumber" required maxlength="10">
+      <mat-error *ngIf="familyForm.get('Mother_ContactNumber').invalid">Please Enter Valid Mobile Number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Mother Email</mat-label>
+      <input matInput formControlName="Mother_MailID" required>
+      <mat-error *ngIf="familyForm.get('Mother_MailID').invalid">Please Enter Valid Email</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="form-field three-field">
+      <mat-label>Mother Occupation</mat-label>
+      <input matInput formControlName="Mother_Occupation" required>
+      <mat-error *ngIf="familyForm.get('Mother_Occupation').invalid">Please Enter Valid Occupation</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Mother Affilation</mat-label>
+      <input matInput formControlName="Mother_Affilation" required>
+      <mat-error *ngIf="familyForm.get('Mother_Affilation').invalid">Please Enter Valid Affilation</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Mother Company</mat-label>
+      <input matInput formControlName="Mother_Company">
+      <mat-error *ngIf="familyForm.get('Mother_Company').invalid">Please Enter Valid Company</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field">
+      <mat-label>Parents Annual Income</mat-label>
+      <input type="number" matInput formControlName="Parents_Annual_Income" required>
+      <mat-error *ngIf="familyForm.get('Parents_Annual_Income').invalid">Please Enter Valid Income</mat-error>
+    </mat-form-field><br>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Local Guardian Name</mat-label>
+      <input matInput formControlName="Local_Guardian_Name" required>
+      <mat-error *ngIf="familyForm.get('Local_Guardian_Name').invalid">Please Enter Valid Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Local Guardian Address</mat-label>
+      <input matInput formControlName="Local_Guardian_Address">
+      <mat-error *ngIf="familyForm.get('Local_Guardian_Address').invalid">Please Enter Valid Address</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field">
+      <mat-label>Local Guardian Contact Number</mat-label>
+      <input matInput formControlName="Local_Guardian_Contact_Number" required maxlength="10">
+      <mat-error *ngIf="familyForm.get('Local_Guardian_Contact_Number').invalid">Please Enter Valid Mobile Number</mat-error>
+    </mat-form-field>
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-btns">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="familyForm.invalid" (click)="onSubmit()">Save</button>
+</mat-dialog-actions>
+

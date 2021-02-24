@@ -1,0 +1,140 @@
+<div class="container">
+   <div class="main">
+       <div class="placements-section">
+           <h3 class="section-title" >
+               <button class="tab-title" [style.background-color]="pColor" (click) ="placementsTab()">Placements</button>
+               <button class="tab-title" [style.background-color]="hColor" (click) ="higherStudiesTab()">Higher Studies</button>
+               <button class="tab-title" [style.background-color]="oColor" (click) ="othersTab()">Others</button>
+           </h3>
+
+           <div *ngIf="openTab == 'placement'">
+                <div class="placement-card" *ngFor="let p of placements">
+                    <h3 class="placement-name">{{p.Company}}</h3>
+                    <div class="card-content">
+                        <div class="place-details">
+                            <div class="input-field">
+                                <div class="text-wrap">
+                                    <span class="label">Designation</span>
+                                    <p>{{p.Designation}}</p>
+                                </div>
+                                <div class="text-wrap">
+                                    <span class="label">Type</span>
+                                    <p>{{filterPlacementType(p.Placement_Type_Ref).Ref_Name}}</p>
+                                </div>
+                                <div class="text-wrap">
+                                    <span class="label">Date</span>
+                                    <p>{{p.Joining_Date | date:'dd-MM-yyyy'}}</p>
+                                </div>
+                            </div>
+                            <div class="input-field">
+                                <div class="text-wrap">
+                                    <span class="label">Package</span>
+                                    <p>{{p.Package}}</p>
+                                </div>
+                                <div class="text-wrap">
+                                    <span class="label"></span>
+                                    <p></p>
+                                </div>
+                                <div class="text-wrap">
+                                    <span class="label"></span>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pdf-preview">
+                            <pdf-viewer [src]="fileSrc" [original-size]="false" [show-all]="false" [zoom-scale]="page-height"></pdf-viewer>
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <button class="edit-icon" (click)="editPlacement(p.Placement_ID)">Edit</button>
+                    </div>
+                    <div class="btns">
+                        <button class="del-icon" (click)="deletePlacement(p.Placement_ID)">Delete</button>
+                    </div>
+                </div>
+
+                <div style="margin-top:2rem;text-align:center;"><br>
+                <button class="button" (click)="createPlacement()">ADD Placement</button>
+                </div>
+          </div>
+
+          <div *ngIf="openTab == 'higher'">
+                <div class="placement-card" *ngFor="let h of higherStudies">
+                    <h3 class="placement-name">{{h.University}}</h3>
+                    <div class="card-content">
+                        <div class="high-details">
+                            <div class="input-field">
+                                <div class="text-wrap">
+                                    <span class="label">Degree</span>
+                                    <p>{{h.Degree}}</p>
+                                </div>
+                                <div class="text-wrap">
+                                    <span class="label">Specialization</span>
+                                    <p>{{h.Specialization}}</p>
+                                </div>
+                                <div class="text-wrap">
+                                    <span class="label">Mode</span>
+                                    <p>{{filterAdmissionMode(h.Admission_Mode_Ref).Ref_Name}}</p>
+                                </div>
+                            </div>
+                            <div class="input-field">
+                                <div class="text-wrap">
+                                    <span class="label">Score</span>
+                                    <p>{{h.Score}}</p>
+                                </div>
+                                <div class="text-wrap">
+                                    <span class="label">Country</span>
+                                    <p>{{h.Country}}</p>
+                                </div>
+                                <div class="text-wrap">
+                                    <span class="label"></span>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pdf-preview">
+                            <pdf-viewer [src]="fileSrc" [original-size]="false" [show-all]="false" [zoom-scale]="page-height"></pdf-viewer>
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <button class="edit-icon" (click)="editHigherStudies(h.HigherStudies_ID)">Edit</button>
+                    </div>
+                    <div class="btns">
+                        <button class="del-icon" (click)="deleteHigherStudies(h.HigherStudies_ID)">Delete</button>
+                    </div>
+                </div>
+
+                <div style="margin-top:2rem;text-align:center;"><br>
+                    <button class="button" (click)="createHigherStudies()">Add Higher Study</button>
+                </div>
+          </div>
+
+          <div *ngIf="openTab == 'other'">
+              <div class="others-card">
+                  <form [formGroup]="othersForm">
+
+                    <mat-form-field class="form-field" appearance="fill">
+                      <mat-label>Type</mat-label>
+                      <mat-select formControlName="type" required>
+                        <mat-option *ngFor="let t of types" [value]="t">{{t}}</mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="othersForm.get('type').invalid">Select Type</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="form-field"> 
+                      <mat-label>Description</mat-label>
+                      <textarea matInput formControlName="description" required></textarea>
+                      <mat-error *ngIf="othersForm.get('description').invalid">Please Enter Description</mat-error>
+                    </mat-form-field>
+
+                    <div style="text-align: center;">
+                        <button class="button">Save</button>
+                    </div>
+                
+                </form>
+              </div>
+          </div>
+          
+       </div>
+   </div>
+</div>

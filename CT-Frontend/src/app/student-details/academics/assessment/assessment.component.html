@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="main">
+    <div class="assessment-section" *ngIf="assessment!=null">
+      <h2>Assessment {{assess_num}}</h2>
+      <div class="quick-links" *ngIf="courseTitle != null && session!=null">
+          <a routerLink="/student-details/academics" class="link">Academics</a>
+          <span class="slash"></span>
+          <a [routerLink]="['/student-details', 'academics', 'course-list', session.reference_id]" class="link">{{session.description}}</a>
+          <span class="slash"></span>
+          <a [routerLink]="['/student-details', 'academics', 'course-features', cregst_id]" class="link" >{{courseTitle}}</a>
+          <span class="slash"></span>
+          <a [routerLink]="['/student-details', 'academics', 'assessment-list', cregst_id]" class="link">Assessments</a>
+      </div>
+      <div class="header">
+        <div class="college-details">
+            <div class="image"><img src="../../../../assets/img/student/mit_logo.png" alt="college-logo" class="college-logo"></div>
+            <h1 class="college-title">Madras Institute of Technology</h1>
+        </div>
+        <div class="assessment-details">
+            <h2 class="assesment-name">{{course.course_code}} - {{courseTitle}}</h2>
+            <div class="assessment-values">
+                <p class="assessment-time">Time : 3 hrs</p>
+                <p class="total-marks">Total Marks : 100</p>
+            </div>
+        </div>
+      </div>
+      <div *ngFor="let s of assessment.section; let sId = index">
+        <div class="horizontal-line-break"></div>
+        <h4 class="part">{{s.name}}</h4>
+        <div>
+          <div class="question-number bold">
+            Q.No.
+          </div>
+          <div class="question bold">
+            Question
+          </div>
+          <div  class="mark bold">
+            Marks
+          </div>
+        </div>
+        <div *ngFor="let q of s.questions; let qId = index">
+          <div>
+            <div class="question-number">
+              {{q.question_num}}.
+            </div>
+            <div class="question" [innerHTML]="q.question_stmt"></div>
+            <div class="mark">
+              <span *ngIf="marks!=null">{{filterMarks(q.question_num)}} /</span> {{q.marks}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br><div class="horizontal-line-break"></div>
+      <!-- <div class="btn">
+        <button mat-raised-button class="button" color="primary" (click)="submitAssessment()" >Submit</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+  

@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="main">
+         <div class="awards-section">
+            <h3 class="section-title">
+                <span>Awards</span>
+            </h3>
+            <div class="award-card" *ngFor="let a of awards">
+               <h3 class="award-name">{{a.Award_Name}}</h3>
+               <div class="card-content">
+                   <div class="award-details">
+                        <div class="input-field">
+                            <div class="text-wrap">
+                                <span class="label">Organizer Name</span>
+                                <p>{{a.Organizer_Name}}</p>
+                            </div>
+                            <div class="text-wrap">
+                                <span class="label">Type</span>
+                                <p>{{filterawardType(a.Award_Type_Ref).Ref_Name}}</p>
+                            </div>
+                            <div class="text-wrap">
+                                <span class="label">Category</span>
+                                <p>{{filterAwardCategory(a.Award_Category_Ref).Ref_Name}}</p>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="text-wrap">
+                                <span class="label">Place</span>
+                                <p>{{a.Place_of_Event}}</p>
+                            </div>
+                            <div class="text-wrap">
+                                <span class="label">Date</span>
+                                <p>{{a.Award_Date | date:'dd-MM-yyyy'}}</p>
+                            </div>
+                            <div class="text-wrap">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pdf-preview">
+                        <pdf-viewer [src]="fileSrc" [original-size]="false" [show-all]="false" [zoom-scale]="page-height"></pdf-viewer>
+                    </div>
+               </div>
+               <div class="btns">
+                   <button class="edit-icon" (click)="editModel(a.Award_ID)">Edit</button>
+               </div>
+               <div class="btns">
+                   <button class="del-icon" (click)="deleteModel(a.Award_ID)">Delete</button>
+               </div>
+           </div>
+           <br>
+           <div class="addbtn-container">
+               <button class="add-btn" (click)="addModel()">Add Award</button>
+           </div>
+         </div>
+    </div>
+</div>

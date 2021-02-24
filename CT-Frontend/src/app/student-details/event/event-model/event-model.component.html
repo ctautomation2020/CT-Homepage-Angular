@@ -1,0 +1,72 @@
+<h2 mat-dialog-title class="dialog-title">Event Participated</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="eventForm">
+    <mat-form-field class="form-field two-field"> 
+      <mat-label>Event Name</mat-label>
+      <input matInput formControlName="Event_Name" required>
+      <mat-error *ngIf="eventForm.get('Event_Name').invalid">Please Enter Valid Name</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="form-field two-field"> 
+      <mat-label>Organisation</mat-label>
+      <input matInput formControlName="Event_Organizer">
+      <mat-error *ngIf="eventForm.get('Event_Organizer').invalid">Please Enter Valid Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field  class="form-field-dropdown two-field" appearance="fill">
+      <mat-label>Date[DD/MM/YYYY]</mat-label>
+      <input matInput [matDatepicker]="datepicker" [max]="today" formControlName="Event_Date" required>
+      <mat-error *ngIf="eventForm.get('Event_Date').invalid">Please Choose Valid Date</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="datepicker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #datepicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field">
+      <mat-label>Prize</mat-label>
+      <input matInput  formControlName="Prize_Won_Details">
+      <mat-error *ngIf="eventForm.get('Prize_Won_Details').invalid">Enter Valid Details</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-dropdown three-field" appearance="fill">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="Event_Type_Ref" required>
+        <mat-option *ngFor="let et of data.eventType" [value]="et.Ref_Code">{{et.Ref_Name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="eventForm.get('Event_Type_Ref').invalid">Please Choose Type</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-dropdown three-field" appearance="fill">
+      <mat-label>Participation</mat-label>
+      <mat-select formControlName="Participation_Type_Ref" required>
+        <mat-option *ngFor="let pt of data.participationType" [value]="pt.Ref_Code">{{pt.Ref_Name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="eventForm.get('Participation_Type_Ref').invalid">Please Choose Participation</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field" *ngIf="eventForm.get('Participation_Type_Ref').value == 120">
+      <mat-label>No of Team Members</mat-label>
+      <input matInput  formControlName="Team_Size" type="number">
+      <mat-error *ngIf="eventForm.get('Team_Size').invalid">Enter Valid Details</mat-error>
+    </mat-form-field>
+
+    <div class="file-div">
+      <label class="file-label" for="file">Certificate</label>
+      <div class="input-view">
+        <input class="file-input" type="file" formControlName="file" (change)="onFileChange($event)">
+        <a *ngIf="data.event!=null && data.event.Certificate_Copy!=''" class="pdf-link" [href]="fileSrc" target="_blank">view file</a>
+        <div *ngIf="fileToUpload!=null">
+          <mat-error *ngIf="!sizeValid" style="font-size: small;">Filesize > 1 MB<br></mat-error>
+          <mat-error *ngIf="!typeValid" style="font-size: small;">Not PDF file</mat-error>
+        </div>
+      </div>
+    </div>
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-btns">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="eventForm.invalid || !(sizeValid && typeValid)" (click)="onSubmit()">Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,202 @@
+<div class="container">
+    <div class="main" *ngIf="student!=null">
+        <div class="profile-section" >
+            <div class="profile-left">
+                <div class="image-wrap">
+                    <img [src]="photoURL" class="profile-photo">
+                    <span class="edit-photo" (click)="openImageUpload()"></span>
+                </div>
+                <h2 class="student-name">{{student.First_Name}}</h2>
+                <span class="register-no">{{student.Register_No}}</span>
+                <span class="college">Department of Computer Technology</span>
+                <span class="college">Madras Institute of Technology</span>
+            </div>
+            <div class="vertical-line-break"></div>
+            <div class="profile-right">
+                <h3 class="section-title">
+                    <span>Profile</span>
+                    <span class="edit-icon" (click)="onOpenModel()">Edit Profile</span>
+                </h3>
+                <div class="text-wrap">
+                    <span class="label">Name</span>
+                    <p>{{student.First_Name}} {{student.Middle_Name}} {{student.Last_Name}}</p>
+                </div>
+                <div class="text-wrap">
+                    <span class="label">Email Address</span>
+                    <p><a>{{student.MailID}}</a></p>
+                </div>
+                <div class="text-wrap">
+                    <span class="label">Contact</span>
+                    <p><a>{{student.Primary_ContactNumber}}</a></p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="personal-section">
+            <h3 class="section-title">Personal Details</h3>
+            <div class="input-field">
+                <div class="text-wrap">
+                <span class="label">First Name</span>
+                <p>{{student.First_Name}}</p>
+                </div>
+                <div class="text-wrap">
+                    <span class="label">Middle Name</span>
+                    <p>{{student.Middle_Name}}</p>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap">
+                    <span class="label">Last Name</span>
+                    <p>{{student.Last_Name}}</p>
+                </div>
+                <div class="text-wrap" *ngIf="gender != null">
+                    <span class="label">Gender</span>
+                  <p *ngIf="student.Gender_Ref!=null">{{filterGender().Ref_Name}}</p>
+              </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap">
+                    <span class="label">Date of Birth</span>
+                    <p *ngIf="student.DOB!=null">{{student.DOB | date:'longDate'}}</p>
+                </div>
+                <div class="text-wrap" *ngIf="community != null">
+                    <span class="label">Community</span>
+                    <p>{{filterCommunity().Ref_Name}}</p>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap">
+                    <span class="label">Caste</span>
+                    <p>{{student.Caste}}</p>
+                </div>
+                <div class="text-wrap">
+                    <span class="label">Aadhar Card Number</span>
+                    <p>{{student.Aadhar_Card}}</p>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap" *ngIf="bloodGroup != null">    
+                    <span class="label">Blood Group</span>
+                    <p>{{filterBloodGroup().Ref_Name}}</p>
+                </div>
+            </div>
+            <div class="horizontal-line-break"></div>
+            <h3 class="section-title">College Details</h3>
+            <div class="input-field">
+                <div class="text-wrap" *ngIf="residentialType != null">  
+                    <span class="label">Residential Type</span>
+                    <p>{{filterResidentialType().Ref_Name}}</p>
+                </div>
+                <div class="text-wrap" *ngIf="student.Hostel_Block_Room != ''">
+                    <span class="label">Hostel Block & Room No.</span>
+                    <p>{{student.Hostel_Block_Room}}</p>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap" *ngIf="facultyAdvisors != null">
+                    <span class="label">Faculty Advisor</span>
+                    <p>{{filterFA().First_Name}} {{filterFA().Last_Name}}</p>
+                </div>
+                <div class="text-wrap" *ngIf="programme != null">  
+                    <span class="label">Programme</span>
+                    <p>{{filterProgramme().Ref_Name}}</p>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap" *ngIf="branch != null">  
+                    <span class="label">Branch</span>
+                    <p>{{filterBranch().Ref_Name}}</p>
+                </div>
+                <div class="text-wrap" *ngIf="registrationMode != null">  
+                    <span class="label">Registration</span>
+                    <p>{{filterRegistrationMode().Ref_Name}}</p>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap">
+                    <span class="label">Cut-Off/GATE Score</span>
+                    <p>{{student.GATE_Cutoff_Mark}}</p>
+                </div>
+                <div class="text-wrap">
+                    <span class="label">Date of Admission</span>
+                    <p>{{student.Admission_Date | date:'MMMM yyyy'}}</p>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap" *ngIf="admissionCategory != null">  
+                    <span class="label">Admission Category</span>
+                    <p>{{filterAdmissionCategory().Ref_Name}}</p>
+                </div>
+                <div class="text-wrap" *ngIf="volunteer != null">  
+                    <span class="label">Volunteer</span>
+                    <p>{{filterVolunteer().Ref_Name}}</p>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap" *ngIf="scholarshipReceived != null">  
+                    <span class="label">Scholarship Received</span>
+                    <p>{{filterScholarshipReceived().Ref_Name}}</p>
+                </div>
+                <div class="text-wrap" *ngIf="student.Scholarship_Details != ''">  
+                    <span class="label">Scholarship Details</span>
+                    <p>{{student.Scholarship_Details}}</p>
+                </div>
+            </div>
+            <div class="horizontal-line-break"></div>
+            <h3 class="section-title">Contact Details</h3>
+            <div class="input-field">
+                <div class="text-wrap">
+                    <span class="label">Email</span>
+                    <p>{{student.MailID}}</p>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap">
+                    <span class="label">Primary Contact</span>
+                    <p>{{student.Primary_ContactNumber}}</p>
+                </div>
+                <div class="text-wrap">
+                    <span class="label">Secondary Contact</span>
+                    <p>{{student.Secondary_ContactNumber}}</p>
+                </div>
+            </div>
+            <div class="horizontal-line-break"></div>
+            <h3 class="section-title">Residential Details</h3>
+            <div class="input-field">
+                <div class="text-wrap">
+                    <span class="label">Door Number / Street Name</span>
+                    <p>{{student.Address_Line1}}</p>
+                </div>
+                <div class="text-wrap">
+                    <span class="label">Town / Area</span>
+                    <p>{{student.Address_Line2}}</p>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap">
+                    <span class="label">City</span>
+                    <p>{{student.Address_Line3}}</p>
+                </div>
+                <div class="text-wrap">
+                    <span class="label">Pin Code</span>
+                    <p>{{student.Address_Line4}}</p>
+              </div>
+            </div>
+            <div class="input-field">
+                <div class="text-wrap">
+                    <span class="label">Correspondance Address</span>
+                    <p>{{student.Correspondence_Address}}</p>
+                </div>
+            </div>
+  
+        </div>
+        <br>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  

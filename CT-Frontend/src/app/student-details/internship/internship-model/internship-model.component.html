@@ -1,0 +1,78 @@
+<h2 mat-dialog-title class="dislog-title">Internship Details</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="internshipForm">
+    <mat-form-field class="form-field three-field">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="Title" required>
+      <mat-error *ngIf="internshipForm.get('Title').invalid">Please Enter Title</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field"> 
+      <mat-label>Company Name</mat-label>
+      <input matInput formControlName="Company" required>
+      <mat-error *ngIf="internshipForm.get('Company').invalid">Please Enter Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field"> 
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="Address" required>
+      <mat-error *ngIf="internshipForm.get('Address').invalid">Please Enter Address</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field" appearance="fill">
+      <mat-label>Mode</mat-label>
+      <mat-select formControlName="Selection_Mode_Ref" required>
+        <mat-option *ngFor="let st of data.selectionType" [value]="st.Ref_Code">{{st.Ref_Name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="internshipForm.get('Selection_Mode_Ref').invalid">Please Choose an Option</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field" appearance="fill">
+      <mat-label>Stipend</mat-label>
+      <mat-select formControlName="Stiphend_Option_Ref" required>
+        <mat-option *ngFor="let st of data.stiphendType" [value]="st.Ref_Code">{{st.Ref_Name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="internshipForm.get('Stiphend_Option_Ref').invalid">Please Choose an Option</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field three-field" *ngIf="internshipForm.get('Stiphend_Option_Ref').value==86">
+      <mat-label>Amount</mat-label>
+      <input matInput formControlName="Stiphend_Amount" required type="number">
+      <mat-error *ngIf="internshipForm.get('Stiphend_Amount').invalid">Please Enter Number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="Start_Date" formControlName="Start_Date" required>
+      <mat-error *ngIf="internshipForm.get('Start_Date').invalid">Please Enter Date</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="Start_Date"></mat-datepicker-toggle>
+      <mat-datepicker #Start_Date></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="End_Date" formControlName="End_Date" required>
+      <mat-error *ngIf="internshipForm.get('End_Date').invalid">Please Enter Date</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="End_Date"></mat-datepicker-toggle>
+      <mat-datepicker #End_Date></mat-datepicker>
+    </mat-form-field>
+
+    <div class="form-field">
+      <label class="file-label" for="file">Order Copy</label>
+      <div class="input-view">
+        <input class="file-input" type="file" formControlName="file" (change)="onFileChange($event)">
+        <a *ngIf="data.internship!=null && data.internship.Order_Copy!=''" class="pdf-link" [href]="fileSrc" target="_blank">view file</a>
+        <div *ngIf="fileToUpload!=null">
+          <mat-error *ngIf="!sizeValid" style="font-size: small;">Filesize > 1 MB<br></mat-error>
+          <mat-error *ngIf="!typeValid" style="font-size: small;">Not PDF file</mat-error>
+        </div>
+      </div>
+    </div>
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-btns">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="internshipForm.invalid || !(sizeValid && typeValid)" (click)="onSubmit()">Save</button>
+</mat-dialog-actions>

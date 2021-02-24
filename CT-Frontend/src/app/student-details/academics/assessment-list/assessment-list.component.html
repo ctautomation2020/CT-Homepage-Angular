@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="main">
+      <h2>Assessments</h2>
+      <div class="quick-links" *ngIf="courseTitle != null && session!=null">
+        <a routerLink="/student-details/academics" class="link">Academics</a>
+          <span class="slash"></span>
+          <a [routerLink]="['/student-details', 'academics', 'course-list', session.reference_id]" class="link">{{session.description}}</a>
+          <span class="slash"></span>
+          <a [routerLink]="['/student-details', 'academics', 'course-features', cregst_id]" class="link" >{{courseTitle}}</a>
+          <span class="slash"></span>
+          <a class="link">Assessments</a>
+      </div>
+      <div class="time-period">
+          <div class="layout">
+              <div class="time" *ngFor="let assess of assessList" [routerLink]="['/student-details', 'academics', 'assessment' , assess ,cregst_id]">
+                  <span class="point-assessment"></span>
+                  <div class="period">
+                      <span class="asses">Assessment {{assess}} <img *ngIf="evaluated[assess]" class="icon" src="../../../../assets/img/student/evaluated.jpg"></span>
+                      <span class="sess"></span>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div>

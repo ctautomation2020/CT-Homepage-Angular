@@ -1,0 +1,62 @@
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+.form-field-dropdown,.form-field {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+.three-field{
+   width: 30%;
+}
+.four-field{
+   width: 20%;
+}
+.two-field{
+   width: 45%;
+}
+.group{
+   padding: 10px;
+   border: 3px ridge;
+   margin-bottom: 20px;
+}
+.dialog-title{
+   font-size: 25px;
+}
+.radio-btn {
+  padding-top: 5px;
+  width: fit-content;
+}
+@media only screen and (max-width: 1490px) {
+  .gender-label {
+    display: block;
+  }
+}
+@media only screen and (max-width: 1225px) {
+   .radio-btn:first-child {
+     margin-left: -5px;
+   }
+}
+@media only screen and (max-width: 900px) {
+   .three-field, .four-field {
+     width: 45%;
+   }
+}
+@media only screen and (max-width: 845px) {
+   .radio-btn:first-child {
+     margin-left: -3px;
+   }
+}
+@media only screen and (max-width: 600px) {
+   .two-field, .three-field, .four-field {
+     width: 90%;
+   }
+   .form-field, .form-field-dropdown {
+     padding-left: 10px;
+   }
+   .radio-btn {
+     width: 80%;
+   }
+   .radio-btn:first-child {
+     margin-left: 6px;
+   }
+}

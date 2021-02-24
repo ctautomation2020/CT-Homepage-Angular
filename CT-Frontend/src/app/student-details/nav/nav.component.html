@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar></mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="./student"><span class="icon"><mat-icon mat-list-icon>person</mat-icon></span><span class="item">Personal Details</span></a>
+      <a mat-list-item routerLink="./family"><span class="icon"><mat-icon mat-list-icon>people</mat-icon></span><span class="item">Family Details</span></a>
+      <a mat-list-item routerLink="./event"><span class="icon"><mat-icon mat-list-icon>event</mat-icon></span><span class="item">Events Participated</span></a>
+      <a mat-list-item routerLink="./internship"><span class="icon"><mat-icon mat-list-icon>bookmark</mat-icon></span><span class="item" >Internships</span></a>
+      <a mat-list-item routerLink="./placements"><span class="icon"><mat-icon mat-list-icon>bookmark</mat-icon></span><span class="item" >Placements / <br>Higher Studies</span></a>
+      <a mat-list-item routerLink="./awards"><span class="icon"><mat-icon mat-list-icon>card_membership</mat-icon></span><span class="item" >Awards</span></a>
+      <a mat-list-item routerLink="./mark"><span class="icon"><mat-icon mat-list-icon>assessment</mat-icon></span><span class="item" >Marks</span></a>
+      <a mat-list-item  routerLink="./academics"><span class="icon"><mat-icon mat-list-icon>publish</mat-icon></span><span class="item">Academics</span></a>
+      <!--<a mat-list-item routerLink="./report"><span class="icon"><mat-icon mat-list-icon>save_alt</mat-icon></span><span class="item">Report</span></a>-->
+      <a mat-list-item (click)="onLogout()"><span class="icon"><mat-icon mat-list-icon>exit_to_app</mat-icon></span><span class="item">Logout</span></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="title">
+        <span class="dept">Department of <br class="break"> Computer Technology</span>
+        <span class="regno">{{regno}}</span>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

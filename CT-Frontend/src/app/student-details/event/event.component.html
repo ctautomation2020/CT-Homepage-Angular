@@ -1,0 +1,63 @@
+<div class="container">
+        <div class="main">
+        <div class="personal-section">
+            <h3 class="section-title">
+                <span>Events Participated</span>
+            </h3>
+            <div class="event-card" *ngFor="let e of events;let i=index">
+                <h3 class="event-name">{{e.Event_Name}}</h3>
+                <div class="card-content">
+                    <div class="event-details">
+                        <div class="input-field">
+                            <div class="text-wrap">
+                                <span class="label">Organisation</span>
+                                <p>{{e.Event_Organizer}}</p>
+                            </div>
+                            <div class="text-wrap">
+                                <span class="label">Date</span>
+                                <p>{{e.Event_Date | date:'longDate'}}</p>
+                            </div>
+                            <div class="text-wrap">
+                                <span class="label">Prize</span>
+                                <p>{{e.Prize_Won_Details}}</p>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="text-wrap" *ngIf="eventType!=null">
+                                <span class="label">Type</span>
+                                <p>{{filterEventType(e.Event_Type_Ref).Ref_Name}}</p>
+                            </div>
+                            <div class="text-wrap" *ngIf="participationType!=null">
+                                <span class="label">Participation</span>
+                                <p>{{filterParticipationType(e.Participation_Type_Ref).Ref_Name}}</p>
+                            </div>
+                            <div class="text-wrap">
+                                <span class="label" *ngIf="e.Participation_Type_Ref!=119">Team Size</span>
+                                <p *ngIf="e.Participation_Type_Ref!=119">{{e.Team_Size}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pdf-preview">
+                        <pdf-viewer [src]="fileSrc" [original-size]="false" [autoresize]="true" [show-all]="false"></pdf-viewer>
+                    </div>
+                </div>
+                <div class="btns">
+                    <button class="edit-icon" (click)="editModel(e.Event_ID)">Edit</button>
+                </div>
+                <div class="btns">
+                    <button class="del-icon" (click)="deleteModel(e.Event_ID)">Delete</button>
+                </div>
+            </div>
+            <br>
+            <div class="addbtn-container">
+                <button class="add-btn" (click)="addModel()">Add Event</button>
+            </div>
+        </div>
+    </div>
+  
+  
+  
+  
+  
+  
+  

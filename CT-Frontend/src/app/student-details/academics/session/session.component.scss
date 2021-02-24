@@ -1,0 +1,157 @@
+*,::after,::before{
+  font-family: 'Source Sans Pro','Open Sans', serif;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+.container{
+  background-color: whitesmoke;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+.main{
+  background-color: white;
+  width: 95%;
+  padding: 2em;
+  margin: 1em auto;
+  border: 1px solid gainsboro;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+.quick-links{
+  display: flex;
+  align-items: center;
+  margin: 0.5em 0;
+}
+.link{
+  text-decoration: none;
+  color: #061c64;
+  font-size: 0.975em;
+  margin: 0 0.75em;
+}
+.link:first-of-type{
+  margin-left: 0;
+}
+.slash{
+  width: 0.5em;
+  height: 0.5em;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  transform: rotate(135deg);
+}
+.link:hover{
+  text-decoration: underline;
+}
+.layout{
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+}
+.time{
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+  width: 400px;
+  padding: 0.5em;
+  border: 1px solid gainsboro;
+  border-radius: 0.5em;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+.point{
+  width: 3em;
+  height: 3em;
+  background-image: url("../../../../assets/img/student/calendar.svg");
+  background-position: center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  margin-right: 0.75em;
+  display: block;
+}
+.period{
+  display: flex;
+  flex-direction: column;
+}
+.duration{
+  color: black;
+  font-weight: 600;
+}
+.session{
+  font-size: 0.9em;
+  margin-top: 0.1em;
+  color: gray;
+}
+.time:hover{
+  background-color: whitesmoke;
+  border-color: gray;
+}
+.sem-layout{
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1em;
+}
+.sem-subject{
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  background-color: white;
+  box-shadow: inset 0 0 0 1px gainsboro;
+  cursor: pointer;
+  border-radius: 0.5em;
+}
+.sem-symbol{
+  width: 2.5em;
+  height: 2.5em;
+  background-color: #354fa325;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 0.5em;
+  letter-spacing: 0.5px;
+}
+.sem-details{
+  width: calc(100% - 3.5em);
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.sem-text{
+  font-weight: 600;
+  font-size: 1.1em;
+}
+.sem-code{
+  margin-top: 0.2em;
+  color: #0f3970;
+}
+.sem-subject:hover{
+  background-color: #f8f8f8;
+  box-shadow: inset 0 0 0 1px gray;
+}
+@media only screen and (max-width:900px){
+  .sem-layout{
+      grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width:768px){
+  .time{
+      width: 100%;
+  }
+}
+@media only screen and (max-width:450px){
+  .duration{
+      font-size: 0.975em;
+  }
+  .main{
+      padding: 1em;
+  }
+}
+@media only screen and (max-width:360px){
+  .duration{
+      font-size: 0.95em;
+  }
+}

@@ -1,0 +1,44 @@
+.file-input {
+    outline: none;
+    width: 70%;
+}
+.del-icon::before{
+    background-image: url("../../../../assets/img/student/remove.png");
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-size: 1em;
+    margin-right: 0.25em;
+    filter: invert(1);
+}
+.del-icon{
+    background-color: #ee1d2f;
+    font-size: 0.80em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    width: 2em;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 1em 0.5em 0.5em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition-duration: .5s;
+}
+.del-icon:hover{
+    background-color: #6e0c14;
+    box-shadow: 0 5px 8px 1px gainsboro;
+}
+.del-icon:focus {
+    outline: none;
+}
+.file-input, .del-icon {
+    display: inline-block;
+}

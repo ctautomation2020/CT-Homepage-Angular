@@ -1,0 +1,64 @@
+<h2 mat-dialog-title class="dialog-title">Award Details</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="awardsForm">
+    <mat-form-field class="form-field two-field"> 
+      <mat-label>Award Name</mat-label>
+      <input matInput formControlName="Award_Name" required>
+      <mat-error *ngIf="awardsForm.get('Award_Name').invalid">Please Enter Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field">
+      <mat-label>Organizer</mat-label>
+      <input matInput formControlName="Organizer_Name" required>
+      <mat-error *ngIf="awardsForm.get('Organizer_Name').invalid">Please Enter Name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field" appearance="fill">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="Award_Type_Ref" required>
+        <mat-option *ngFor="let st of data.awardType" [value]="st.Ref_Code">{{st.Ref_Name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="awardsForm.get('Award_Type_Ref').invalid">Please Choose an Option</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field" appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="Award_Category_Ref" required>
+        <mat-option *ngFor="let st of data.awardCategory" [value]="st.Ref_Code">{{st.Ref_Name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="awardsForm.get('Award_Category_Ref').invalid">Please Choose an Option</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field">
+      <mat-label>Place</mat-label>
+      <input matInput formControlName="Place_of_Event" required>
+      <mat-error *ngIf="awardsForm.get('Place_of_Event').invalid">Please Enter Number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field two-field">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="Award_Date" [max]="today" formControlName="Award_Date" required>
+      <mat-error *ngIf="awardsForm.get('Award_Date').invalid">Please Enter Date</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="Award_Date"></mat-datepicker-toggle>
+      <mat-datepicker #Award_Date></mat-datepicker>
+    </mat-form-field>
+
+    <div class="file-div">
+      <label class="file-label" for="file">Certificate</label>
+      <div class="input-view">
+        <input class="file-input" type="file" formControlName="file" (change)="onFileChange($event)">&nbsp;&nbsp;&nbsp;
+        <a *ngIf="data.award!=null && data.award.Certificate_Copy!=''" class="pdf-link" [href]="fileSrc" target="_blank">view file</a>
+        <div *ngIf="fileToUpload!=null">
+          <mat-error *ngIf="!sizeValid" style="font-size: small;">Filesize > 1 MB<br></mat-error>
+          <mat-error *ngIf="!typeValid" style="font-size: small;">Not PDF file</mat-error>
+        </div>
+      </div>
+    </div>
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-btns">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="awardsForm.invalid || !(sizeValid && typeValid)" (click)="onSubmit()">Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="main">
+      <div class="quick-links" *ngIf="courseTitle != null && session!=null">
+        <a routerLink="/student-details/academics" class="link">Academics</a>
+          <span class="slash"></span>
+          <a [routerLink]="['/student-details', 'academics', 'course-list', session.reference_id]" class="link">{{session.description}}</a>
+          <span class="slash"></span>
+          <a [routerLink]="['/student-details', 'academics', 'course-features', cregst_id]" class="link" >{{courseTitle}}</a>
+          <span class="slash"></span>
+          <a class="link">Attendance</a>
+      </div>
+      <div class="hours"><h3>Attendance Hours Attended : {{attendanceCount()}} / {{attendance.length}}</h3></div>
+      <div>
+          <div class="att-layout">
+              <div class="tables" *ngFor="let month of displayValues">
+                <table>
+                    <tr>
+                        <th colspan="7" class="month">
+                            {{months[month.month]+" "+month.year}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th *ngFor="let d of days" class="day">{{d}}</th>
+                    </tr>
+                    <tr *ngFor="let vals of month.values">
+                        <td *ngFor="let p of vals" [style.background]="getColor(p.periods)" 
+                            [matTooltip]="getString(p.periods)" matTooltipPosition="above" matTooltipClass="multiline-tooltip">
+                          <div *ngIf="p.date" class="date">{{p.date}}</div>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

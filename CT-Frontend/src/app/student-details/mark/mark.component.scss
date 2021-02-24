@@ -1,0 +1,151 @@
+*,
+::after, ::before{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', 'Open Sans', sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 100%;
+    min-height: 100vh;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    padding: 1.25em;
+    width: 85%;
+    margin: 0 auto;
+}
+.mark-section{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em 2em;
+    background-color: white;
+    border-radius: 0.75em;
+    border: 1px solid gainsboro;
+}
+.section-title{
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.text-wrap{
+    margin-bottom: 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+.label{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #1369b9;
+    font-size: 0.8em;
+    margin-bottom: 0.35em;
+}
+.text-wrap a{
+    color: black;
+}
+.text-wrap a:hover{
+    text-decoration: underline;
+}
+.left{
+   margin-left:2rem;
+}
+.right{
+   margin-left:5rem;
+}
+.t-table  {
+  margin-top:3rem;
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.t-table1  {
+  margin-top:.01rem;
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.t-th  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.t-td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.button{
+    background-color: #1982e4;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: max-content;
+    padding: 0.5em 1.1em;
+    cursor: pointer;
+    font-size: 0.9em;
+    border: none;
+}
+.button:hover{
+    background-color: #0d5086;
+    box-shadow: 0 5px 8px 1px gainsboro;
+}
+.edit-icon::before{
+    background-image: url("../../../assets/img/student/edit.png");
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    content: '';
+    width: 1.5em;
+    height: 1.5em;
+    background-size: 1em;
+    margin-right: 0.25em;
+    filter: invert(1);
+}
+.edit-icon{
+    font-size: 0.80em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 1em 0.5em 0.5em;
+    cursor: pointer;
+    border: none;
+    width: 15%;
+    margin-left: auto;
+    transition-duration: .5s;
+}
+.edit-icon:hover{
+    background-color: #0c3e66;
+    box-shadow: 0 5px 8px 1px gainsboro;
+}
+.edit-icon{
+    background-color: #1982e4;
+}
+.gpa, .edit-div {
+    display: inline-flex;
+    width: 50%;
+}
+.gpa {
+    font-size: 17px;
+    font-weight: bold;
+}
+.form-field-dropdown {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}

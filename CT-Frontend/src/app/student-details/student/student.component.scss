@@ -1,0 +1,194 @@
+*,
+::after, ::before{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', 'Open Sans', sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 100%;
+    min-height: 100vh;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    padding: 1.25em;
+    width: 85%;
+    margin: 0 auto;
+}
+.profile-section{
+    display: flex;
+    background-color: white;
+    border-radius: 0.75em;
+    border: 1px solid gainsboro;
+    padding: 0.5em;
+}
+.profile-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+.image-wrap{
+    position: relative;
+    margin-bottom: 1em;
+}
+.profile-photo{
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.edit-photo,
+.edit-icon::before{
+    background-image: url("../../../assets/img/student/edit.png");
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.edit-photo{
+    width: 2em;
+    height: 2em;
+    background-size: 1em;
+    background-color: white;
+    position: absolute;
+    right: 0.75em;
+    bottom: 0.5em;
+    border: 1px solid gainsboro;
+}
+.edit-icon{
+    font-size: 0.65em;
+    background-color: #1982e4;
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 1em 0.5em 0.5em;
+    cursor: pointer;
+    transition-duration: .5s;
+}
+.edit-icon::before{
+    content: '';
+    width: 1.5em;
+    height: 1.5em;
+    background-size: 1em;
+    margin-right: 0.25em;
+    filter: invert(1);
+}
+.edit-icon:hover{
+    background-color: #0c3e66;
+    box-shadow: 0 5px 8px 1px gainsboro;
+}
+.student-name{
+    font-size: 1.5em;
+}
+.register-no{
+    margin: 0.5em 0 0.75em 0;
+    font-size: 0.95em;
+    font-weight: bold;
+    color: #3986c5;
+}
+.college{
+    font-size: 0.8em;
+    letter-spacing: 0.2px;
+    color: #597b97;
+}
+.vertical-line-break{
+    width: 1px;
+    margin: 1em 2em 1em 1em;
+    background-color: gainsboro;
+    display: block;
+}
+.profile-right{
+    padding: 1em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.section-title{
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.text-wrap{
+    margin-bottom: 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+.label{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #1369b9;
+    font-size: 0.8em;
+    margin-bottom: 0.35em;
+}
+.text-wrap a{
+    color: black;
+}
+.text-wrap a:hover{
+    text-decoration: underline;
+}
+.personal-section{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em 2em;
+    background-color: white;
+    border-radius: 0.75em;
+    border: 1px solid gainsboro;
+}
+.input-field{
+    display: flex;
+}
+.input-field .text-wrap{
+    width: 50%;
+    padding-right: 0.15em;
+}
+.horizontal-line-break{
+    width: 100%;
+    height: 1px;
+    background-color: gainsboro;
+    margin: 1em 0.15em;
+}
+@media only screen and (max-width:1100px){
+    .main{
+        width: 85%;
+    }
+}
+@media only screen and (max-width:1000px){
+    .main{
+        width: 85%;
+    }
+}
+@media only screen and (max-width:900px){
+    .main{
+        width: 90%;
+    }
+}
+@media only screen and (max-width:800px){
+    .main{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:700px){
+    .profile-section,
+    .input-field{
+        flex-direction: column;
+    }
+    .vertical-line-break{
+        display: none;
+    }
+    .input-field .text-wrap{
+        width: 100%;
+    }
+}

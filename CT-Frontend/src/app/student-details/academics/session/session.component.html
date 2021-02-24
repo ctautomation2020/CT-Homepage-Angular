@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="main">
+      <h2>Academics</h2>
+      <div class="quick-links">
+          <a class="link">Session</a>
+      </div>
+      <div class="time-period">
+          <div class="layout">
+              <div class="time" *ngFor="let s of sessions" (click)="onSessionSelect(s)">
+                  <span class="point"></span>
+                  <div class="period">
+                      <span class="duration">{{s.description}}</span>
+                      <span class="session">{{s.category}}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

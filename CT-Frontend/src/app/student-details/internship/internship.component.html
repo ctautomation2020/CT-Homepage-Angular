@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="main">
+         <div class="internship-section">
+            <h3 class="section-title">
+                <span>Internships</span>
+            </h3>
+
+            <div class="internship-card" *ngFor="let i of internships">
+               <h3 class="internship-name">{{i.Company}}</h3>
+               <div class="card-content">
+                   <div class="internship-details">
+                        <div class="input-field">
+                            <div class="text-wrap">
+                                <span class="label">Title</span>
+                                <p>{{i.Title}}</p>
+                            </div>
+                            <div class="text-wrap" *ngIf="selectionType != null">
+                                <span class="label">Mode</span>
+                                <p>{{filterSelectionType(i.Selection_Mode_Ref).Ref_Name}}</p>
+                            </div>
+                            <div class="text-wrap">
+                            <span class="label">Stipend</span>
+                            <p>{{i.Stiphend_Amount}}</p>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="text-wrap">
+                                <span class="label">Start Date</span>
+                                <p>{{i.Start_Date | date:'dd-MM-yyyy'}}</p>
+                            </div>
+                            <div class="text-wrap">
+                                <span class="label">End Date</span>
+                                <p>{{i.End_Date | date:'dd-MM-yyyy'}}</p>
+                            </div>
+                            <div class="text-wrap">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pdf-preview">
+                        <pdf-viewer [src]="fileSrc" [original-size]="false" [show-all]="false" [zoom-scale]="page-height"></pdf-viewer>
+                    </div>
+               </div>
+               <div class="btns">
+                   <button class="edit-icon" (click)="editModel(i.Internship_ID)">Edit</button>
+               </div>
+               <div class="btns">
+                   <button class="del-icon" (click)="deleteModel(i.Internship_ID)">Delete</button>
+               </div>
+           </div>
+           <br>
+           <div class="addbtn-container">
+               <button class="add-btn" (click)="createModel()">Add Internship</button>
+           </div>
+
+         </div>
+    </div>
+</div>

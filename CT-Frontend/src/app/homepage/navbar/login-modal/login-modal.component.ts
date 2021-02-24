@@ -22,8 +22,8 @@ export class LoginModalComponent implements OnInit {
     loginPortal() {
         // Authenticate User
         this.loginService.authenticateUser({
-            user_name: this.user_name,
-            password: this.password,
+            username: parseInt(this.user_name),
+            password: this.password
         });
     }
 }
