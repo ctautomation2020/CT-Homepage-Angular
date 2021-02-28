@@ -33,7 +33,7 @@
     <mat-form-field class="form-field-dropdown three-field" appearance="fill">
       <mat-label>Type</mat-label>
       <mat-select formControlName="Event_Type_Ref" required>
-        <mat-option *ngFor="let et of data.eventType" [value]="et.Ref_Code">{{et.Ref_Name}}</mat-option>
+        <mat-option *ngFor="let et of data.eventType" [value]="et.Reference_ID">{{et.Ref_Name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="eventForm.get('Event_Type_Ref').invalid">Please Choose Type</mat-error>
     </mat-form-field>
@@ -41,7 +41,7 @@
     <mat-form-field class="form-field-dropdown three-field" appearance="fill">
       <mat-label>Participation</mat-label>
       <mat-select formControlName="Participation_Type_Ref" required>
-        <mat-option *ngFor="let pt of data.participationType" [value]="pt.Ref_Code">{{pt.Ref_Name}}</mat-option>
+        <mat-option *ngFor="let pt of data.participationType" [value]="pt.Reference_ID">{{pt.Ref_Name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="eventForm.get('Participation_Type_Ref').invalid">Please Choose Participation</mat-error>
     </mat-form-field>
@@ -68,5 +68,5 @@
 </mat-dialog-content>
 <mat-dialog-actions class="dialog-btns">
   <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" [disabled]="eventForm.invalid || !(sizeValid && typeValid)" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="primary" [disabled]="eventForm.invalid || !filePresent" (click)="onSubmit()">Save</button>
 </mat-dialog-actions>

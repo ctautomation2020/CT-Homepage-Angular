@@ -17,7 +17,7 @@
 .main{
     display: flex;
     flex-direction: column;
-    padding: 1.25em;
+    padding: 1.25em 0;
     width: 85%;
     margin: 0 auto;
 }
@@ -62,13 +62,6 @@
 }
 .t-table  {
   margin-top:3rem;
-  border: 1px solid grey;
-  border-collapse: collapse;
-  padding: 5px;
-}
-
-.t-table1  {
-  margin-top:.01rem;
   border: 1px solid grey;
   border-collapse: collapse;
   padding: 5px;
@@ -126,7 +119,7 @@
     padding: 0.5em 1em 0.5em 0.5em;
     cursor: pointer;
     border: none;
-    width: 15%;
+    width: auto;
     margin-left: auto;
     transition-duration: .5s;
 }
@@ -148,4 +141,20 @@
 .form-field-dropdown {
   padding-left: 20px;
   padding-bottom: 10px;
+}
+.table-container {
+    overflow-x: auto;
+}
+@media only screen and (max-width:700px) {
+    .form-field-dropdown {
+        padding: 10px;
+    }
+}
+@media only screen and (max-width:500px) {
+    .form-field-dropdown {
+        padding: 5px;
+    }
+    .mark-section {
+        padding: 1.5em 1em;
+    }
 }

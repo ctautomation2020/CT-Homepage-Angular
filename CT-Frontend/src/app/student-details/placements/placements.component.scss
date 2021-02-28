@@ -31,7 +31,7 @@
 .main{
     display: flex;
     flex-direction: column;
-    padding: 1.25em;
+    padding: 1.25em 0;
     width: 85%;
     margin: 0 auto;
 }
@@ -288,5 +288,13 @@
 @media only screen and (max-width:680px) {
     .form-field {
         padding: 10px 2px;
+    }
+}
+@media only screen and (max-width:400px){
+    .placement-card, .others-card {
+        margin: 15px 0;
+    }
+    .placements-section {
+        padding: 1.5em 1em;
     }
 }

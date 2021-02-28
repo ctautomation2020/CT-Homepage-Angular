@@ -37,7 +37,6 @@ export class SessionComponent implements OnInit {
     });
     this.queryRef.valueChanges.subscribe(((result: any) => {
       this.sessions = JSON.parse(JSON.stringify(result.data.courseReference));
-      console.log(this.sessions);
     }));
   }
   onSessionSelect(s: AcademicsModel): void{

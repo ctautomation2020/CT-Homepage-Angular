@@ -23,7 +23,7 @@
     <mat-form-field class="form-field three-field" appearance="fill">
       <mat-label>Mode</mat-label>
       <mat-select formControlName="Selection_Mode_Ref" required>
-        <mat-option *ngFor="let st of data.selectionType" [value]="st.Ref_Code">{{st.Ref_Name}}</mat-option>
+        <mat-option *ngFor="let st of data.selectionType" [value]="st.Reference_ID">{{st.Ref_Name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="internshipForm.get('Selection_Mode_Ref').invalid">Please Choose an Option</mat-error>
     </mat-form-field>
@@ -31,7 +31,7 @@
     <mat-form-field class="form-field three-field" appearance="fill">
       <mat-label>Stipend</mat-label>
       <mat-select formControlName="Stiphend_Option_Ref" required>
-        <mat-option *ngFor="let st of data.stiphendType" [value]="st.Ref_Code">{{st.Ref_Name}}</mat-option>
+        <mat-option *ngFor="let st of data.stiphendType" [value]="st.Reference_ID">{{st.Ref_Name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="internshipForm.get('Stiphend_Option_Ref').invalid">Please Choose an Option</mat-error>
     </mat-form-field>
@@ -74,5 +74,5 @@
 </mat-dialog-content>
 <mat-dialog-actions class="dialog-btns">
   <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" [disabled]="internshipForm.invalid || !(sizeValid && typeValid)" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="primary" [disabled]="internshipForm.invalid || !filePresent" (click)="onSubmit()">Save</button>
 </mat-dialog-actions>

@@ -25,7 +25,7 @@ export class EventComponent implements OnInit {
   ngOnInit(): void {
     const regNo: number = this.studentDetailsService.getRegisterNo();
     const baseURL=this.studentDetailsService.getURL();
-    console.log(baseURL);
+    
     
 	  const req=gql`
 	  query studentEventsParticipated($data:studentEventsParticipatedQueryInput!){
@@ -52,15 +52,15 @@ export class EventComponent implements OnInit {
     });
   	this.queryRef.valueChanges.subscribe(((result: any) => {
       this.events = JSON.parse(JSON.stringify(result.data.studentEventsParticipated));
-      console.log(this.events);      
+      
     }));
     this.studentDetailsService.getDropDown('SEvent_Type').subscribe(result => {
       this.eventType = result;
-      console.log(this.eventType);
+      
     });
     this.studentDetailsService.getDropDown('Participation_Type').subscribe(result => {
       this.participationType = result;
-      console.log(this.participationType);
+      
     });
   }
   convertDate(inputDate:any){
@@ -97,7 +97,7 @@ export class EventComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.queryRef.refetch()
-      console.log(this.events)
+      
     });
   }
 
@@ -105,7 +105,7 @@ export class EventComponent implements OnInit {
     const dialogDeleteRef = this.dialog.open(AlertboxComponent);
     dialogDeleteRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
+        
         const req = gql `
         mutation deleteEventParticipated($data: deleteEventParticipatedInput!){
           deleteEventParticipated(data:$data){
@@ -126,9 +126,9 @@ export class EventComponent implements OnInit {
   }
 
   filterEventType(etype): PersonReferenceModel {
-    return this.eventType.filter(l => l.Ref_Code === etype)[0];
+    return this.eventType.filter(l => l.Reference_ID === etype)[0];
   }
   filterParticipationType(ptype): PersonReferenceModel {
-    return this.participationType.filter(l => l.Ref_Code === ptype)[0];
+    return this.participationType.filter(l => l.Reference_ID === ptype)[0];
   }
 }

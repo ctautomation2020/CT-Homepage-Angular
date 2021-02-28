@@ -20,7 +20,7 @@ export class StudentDetailsService {
     const req = gql`
       query personReference($data: Person_Reference_Input) {
         personReference(data: $data){
-          Ref_Code
+          Reference_ID
           Category
           Ref_Name
         }

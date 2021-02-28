@@ -3,32 +3,34 @@
 <mat-dialog-content>
     <form [formGroup]="markForm">
       <ng-container formArrayName="grade">
-        <div *ngFor="let c of data.grades;let i=index">
-          <mat-form-field class="form-field code-field">
-              <mat-label>Course Code</mat-label>
-              <input matInput [value]="c.Course_Code" [readonly]="true">
+        <div class="form-container">
+          <div *ngFor="let c of data.grades;let i=index" class="form">
+            <mat-form-field class="form-field code-field">
+                <mat-label>Course Code</mat-label>
+                <input matInput [value]="c.Course_Code" [readonly]="true">
+            </mat-form-field>
+          <mat-form-field class="form-field name-field">
+              <mat-label>Course Name</mat-label>
+              <input matInput [value]="c.course_list.title" [readonly]="true">
           </mat-form-field>
-        <mat-form-field class="form-field name-field">
-            <mat-label>Course Name</mat-label>
-            <input matInput [value]="c.course_list.title" [readonly]="true">
-        </mat-form-field>
-        <mat-form-field class="form-field grade-field">
-            <mat-label>Grade</mat-label>
-            <input matInput [formControl]= "grade.controls[i]" required>
-        </mat-form-field>
-        <mat-form-field class="form-field session-field" appearance="fill">
-          <mat-label>Session</mat-label>
-          <mat-select [formControl]= "session.controls[i]" required>
-            <mat-option *ngFor="let s of data.sessions" [value]="s.Ref_Code">{{s.Ref_Name}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-       </div>
+          <mat-form-field class="form-field grade-field">
+              <mat-label>Grade</mat-label>
+              <input matInput [formControl]= "grade.controls[i]" required>
+          </mat-form-field>
+          <mat-form-field class="form-field session-field" appearance="fill">
+            <mat-label>Session</mat-label>
+            <mat-select [formControl]= "session.controls[i]" required>
+              <mat-option *ngFor="let s of data.sessions" [value]="s.Reference_ID">{{s.Ref_Name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+         </div>
+        </div>
       </ng-container>
-       <mat-form-field class="form-field two-field">
+       <mat-form-field class="form-field gpa">
            <mat-label>Gpa</mat-label>
            <input matInput formControlName="Gpa" required>
        </mat-form-field>
-       <div class="file-div two-field">
+       <div class="file-div">
          <label class="file-label" for="file">Grade Sheet</label>
          <div class="input-view">
            <input class="file-input" type="file" formControlName="file" (change)="onFileChange($event)">
@@ -44,5 +46,5 @@
 
 <mat-dialog-actions class="dialog-btns">
   <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button [disabled]="markForm.invalid || !(sizeValid && typeValid)" color="primary" (click)="onSubmit()">Save</button>
+  <button mat-raised-button [disabled]="markForm.invalid || !filePresent" color="primary" (click)="onSubmit()">Save</button>
 </mat-dialog-actions>

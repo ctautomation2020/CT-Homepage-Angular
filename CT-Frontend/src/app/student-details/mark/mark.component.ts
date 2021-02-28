@@ -55,7 +55,7 @@ export class MarkComponent implements OnInit {
     });
   	this.queryRef1.valueChanges.subscribe(((result: any) => {
       this.marks = JSON.parse(JSON.stringify(result.data.studentEndsemsMarks));
-      console.log(this.marks);
+      
       this.sems= new Array;
       for(let subj of this.marks){
         if(!this.sems.includes(subj.Semester))
@@ -83,12 +83,12 @@ export class MarkComponent implements OnInit {
     });
   	this.queryRef2.valueChanges.subscribe(((result: any) => {
       this.gpas = JSON.parse(JSON.stringify(result.data.studentGpas));
-      console.log(this.gpas);
+      
     }));
 
     this.studentDetailsService.getDropDown('Session').subscribe(result => {
       this.sessions = result;
-      console.log(this.sessions);
+      
     });
   }
   editModel(){
@@ -103,6 +103,7 @@ export class MarkComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
 			if (result) {
+        
         let updateGrades=new Array(); 
         for(let subj of result.grades){
           updateGrades.push({
@@ -114,7 +115,7 @@ export class MarkComponent implements OnInit {
             Entry_Date: subj.Entry_Date
           })
         }
-        console.log(result.grades);
+        
         const req1 = gql `
         mutation  updateStudentEndsemMark($data: [updateStudentEndsemMarkInput!]!){
           updateStudentEndsemMark(data:$data){
@@ -127,27 +128,9 @@ export class MarkComponent implements OnInit {
 						data: updateGrades
 					}
 				}).subscribe(({ data }) => {
-					console.log(data);
+					
 					this.queryRef1.refetch();
-        });
-
-        const req2 = gql `
-				mutation updateStudentGpa($data: updateStudentGpaInput!){
-          updateStudentGpa(data:$data){
-            Gpa_ID
-          }
-        }`;
-				this.apollo.mutate({
-					mutation: req2,
-					variables: {
-						data: {
-              Gpa_ID: this.filterGpa().Gpa_ID,
-              GPA: parseFloat(result.gpa)
-						}
-					}
-				}).subscribe(({ data }) => {
-					console.log(data);
-					this.queryRef2.refetch();
+          this.queryRef2.refetch();
         });
 			} 
 		});
@@ -156,7 +139,7 @@ export class MarkComponent implements OnInit {
   semFilter(semester){
     this.semMarks=this.marks.filter(l => l.Semester === semester);
     this.currentSem=semester;
-    console.log(this.semMarks);
+    
   }
 
   filterGpa(){
@@ -164,6 +147,6 @@ export class MarkComponent implements OnInit {
   }
 
   filterSession(session){
-    return this.sessions.filter(l => l.Ref_Code === session)[0];
+    return this.sessions.filter(l => l.Reference_ID === session)[0];
   }
 }

@@ -34,7 +34,8 @@ export const MY_FORMATS = {
 })
 export class EventModelComponent implements OnInit {
   eventForm: FormGroup;
-  fileToUpload;
+  fileToUpload=null;
+  filePresent: boolean=false;
   sizeValid: boolean=false;
   typeValid: boolean=false;
   fileSrc: String;
@@ -43,10 +44,11 @@ export class EventModelComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any, private apollo: Apollo,public dialogRef: MatDialogRef<EventModelComponent>,public studentDetailsService: StudentDetailsService) {
   }
   ngOnInit(): void {
-    console.log(this.data.event);
+    
     const baseURL=this.studentDetailsService.getURL();
     if(this.data.event!=null){
       this.fileSrc=baseURL+this.data.event.Certificate_Copy;
+      this.filePresent=true;
     }
     this.eventForm = new FormGroup({
       Event_Name: new FormControl(this.data.event!=null?this.data.event.Event_Name:"", Validators.required),
@@ -70,12 +72,22 @@ export class EventModelComponent implements OnInit {
       const fsize=Math.floor(this.fileToUpload.size/1024);
       this.typeValid=ftype=="pdf"?true:false;
       this.sizeValid=fsize<=1024?true:false;
+      if(this.typeValid && this.sizeValid)
+        this.filePresent=true;
+      else
+        this.filePresent=false;
     }
+    else{
+      this.filePresent=false;
+      this.fileToUpload=null;
+      if(this.data.event!=null)
+        this.filePresent=true;
+    }  
   }
 
   onSubmit() {
-    console.log(this.eventForm.value);
-    console.log(this.fileToUpload);
+    
+    
     if(this.data.event==null){
       const req = gql `
       mutation createEventParticipated($data:createEventParticipatedInput!){
@@ -101,7 +113,7 @@ export class EventModelComponent implements OnInit {
           useMultipart: true
         }
       }).subscribe(({ data }) => {
-        console.log(data);
+        
         this.dialogRef.close();
 		  });
     }
@@ -131,7 +143,7 @@ export class EventModelComponent implements OnInit {
           useMultipart: true
         }
       }).subscribe(({ data }) => {
-        console.log(data);
+        
         this.dialogRef.close();
       });
     }

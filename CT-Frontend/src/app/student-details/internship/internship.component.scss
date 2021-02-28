@@ -17,7 +17,7 @@
 .main{
     display: flex;
     flex-direction: column;
-    padding: 1.25em;
+    padding: 1.25em 0;
     width: 85%;
     margin: 0 auto;
 }
@@ -197,5 +197,13 @@
 @media only screen and (max-width:300px) {
     .btns button {
         width: 80px;
+    }
+}
+@media only screen and (max-width:400px){
+    .internship-card {
+        margin: 15px 0;
+    }
+    .internship-section {
+        padding: 1.5em 1em;
     }
 }

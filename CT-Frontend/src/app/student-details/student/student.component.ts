@@ -34,7 +34,7 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {
     const id: number = this.studentDetailsService.getRegisterNo();
     const baseURL=this.studentDetailsService.getURL();
-    console.log(id);
+    
     const req=gql`
       query student{
         student{
@@ -72,7 +72,7 @@ export class StudentComponent implements OnInit {
         }
       }`;
     
-    this.queryRef = this.apollo
+    this.queryRef = this.apollo 
     .watchQuery<StudentModel>({
       query: req
     });
@@ -81,18 +81,18 @@ export class StudentComponent implements OnInit {
       const temp1 = parseFloat(result.data.student.DOB) / 1000;
       const myDate1 = new Date(0);
       myDate1.setUTCSeconds(temp1);
-      //console.log(myDate1);
+      
       this.student.DOB = myDate1 ;
       this.student.Aadhar_Card=this.addSpace(this.student.Aadhar_Card);
 
       const temp2 = parseFloat(result.data.student.Admission_Date) / 1000;
       const myDate2 = new Date(0);
       myDate2.setUTCSeconds(temp2);
-      //console.log(myDate2);
+      
       this.student.Admission_Date = myDate2 ;
       
       this.photoURL=result.data.student.Photo!=""?baseURL+result.data.student.Photo:"../../../assets/img/student/back.jpg";
-      console.log(this.photoURL);
+      
 
     }));
     this.studentDetailsService.getDropDown('Gender').subscribe(result => {
@@ -167,14 +167,14 @@ export class StudentComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
+        
         if(result.Residential_Type_Ref!=96){  
           result.Hostel_Block_Room='';
         }
         if(result.Scholarship_Received_Ref==87){  
           result.Scholarship_Details='';
         }
-        console.log(result.Residential_Type_Ref,result.Scholarship_Received_Ref);
+        
         const req = gql `
         mutation updateStudent($data: updateStudentInput!) {
           updateStudent(data: $data) {
@@ -218,41 +218,41 @@ export class StudentComponent implements OnInit {
             }
           }
         }).subscribe(({ data }) => {
-          console.log(data);
+          
           this.queryRef.refetch();
         });
       }
     });
   }
   filterGender(): PersonReferenceModel {
-    return this.gender.filter(l => l.Ref_Code === this.student.Gender_Ref)[0];
+    return this.gender.filter(l => l.Reference_ID === this.student.Gender_Ref)[0];
   }
   filterCommunity(): PersonReferenceModel {
-    return this.community.filter(l => l.Ref_Code === this.student.Community_Ref)[0];
+    return this.community.filter(l => l.Reference_ID === this.student.Community_Ref)[0];
   }
   filterResidentialType(): PersonReferenceModel {
-    return this.residentialType.filter(l => l.Ref_Code === this.student.Residential_Type_Ref)[0];
+    return this.residentialType.filter(l => l.Reference_ID === this.student.Residential_Type_Ref)[0];
   }
   filterProgramme(): PersonReferenceModel {
-    return this.programme.filter(l => l.Ref_Code === this.student.Programme_Ref)[0];
+    return this.programme.filter(l => l.Reference_ID === this.student.Programme_Ref)[0];
   }
   filterBranch(): PersonReferenceModel {
-    return this.branch.filter(l => l.Ref_Code === this.student.Branch_Ref)[0];
+    return this.branch.filter(l => l.Reference_ID === this.student.Branch_Ref)[0];
   }
   filterRegistrationMode(): PersonReferenceModel {
-    return this.registrationMode.filter(l => l.Ref_Code === this.student.Registration_Mode_Ref)[0];
+    return this.registrationMode.filter(l => l.Reference_ID === this.student.Registration_Mode_Ref)[0];
   }
   filterBloodGroup(): PersonReferenceModel {
-    return this.bloodGroup.filter(l => l.Ref_Code === this.student.Blood_Group_Ref)[0];
+    return this.bloodGroup.filter(l => l.Reference_ID === this.student.Blood_Group_Ref)[0];
   }
   filterAdmissionCategory(): PersonReferenceModel {
-    return this.admissionCategory.filter(l => l.Ref_Code === this.student.Admission_Category_Ref)[0];
+    return this.admissionCategory.filter(l => l.Reference_ID === this.student.Admission_Category_Ref)[0];
   }
   filterScholarshipReceived(): PersonReferenceModel {
-    return this.scholarshipReceived.filter(l => l.Ref_Code === this.student.Scholarship_Received_Ref)[0];
+    return this.scholarshipReceived.filter(l => l.Reference_ID === this.student.Scholarship_Received_Ref)[0];
   }
   filterVolunteer(): PersonReferenceModel {
-    return this.volunteer.filter(l => l.Ref_Code === this.student.NSS_NSO_YRC_Volunteer_Ref)[0];
+    return this.volunteer.filter(l => l.Reference_ID === this.student.NSS_NSO_YRC_Volunteer_Ref)[0];
   }
   filterFA():PersonModel{
     return this.facultyAdvisors.filter(l =>l.Person_ID === this.student.FA)[0];
@@ -264,7 +264,7 @@ export class StudentComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log("upload");
+      
       this.photoURL=this.photoURL;
       this.queryRef.refetch();
     });

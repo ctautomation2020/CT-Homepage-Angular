@@ -33,11 +33,9 @@ export class AssessmentListComponent implements OnInit {
           this.router.navigate(['/student-details', 'academics']);
         }
         else {
-          console.log(result[0])
           this.courseTitle=result[0].course_list.title
           this.academicsService.getSession(result[0].session_ref).subscribe((session: any) => {
             this.session = session[0];
-            console.log(session[0])
           });
           const query2 = {
             group_ref: result[0].group_ref,
@@ -47,7 +45,6 @@ export class AssessmentListComponent implements OnInit {
           this.evaluatedQuery=query2
           this.academicsService.getAssessmentList(query2).subscribe((assessList: any) => {
             this.assessList = assessList;
-            console.log(assessList)
             assessList.forEach(no => {
               this.checkAssess(no);
             });
@@ -76,7 +73,6 @@ export class AssessmentListComponent implements OnInit {
     });
     this.queryRef.valueChanges.subscribe(((result: any) => {
       this.evaluated[assess_num]=result.data.assessIsEval;
-      console.log(this.evaluated);
     }));
   }
 }

@@ -17,7 +17,7 @@
     <mat-form-field class="form-field three-field" appearance="fill">
       <mat-label>Type</mat-label>
       <mat-select formControlName="Placement_Type_Ref" required>
-        <mat-option *ngFor="let pt of data.placementType" [value]="pt.Ref_Code">{{pt.Ref_Name}}</mat-option>
+        <mat-option *ngFor="let pt of data.placementType" [value]="pt.Reference_ID">{{pt.Ref_Name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="placementsForm.get('Placement_Type_Ref').invalid">Please Choose an Option</mat-error>
     </mat-form-field>
@@ -73,5 +73,5 @@
 
 <mat-dialog-actions class="dialog-btns">
   <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" [disabled]="placementsForm.invalid || !(sizeValid && typeValid)" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="primary" [disabled]="placementsForm.invalid || !filePresent" (click)="onSubmit()">Save</button>
 </mat-dialog-actions>

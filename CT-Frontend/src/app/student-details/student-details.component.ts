@@ -11,8 +11,8 @@ export class StudentDetailsComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
   ngOnInit(): void {
-    console.log(localStorage.getItem('token'));
-    console.log(localStorage.getItem('urole'));
+    
+    
   }
 
 }

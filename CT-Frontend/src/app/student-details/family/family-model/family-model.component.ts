@@ -38,7 +38,7 @@ export class FamilyModelComponent implements OnInit {
     });
   }
   onSubmit() {
-    console.log(this.familyForm.value);
+    
     this.dialogRef.close(this.familyForm.value);
   }
 

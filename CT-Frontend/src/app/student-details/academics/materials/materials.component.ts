@@ -35,11 +35,11 @@ export class MaterialsComponent implements OnInit {
           this.router.navigate(['/student-details', 'academics']);
         }
         else {
-          console.log(result[0])
+          
           this.courseTitle=result[0].course_list.title
           this.academicsService.getSession(result[0].session_ref).subscribe((session: any) => {
             this.session = session[0];
-            console.log(session[0])
+            
             
           });
           this.filePath=this.filePath+result[0].course_code+".pdf";

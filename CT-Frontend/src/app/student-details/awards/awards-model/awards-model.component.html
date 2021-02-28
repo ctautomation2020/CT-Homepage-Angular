@@ -17,7 +17,7 @@
     <mat-form-field class="form-field two-field" appearance="fill">
       <mat-label>Type</mat-label>
       <mat-select formControlName="Award_Type_Ref" required>
-        <mat-option *ngFor="let st of data.awardType" [value]="st.Ref_Code">{{st.Ref_Name}}</mat-option>
+        <mat-option *ngFor="let st of data.awardType" [value]="st.Reference_ID">{{st.Ref_Name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="awardsForm.get('Award_Type_Ref').invalid">Please Choose an Option</mat-error>
     </mat-form-field>
@@ -25,7 +25,7 @@
     <mat-form-field class="form-field two-field" appearance="fill">
       <mat-label>Category</mat-label>
       <mat-select formControlName="Award_Category_Ref" required>
-        <mat-option *ngFor="let st of data.awardCategory" [value]="st.Ref_Code">{{st.Ref_Name}}</mat-option>
+        <mat-option *ngFor="let st of data.awardCategory" [value]="st.Reference_ID">{{st.Ref_Name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="awardsForm.get('Award_Category_Ref').invalid">Please Choose an Option</mat-error>
     </mat-form-field>
@@ -60,5 +60,5 @@
 </mat-dialog-content>
 <mat-dialog-actions class="dialog-btns">
   <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" [disabled]="awardsForm.invalid || !(sizeValid && typeValid)" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="primary" [disabled]="awardsForm.invalid || !filePresent" (click)="onSubmit()">Save</button>
 </mat-dialog-actions>

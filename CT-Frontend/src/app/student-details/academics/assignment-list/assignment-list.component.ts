@@ -33,11 +33,11 @@ export class AssignmentListComponent implements OnInit {
           this.router.navigate(['/student-details', 'academics']);
         }
         else {
-          console.log(result[0])
+          
           this.courseTitle=result[0].course_list.title
           this.academicsService.getSession(result[0].session_ref).subscribe((session: any) => {
             this.session = session[0];
-            console.log(session[0])
+            
           });
           const query2 = {
             group_ref: result[0].group_ref,
@@ -47,7 +47,7 @@ export class AssignmentListComponent implements OnInit {
           this.evaluatedQuery=query2
           this.academicsService.getAssignmentList(query2).subscribe((assignList: any) => {
             this.assignList = assignList;
-            console.log(assignList)
+            
             assignList.forEach(no => {
               this.checkAssign(no);
             });
@@ -75,7 +75,7 @@ export class AssignmentListComponent implements OnInit {
     });
     this.queryRef.valueChanges.subscribe(((result: any) => {
       this.evaluated[assign_num]=result.data.assignIsEval;
-      console.log(this.evaluated);
+      
     }));
   }
 }

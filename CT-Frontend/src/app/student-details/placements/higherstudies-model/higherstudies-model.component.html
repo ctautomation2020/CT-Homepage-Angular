@@ -23,7 +23,7 @@
     <mat-form-field class="form-field two-field" appearance="fill">
       <mat-label>Mode</mat-label>
       <mat-select formControlName="Admission_Mode_Ref" required>
-        <mat-option *ngFor="let hs of data.admissionMode" [value]="hs.Ref_Code">{{hs.Ref_Name}}</mat-option>
+        <mat-option *ngFor="let hs of data.admissionMode" [value]="hs.Reference_ID">{{hs.Ref_Name}}</mat-option>
       </mat-select>
       <mat-error *ngIf="higherStudiesForm.get('Admission_Mode_Ref').invalid">Please Choose an Option</mat-error>
     </mat-form-field>
@@ -68,6 +68,6 @@
 </mat-dialog-content>
 <mat-dialog-actions class="dialog-btns">
   <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" [disabled]="higherStudiesForm.invalid || !(sizeValid && typeValid)" (click)="onSubmit()">Save</button>
+  <button mat-raised-button color="primary" [disabled]="higherStudiesForm.invalid || !filePresent" (click)="onSubmit()">Save</button>
 </mat-dialog-actions>
 

@@ -28,7 +28,7 @@
       <div class="form-field three-field" style="display: inline-block;">
         <mat-label class="gender-label">Gender:*</mat-label>
         <mat-radio-group class="form-field" formControlName="Gender_Ref" aria-label="Gender" required>
-          <mat-radio-button *ngFor="let g of data.gender" class="radio-btn" [value]="g.Ref_Code">{{g.Ref_Name}}</mat-radio-button>
+          <mat-radio-button *ngFor="let g of data.gender" class="radio-btn" [value]="g.Reference_ID">{{g.Ref_Name}}</mat-radio-button>
         </mat-radio-group>
       </div>
 
@@ -45,7 +45,7 @@
       <mat-form-field class="form-field-dropdown three-field" appearance="fill">
         <mat-label>Blood Group</mat-label>
         <mat-select formControlName="Blood_Group_Ref" required>
-          <mat-option *ngFor="let bg of data.bloodGroup" [value]="bg.Ref_Code">{{bg.Ref_Name}}</mat-option>
+          <mat-option *ngFor="let bg of data.bloodGroup" [value]="bg.Reference_ID">{{bg.Ref_Name}}</mat-option>
         </mat-select>
         <mat-error *ngIf="studentForm.get('Blood_Group_Ref').invalid">Please Enter Blood Group</mat-error>
       </mat-form-field>
@@ -64,7 +64,7 @@
       <mat-form-field class="form-field-dropdown three-field" appearance="fill">
         <mat-label>Community</mat-label>
         <mat-select formControlName="Community_Ref" required>
-          <mat-option *ngFor="let c of data.community" [value]="c.Ref_Code">{{c.Ref_Name}}</mat-option>
+          <mat-option *ngFor="let c of data.community" [value]="c.Reference_ID">{{c.Ref_Name}}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -150,7 +150,7 @@
       <mat-form-field class="form-field-dropdown two-field" appearance="fill">
         <mat-label>Residential Type</mat-label>
         <mat-select formControlName="Residential_Type_Ref" required>
-          <mat-option *ngFor="let res of data.residentialType" [value]="res.Ref_Code">{{res.Ref_Name}}</mat-option>
+          <mat-option *ngFor="let res of data.residentialType" [value]="res.Reference_ID">{{res.Ref_Name}}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -170,21 +170,21 @@
       <mat-form-field class="form-field-dropdown three-field" appearance="fill">
         <mat-label>Programme</mat-label>
         <mat-select formControlName="Programme_Ref" required>
-          <mat-option *ngFor="let prog of data.programme" [value]="prog.Ref_Code">{{prog.Ref_Name}}</mat-option>
+          <mat-option *ngFor="let prog of data.programme" [value]="prog.Reference_ID">{{prog.Ref_Name}}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field class="form-field-dropdown three-field" appearance="fill">
         <mat-label>Branch</mat-label>
         <mat-select formControlName="Branch_Ref" required>
-          <mat-option *ngFor="let bran of data.branch" [value]="bran.Ref_Code">{{bran.Ref_Name}}</mat-option>
+          <mat-option *ngFor="let bran of data.branch" [value]="bran.Reference_ID">{{bran.Ref_Name}}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field class="form-field-dropdown three-field" appearance="fill">
         <mat-label>Regisration Mode</mat-label>
         <mat-select formControlName="Registration_Mode_Ref" required>
-          <mat-option *ngFor="let reg of data.registrationMode" [value]="reg.Ref_Code">{{reg.Ref_Name}}</mat-option>
+          <mat-option *ngFor="let reg of data.registrationMode" [value]="reg.Reference_ID">{{reg.Ref_Name}}</mat-option>
         </mat-select>
       </mat-form-field>
     
@@ -202,7 +202,7 @@
       <mat-form-field class="form-field-dropdown three-field" appearance="fill">
         <mat-label>Admission Category</mat-label>
         <mat-select formControlName="Admission_Category_Ref" required>
-          <mat-option *ngFor="let adm of data.admissionCategory" [value]="adm.Ref_Code">{{adm.Ref_Name}}</mat-option>
+          <mat-option *ngFor="let adm of data.admissionCategory" [value]="adm.Reference_ID">{{adm.Ref_Name}}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -215,7 +215,7 @@
       <mat-form-field class="form-field-dropdown three-field" appearance="fill">
         <mat-label>Scholarship Received</mat-label>
         <mat-select formControlName="Scholarship_Received_Ref">
-          <mat-option *ngFor="let sch of data.scholarshipReceived" [value]="sch.Ref_Code">{{sch.Ref_Name}}</mat-option>
+          <mat-option *ngFor="let sch of data.scholarshipReceived" [value]="sch.Reference_ID">{{sch.Ref_Name}}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -228,7 +228,7 @@
       <mat-form-field class="form-field-dropdown two-field" appearance="fill">
         <mat-label>NSS/NSO/YRC volunteer</mat-label>
         <mat-select formControlName="NSS_NSO_YRC_Volunteer_Ref">
-          <mat-option *ngFor="let vol of data.volunteer" [value]="vol.Ref_Code">{{vol.Ref_Name}}</mat-option>
+          <mat-option *ngFor="let vol of data.volunteer" [value]="vol.Reference_ID">{{vol.Ref_Name}}</mat-option>
         </mat-select>
       </mat-form-field>
    

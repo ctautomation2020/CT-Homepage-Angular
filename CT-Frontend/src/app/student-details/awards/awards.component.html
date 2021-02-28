@@ -8,7 +8,7 @@
                <h3 class="award-name">{{a.Award_Name}}</h3>
                <div class="card-content">
                    <div class="award-details">
-                        <div class="input-field">
+                        <div class="input-field" *ngIf="awards!=null && awardType!=null && awardCategory!=null">
                             <div class="text-wrap">
                                 <span class="label">Organizer Name</span>
                                 <p>{{a.Organizer_Name}}</p>

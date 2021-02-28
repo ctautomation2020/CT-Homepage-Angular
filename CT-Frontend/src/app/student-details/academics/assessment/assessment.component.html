@@ -20,7 +20,7 @@
             <h2 class="assesment-name">{{course.course_code}} - {{courseTitle}}</h2>
             <div class="assessment-values">
                 <p class="assessment-time">Time : 3 hrs</p>
-                <p class="total-marks">Total Marks : 100</p>
+                <p class="total-marks" *ngIf="tmarks!=null">Marks : {{tmarks.marks_obtained}} / {{tmarks.total_mark}}</p>
             </div>
         </div>
       </div>

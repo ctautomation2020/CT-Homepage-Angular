@@ -31,7 +31,7 @@ export class CourseFeaturesComponent implements OnInit {
 			}
 			else {
 				this.course=result[0]
-				console.log(result[0]);
+				
 				this.courseTitle=result[0].course_list.title
 				this.academicsService.getSession(result[0].session_ref).subscribe((session: any) => {
 				 	this.session = session[0];

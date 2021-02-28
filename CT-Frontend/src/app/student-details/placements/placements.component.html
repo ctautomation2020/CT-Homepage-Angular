@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="text-wrap">
                                     <span class="label">Type</span>
-                                    <p>{{filterPlacementType(p.Placement_Type_Ref).Ref_Name}}</p>
+                                    <p *ngIf="placements!=null && placementType!=null">{{filterPlacementType(p.Placement_Type_Ref).Ref_Name}}</p>
                                 </div>
                                 <div class="text-wrap">
                                     <span class="label">Date</span>
@@ -72,7 +72,7 @@
                                     <span class="label">Specialization</span>
                                     <p>{{h.Specialization}}</p>
                                 </div>
-                                <div class="text-wrap">
+                                <div class="text-wrap" *ngIf="higherStudies!=null">
                                     <span class="label">Mode</span>
                                     <p>{{filterAdmissionMode(h.Admission_Mode_Ref).Ref_Name}}</p>
                                 </div>

@@ -72,11 +72,11 @@ export class PlacementsComponent implements OnInit {
     });
   	this.queryRef1.valueChanges.subscribe(((result: any) => {
       this.placements = JSON.parse(JSON.stringify(result.data.studentPlacements));
-      console.log(this.placements);
+      
     }));
     this.studentDetailsService.getDropDown('Placement_Type').subscribe(result => {
       this.placementType = result;
-      console.log(this.placementType);
+      
     });
     const req2=gql`
 	  query studentHigherStudies($data:studentHigherStudiesQueryInput!){
@@ -104,11 +104,11 @@ export class PlacementsComponent implements OnInit {
     });
   	this.queryRef2.valueChanges.subscribe(((result: any) => {
       this.higherStudies = JSON.parse(JSON.stringify(result.data.studentHigherStudies));
-      console.log(this.higherStudies);
+      
     }));
     this.studentDetailsService.getDropDown('Admission_Mode').subscribe(result => {
       this.admissionMode = result;
-      console.log(this.admissionMode);
+      
     });
 
     this.othersForm = new FormGroup({
@@ -166,7 +166,7 @@ export class PlacementsComponent implements OnInit {
     const dialogRef = this.dialog.open(AlertboxComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
+        
         const req = gql `
         mutation deleteStudentPlacement($data: deleteStudentPlacementInput!){
           deleteStudentPlacement(data:$data){
@@ -213,7 +213,7 @@ export class PlacementsComponent implements OnInit {
     const dialogRef = this.dialog.open(AlertboxComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
+        
         const req = gql `
         mutation deleteStudentHigherStudy($data: deleteStudentHigherStudyInput!){
           deleteStudentHigherStudy(data:$data){
@@ -234,10 +234,10 @@ export class PlacementsComponent implements OnInit {
   }
 
   filterAdmissionMode(stype): PersonReferenceModel {
-    return this.admissionMode.filter(l => l.Ref_Code === stype)[0];
+    return this.admissionMode.filter(l => l.Reference_ID === stype)[0];
   }
   filterPlacementType(stype): PersonReferenceModel {
-    return this.placementType.filter(l => l.Ref_Code === stype)[0];
+    return this.placementType.filter(l => l.Reference_ID === stype)[0];
   }
   
 }

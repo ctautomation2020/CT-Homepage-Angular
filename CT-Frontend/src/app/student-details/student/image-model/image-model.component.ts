@@ -46,7 +46,7 @@ export class ImageModelComponent implements OnInit {
       const fsize=Math.floor(this.fileToUpload.size/1024);
       this.typeValid=ftype=="image"?true:false;
       this.sizeValid=fsize<=100?true:false;
-      console.log(this.fileToUpload.type,ftype);
+      
       }
   }
    
@@ -59,8 +59,8 @@ export class ImageModelComponent implements OnInit {
     this.apollo.mutate({
       mutation: req
     }).subscribe(({ data }) => {
-      console.log(data);
-      console.log("Photo Deleted");
+      
+      
     });
     this.dialogRef.close("file");
   }
@@ -79,8 +79,8 @@ export class ImageModelComponent implements OnInit {
         useMultipart: true
       }
     }).subscribe(({ data }) => {
-      console.log(data);
-      console.log("Uploaded");
+      
+      
     });
     this.dialogRef.close("file");
   }

@@ -91,7 +91,7 @@ export class FamilyComponent implements OnInit {
 						}
 					}
 				}).subscribe(({ data }) => {
-					console.log(data);
+					
 					this.queryRef.refetch();
 				});
 			} 

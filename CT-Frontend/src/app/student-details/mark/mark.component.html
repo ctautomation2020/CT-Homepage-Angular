@@ -4,7 +4,7 @@
           <h3 class="section-title">
               <span>Marks</span>
           </h3>
-          <mat-form-field *ngIf="sems!=null" class="form-field-dropdown three-field" appearance="fill">
+          <mat-form-field *ngIf="sems!=null" class="form-field-dropdown" appearance="fill">
             <mat-label>Semester</mat-label>
             <mat-select required>
               <mat-option *ngFor="let i of sems" [value]="i" (click)="semFilter(i)">{{i}}</mat-option>
@@ -16,48 +16,50 @@
               <span class="edit-icon" (click)="editModel()">Edit</span>
             </div>
           </div>
-          <table class="t-table" *ngIf="semMarks!=null && semMarks.length!=0">
-            <tr class="t-tr">
-                  <th class="t-th" style="color:white;width:10%; background-color:rgb(2, 72, 143);">
-                      S.No
-                  </th>
-                  <th class="t-th" style="color:white;width:15%; background-color:rgb(24, 100, 175);">
-                      Course Code
-                  </th>
-                  <th class="t-th" style="color:white;width:50%; background-color:rgb(53, 125, 197);">
-                      Course Name
-                  </th>
-                  <th class="t-th" style="color:white;width:10%;background-color:rgb(53, 125, 197);">
-                      Credits
-                  </th>
-                  <th class="t-th" style="color:white;width:10%;background-color:rgb(76, 143, 209);">
-                      Grade
-                  </th>
-                  <th class="t-th" style="width:20%;color:white;background-color:rgb(122, 179, 236);">
-                      Session
-                  </th>
-              </tr>
-              <tr class="t-tr" *ngFor="let c of semMarks;let sno=index">
-                  <td class="t-td" style="width:10%;text-align:center" >
-                      <span> {{sno+1}}</span>
-                  </td>
-                  <td class="t-td" style="width:15%;text-align:center" >
-                      <span>{{c.Course_Code}}</span>
-                  </td>
-                  <td class="t-td" style="width:50%; padding-left: 25px">
-                      <span> {{c.course_list.title}}</span>
-                  </td>
-                  <td class="t-td" style="width:10%;text-align:center ">
-                    <span>{{c.course_list.credit}}</span>
-                  </td>
-                  <td class="t-td" style="width:10%;text-align:center ">
-                      <span>{{c.Grade}}</span>
-                  </td>
-                  <td class="t-td" style="width:20%;text-align:center ">
-                      <span>{{filterSession(c.Session_Ref).Ref_Name}}</span>
-                  </td>
-              </tr>
-          </table>
+          <div class="table-container">
+            <table class="t-table" *ngIf="semMarks!=null && semMarks.length!=0">
+              <tr class="t-tr">
+                    <th class="t-th" style="color:white;width:10%; background-color:rgb(2, 72, 143);">
+                        S.No
+                    </th>
+                    <th class="t-th" style="color:white;width:15%; background-color:rgb(24, 100, 175);">
+                        Course Code
+                    </th>
+                    <th class="t-th" style="color:white;width:50%; background-color:rgb(53, 125, 197);">
+                        Course Name
+                    </th>
+                    <th class="t-th" style="color:white;width:10%;background-color:rgb(53, 125, 197);">
+                        Credits
+                    </th>
+                    <th class="t-th" style="color:white;width:10%;background-color:rgb(76, 143, 209);">
+                        Grade
+                    </th>
+                    <th class="t-th" style="width:20%;color:white;background-color:rgb(122, 179, 236);">
+                        Session
+                    </th>
+                </tr>
+                <tr class="t-tr" *ngFor="let c of semMarks;let sno=index">
+                    <td class="t-td" style="width:10%;text-align:center" >
+                        <span> {{sno+1}}</span>
+                    </td>
+                    <td class="t-td" style="width:15%;text-align:center" >
+                        <span>{{c.Course_Code}}</span>
+                    </td>
+                    <td class="t-td" style="width:50%; padding-left: 25px">
+                        <span> {{c.course_list.title}}</span>
+                    </td>
+                    <td class="t-td" style="width:10%;text-align:center ">
+                      <span>{{c.course_list.credit}}</span>
+                    </td>
+                    <td class="t-td" style="width:10%;text-align:center ">
+                        <span>{{c.Grade}}</span>
+                    </td>
+                    <td class="t-td" style="width:20%;text-align:center ">
+                        <span>{{filterSession(c.Session_Ref).Ref_Name}}</span>
+                    </td>
+                </tr>
+            </table>
+          </div>
       </div>
   </div>
 </div>

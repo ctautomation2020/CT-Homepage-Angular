@@ -13,11 +13,11 @@
 }
 .main{
   background-color: white;
-  width: 95%;
+  width: 85%;
   padding: 2em;
   margin: 1em auto;
   border: 1px solid gainsboro;
-  border-radius: 0.5em;
+  border-radius: 0.75em;
   display: flex;
   flex-direction: column;
 }
@@ -228,6 +228,24 @@ table tr:first-child th {
     width: 250px;
   }
 }
+@media only screen and (max-width: 400px) {
+  .fac-info {
+    padding: 10px 0;
+  }
+  td, th {
+    padding: 15px 0;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .time {
+    width: 200px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .time {
+    width: 150px;
+  }
+}
 @media only screen and (max-width: 740px) {
   .outer-layout {
     flex-direction: column;
@@ -248,4 +266,15 @@ table tr:first-child th {
   height: 100px;
   width: 100px;
   margin: auto;
+}
+@media only screen and (max-width:450px) {
+  .quick-links {
+    flex-direction: column;
+    * {
+      margin-bottom: 5px;
+    }
+  }
+  .slash{
+    transform: rotate(225deg);
+  }
 }

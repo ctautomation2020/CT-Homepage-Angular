@@ -222,5 +222,21 @@ export class AcademicsService {
     }).valueChanges.pipe(map((result: any) => JSON.parse(JSON.stringify(result.data.assign_evaluation))));
   }
 
+  getEvaluation(query: any) {
+    const req = gql `
+    query studentCourseEvaluation($data: studentCourseEvaluationQueryInput!){
+      studentCourseEvaluation(data:$data){
+        total_mark
+        marks_obtained
+      }
+    }`;
+    return this.apollo.watchQuery({
+      query: req,
+      variables: {
+        data: query
+      },
+      fetchPolicy: 'no-cache'
+    }).valueChanges.pipe(map((result: any) => JSON.parse(JSON.stringify(result.data.studentCourseEvaluation))));
+  }
   
 }

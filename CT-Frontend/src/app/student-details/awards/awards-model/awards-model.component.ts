@@ -35,7 +35,8 @@ export const MY_FORMATS = {
 export class AwardsModelComponent implements OnInit {
 
   awardsForm: FormGroup;
-  fileToUpload;
+  fileToUpload=null;
+  filePresent: boolean=false;
   sizeValid: boolean=false;
   typeValid: boolean=false;
   fileSrc: String = "../../../../assets/pdfs/sample.pdf";
@@ -45,8 +46,10 @@ export class AwardsModelComponent implements OnInit {
   }
   ngOnInit(): void {
     const baseURL=this.studentDetailsService.getURL();
-    if(this.data.award!=null)
+    if(this.data.award!=null){
       this.fileSrc=baseURL+this.data.award.Certificate_Copy;
+      this.filePresent=true;
+    }
     this.awardsForm = new FormGroup({
       Award_Name: new FormControl(this.data.award!=null?this.data.award.Award_Name:"", Validators.required),
       Organizer_Name: new FormControl(this.data.award!=null?this.data.award.Organizer_Name:"", Validators.required),
@@ -60,18 +63,27 @@ export class AwardsModelComponent implements OnInit {
   }
 
   onFileChange(event) {
-    const reader = new FileReader();
     if(event.target.files && event.target.files.length) {
       this.fileToUpload=event.target.files[0];
       const ftype=this.fileToUpload.type.slice(-3);
       const fsize=Math.floor(this.fileToUpload.size/1024);
       this.typeValid=ftype=="pdf"?true:false;
       this.sizeValid=fsize<=1024?true:false;
+      if(this.typeValid && this.sizeValid)
+        this.filePresent=true;
+      else
+        this.filePresent=false;
     }
+    else{
+      this.filePresent=false;
+      this.fileToUpload=null;
+      if(this.data.event!=null)
+        this.filePresent=true;
+    }  
   }
 
   onSubmit() {
-    console.log(this.awardsForm.value);
+    
     if(this.data.award==null){
       const req = gql `
       mutation createStudentAward($data: createStudentAwardInput!){
@@ -96,7 +108,7 @@ export class AwardsModelComponent implements OnInit {
           useMultipart: true
         }
       }).subscribe(({ data }) => {
-        console.log(data);
+        
         this.dialogRef.close();
       });
     }
@@ -125,7 +137,7 @@ export class AwardsModelComponent implements OnInit {
           useMultipart: true
         }
       }).subscribe(({ data }) => {
-        console.log(data);
+        
         this.dialogRef.close();
       });
     }

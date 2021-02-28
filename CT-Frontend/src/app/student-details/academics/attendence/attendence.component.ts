@@ -32,7 +32,7 @@ export class AttendenceComponent implements OnInit {
   
 
   ngOnInit(): void {
-    //console.log(this.presence);
+    
      this.route.params.subscribe(params => {
       this.cregst_id = +params['cregst_id'];
       const reg_no=this.studentDetailsService.getRegisterNo();
@@ -45,13 +45,13 @@ export class AttendenceComponent implements OnInit {
           this.router.navigate(['/student-details', 'academics']);
         }
         else {
-          //console.log(result[0])
+          
           this.courseTitle=result[0].course_list.title
           this.academicsService.getSession(result[0].session_ref).subscribe((session: any) => {
             this.session = session[0];
-            //console.log(session[0])
+            
             let months=session[0].description.split(" ");
-            //console.log(months)
+            
             this.startMonth=this.getMonth(months[0])-1
             this.curMonth=this.startMonth
             this.endMonth=this.getMonth(months[3])-1
@@ -84,14 +84,14 @@ export class AttendenceComponent implements OnInit {
           });
           this.queryRef.valueChanges.subscribe(((result: any) => {
             this.attendance = JSON.parse(JSON.stringify(result.data.studentAttendance));
-            //console.log(this.attendance);
+            
 
             while(this.curMonth != this.endMonth){
               this.displayValues.push({month: this.curMonth, year: this.curYear, values: this.getStructure()});
               this.next();
             }
             this.displayValues.push({month: this.curMonth, year: this.curYear, values: this.getStructure()});
-            console.log(this.displayValues);
+            
             
           }));    
         }
@@ -142,7 +142,7 @@ export class AttendenceComponent implements OnInit {
         while(week.length<7) week.push(' ')
         matrix.push(week)
     }
-    //console.log(matrix);
+    
     return matrix
   }
   next(){
@@ -195,12 +195,12 @@ export class AttendenceComponent implements OnInit {
 
   filterMonth(){
     this.monthAttendance=this.attendance.filter(l => this.convertDate(l.date).getMonth()==this.curMonth)
-    //console.log(this.monthAttendance);
+    
   }
 
   attendanceCount(){
     let temp=this.attendance.filter(l => l.presence=="P");
-    //console.log(temp);
+    
     return temp.length
   }
 

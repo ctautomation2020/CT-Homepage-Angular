@@ -1,5 +1,6 @@
 <div class="container">
   <div class="main">
+      <h2>Attendance</h2>
       <div class="quick-links" *ngIf="courseTitle != null && session!=null">
         <a routerLink="/student-details/academics" class="link">Academics</a>
           <span class="slash"></span>
@@ -9,7 +10,7 @@
           <span class="slash"></span>
           <a class="link">Attendance</a>
       </div>
-      <div class="hours"><h3>Attendance Hours Attended : {{attendanceCount()}} / {{attendance.length}}</h3></div>
+      <div class="hours" *ngIf="attendance!=null"><h3>Attendance Hours Attended : {{attendanceCount()}} / {{attendance.length}}</h3></div>
       <div>
           <div class="att-layout">
               <div class="tables" *ngFor="let month of displayValues">

@@ -65,7 +65,7 @@ table {
    border: 3px ridge;
    margin-bottom: 20px;
 }
-.two-field{
+.gpa{
    width: 45%;
 }
 .file-label{
@@ -76,13 +76,14 @@ table {
 .file-div {
   margin: 10px 20px;
   display: inline-block;
+  width: 45%;
 }
 .file-input {
   width: 70%;
 }
 .input-view {
   display: inline-block;
-  width: 70%;
+  width: 90%;
   border: 1px solid #3aacee;
   padding: 5px 0px 5px 5px;
   transition: .5s;
@@ -96,14 +97,62 @@ table {
 .pdf-link {
   margin: 2px 0px 2px 2px;
   text-decoration: none;
+  text-align: center;
   background-color: #1982e4;
   color: white;
   padding: 2px 5px;
   border-radius: 5px;
   transition: .5s;
+  width: auto;
 }
 .pdf-link:hover {
   background-color: #053e74;
+}
+@media only screen and (max-width: 815px){
+  .gpa {
+    width: 35%;
+  }
+}
+@media only screen and (max-width: 770px){
+  .input-view {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 700px){
+  .gpa {
+    width: 50%;
+  }
+  .file-div {
+    width: 80%;
+  }
+  .input-view {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 500px){
+  .gpa, .file-div, .input-view {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 450px){
+  .form-field, .form-field-dropdown {
+    padding-left: 5px;
+  }
+  .file-div {
+    margin: 10px;
+  }
+}
+@media only screen and (max-width: 420px){
+  .file-input {
+    display: block;
+    width: 100%;
+    margin: auto;
+  }
+  .pdf-link {
+    display: block;
+    margin: 5px auto;
+    width: 90px;
+  }
 }
 .dialog-title{
    font-size: 25px;
@@ -122,4 +171,20 @@ table {
 }
 .session-field {
   width: 30%;
+}
+.form {
+  width: auto;
+}
+.form-container {
+  overflow-x: auto;
+}
+@media only screen and (max-width: 900px){
+  .code-field, .grade-field {
+    width: 10%;
+  }
+}
+@media only screen and (max-width: 800px){
+  .form {
+    width: 800px;
+  }
 }

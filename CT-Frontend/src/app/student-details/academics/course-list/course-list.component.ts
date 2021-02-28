@@ -10,7 +10,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
-  styleUrls: ['../academics.component.scss']
+  styleUrls: ['./course-list.component.scss']
 })
 
 export class CourseListComponent implements OnInit {
@@ -38,7 +38,7 @@ export class CourseListComponent implements OnInit {
           }
           this.academicsService.getStudentCourses(query).subscribe(result => {
             this.courseList=result
-            console.log(this.courseList)
+            
           });
         }
       });
