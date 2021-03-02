@@ -64,7 +64,7 @@ export class AssessmentComponent implements OnInit {
             course_code: result[0].course_code,
             reg_no: this.reg_no,
             number: this.assess_num,
-            type: 1
+            type: 153
           }
           this.academicsService.getAssessment(new_query).subscribe((assessment_questions: any) => {
             new_query.reg_no=this.reg_no

@@ -20,7 +20,7 @@
           <mat-form-field class="form-field session-field" appearance="fill">
             <mat-label>Session</mat-label>
             <mat-select [formControl]= "session.controls[i]" required>
-              <mat-option *ngFor="let s of data.sessions" [value]="s.Reference_ID">{{s.Ref_Name}}</mat-option>
+              <mat-option *ngFor="let s of data.sessions" [value]="s.Reference_ID">{{s.Description}}</mat-option>
             </mat-select>
           </mat-form-field>
          </div>

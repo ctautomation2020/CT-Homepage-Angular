@@ -50,7 +50,7 @@ export class AttendenceComponent implements OnInit {
           this.academicsService.getSession(result[0].session_ref).subscribe((session: any) => {
             this.session = session[0];
             
-            let months=session[0].description.split(" ");
+            let months=session[0].Description.split(" ");
             
             this.startMonth=this.getMonth(months[0])-1
             this.curMonth=this.startMonth

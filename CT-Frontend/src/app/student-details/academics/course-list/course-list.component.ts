@@ -19,14 +19,12 @@ export class CourseListComponent implements OnInit {
   courseCodes: any;
   subjAllotId: number;
   queryRef: QueryRef<any, any>;
-  constructor(private router: Router, private activatedRoute: ActivatedRoute,private academicsService: AcademicsService, private title: Title,private studentDetailsService: StudentDetailsService) {
-    this.title.setTitle('Course Features');
-  }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute,private academicsService: AcademicsService,private studentDetailsService: StudentDetailsService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      const reference_id = +params['reference_id'];
-      this.academicsService.getSession(reference_id).subscribe((result: any) => {
+      const Reference_ID = +params['Reference_ID'];
+      this.academicsService.getSession(Reference_ID).subscribe((result: any) => {
         if (result.length == 0) {
           this.router.navigate(['/student-details', 'academics']);
         }
@@ -34,7 +32,7 @@ export class CourseListComponent implements OnInit {
           this.session = result[0];
           const query = {
             reg_no: this.studentDetailsService.getRegisterNo(),
-            session_ref: reference_id
+            session_ref: Reference_ID
           }
           this.academicsService.getStudentCourses(query).subscribe(result => {
             this.courseList=result

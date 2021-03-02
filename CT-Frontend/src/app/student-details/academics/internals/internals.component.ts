@@ -13,14 +13,6 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./internals.component.scss']
 })
 export class InternalsComponent implements OnInit {
-
-  // internals = [
-  //   {type:"Assessment",number:"1",total_marks:"60",obtained_marks:"50",weightage:"5",obtained_weightage:"4"},
-  //   {type:"Assignment",number:"1",total_marks:"60",obtained_marks:"40",weightage:"5",obtained_weightage:"3"},
-  //   {type:"Assessment",number:"2",total_marks:"60",obtained_marks:"50",weightage:"15",obtained_weightage:"12"},
-  //   {type:"Assignment",number:"2",total_marks:"40",obtained_marks:"35",weightage:"5",obtained_weightage:"4.5"},
-  //   {type:"Assignment",number:"3",total_marks:"60",obtained_marks:"60",weightage:"10",obtained_weightage:"10"}
-  // ];
   total;
   ca = 30;
   midsem = 17;
@@ -53,7 +45,6 @@ export class InternalsComponent implements OnInit {
             this.courseTitle=result[0].course_list.title
             this.academicsService.getSession(result[0].session_ref).subscribe((session: any) => {
               this.session = session[0];
-              
             });
             const query = {
               group_ref: result[0].group_ref,
@@ -82,7 +73,6 @@ export class InternalsComponent implements OnInit {
             });
             this.queryRef1.valueChanges.subscribe(((result: any) => {
               this.internals = JSON.parse(JSON.stringify(result.data.studentCourseInternalcalc));
-              
             }));
             const req2=gql`
             query studentCourseCAComp($data: studentCourseCACompQueryInput!) {
@@ -96,7 +86,7 @@ export class InternalsComponent implements OnInit {
                 weightage
                 marks_obtained
                 total_mark
-                weighted_marks
+                weighted_mark
               }
             }`;
             this.queryRef2 = this.apollo.watchQuery({
@@ -107,7 +97,6 @@ export class InternalsComponent implements OnInit {
             });
             this.queryRef2.valueChanges.subscribe(((result: any) => {
               this.caComp = JSON.parse(JSON.stringify(result.data.studentCourseCAComp));
-              
             }));           
           }
         })

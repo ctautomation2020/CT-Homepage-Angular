@@ -22,7 +22,7 @@ const routes: Routes =  [
         component: SessionComponent
       },
       {
-        path: 'course-list/:reference_id',
+        path: 'course-list/:Reference_ID',
         component: CourseListComponent
       },
       {

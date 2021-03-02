@@ -5,7 +5,7 @@
       <div class="quick-links" *ngIf="courseTitle != null && session!=null">
           <a routerLink="/student-details/academics" class="link">Academics</a>
           <span class="slash"></span>
-          <a [routerLink]="['/student-details', 'academics', 'course-list', session.reference_id]" class="link">{{session.description}}</a>
+          <a [routerLink]="['/student-details', 'academics', 'course-list', session.Reference_ID]" class="link">{{session.Description}}</a>
           <span class="slash"></span>
           <a [routerLink]="['/student-details', 'academics', 'course-features', cregst_id]" class="link" >{{courseTitle}}</a>
           <span class="slash"></span>
@@ -45,7 +45,7 @@
             </div>
             <div class="question" [innerHTML]="q.question_stmt"></div>
             <div class="mark">
-              <span *ngIf="marks!=null">{{filterMarks(q.question_num)}} /</span> {{q.marks}}
+              <span *ngIf="marks!=null && marks.length!=0">{{filterMarks(q.question_num)}} /</span> {{q.marks}}
             </div>
           </div>
         </div>

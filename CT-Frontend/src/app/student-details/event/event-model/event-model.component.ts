@@ -61,7 +61,7 @@ export class EventModelComponent implements OnInit {
       file: new FormControl("")
     });
     this.eventForm.get('Participation_Type_Ref').valueChanges.subscribe(x => {
-      if(x==119)
+      if(x==122)
         this.eventForm.controls.Team_Size.setValue(1);
     });
   }

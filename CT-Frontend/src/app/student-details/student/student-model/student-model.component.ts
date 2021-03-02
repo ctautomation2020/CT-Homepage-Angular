@@ -76,9 +76,16 @@ export class StudentModelComponent implements OnInit {
       NSS_NSO_YRC_Volunteer_Ref: new FormControl(this.data.student.NSS_NSO_YRC_Volunteer_Ref),
       Hostel_Block_Room: new FormControl(this.data.student.Hostel_Block_Room)
     });
+    this.studentForm.get('Residential_Type_Ref').valueChanges.subscribe(x => {
+      if(x==100 || x==101)
+        this.studentForm.controls.Hostel_Block_Room.setValue("");
+    });
+    this.studentForm.get('Scholarship_Received_Ref').valueChanges.subscribe(x => {
+      if(x==90)
+        this.studentForm.controls.Scholarship_Details.setValue("");
+    });
   }
   onSubmit() {
-    
     this.dialogRef.close(this.studentForm.value);
   }
   cbox(){

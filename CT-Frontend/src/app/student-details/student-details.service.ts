@@ -23,6 +23,7 @@ export class StudentDetailsService {
           Reference_ID
           Category
           Ref_Name
+          Description
         }
       }`;
     return this.apollo.watchQuery({

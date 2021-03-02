@@ -85,10 +85,8 @@ export class MarkComponent implements OnInit {
       this.gpas = JSON.parse(JSON.stringify(result.data.studentGpas));
       
     }));
-
     this.studentDetailsService.getDropDown('Session').subscribe(result => {
       this.sessions = result;
-      
     });
   }
   editModel(){

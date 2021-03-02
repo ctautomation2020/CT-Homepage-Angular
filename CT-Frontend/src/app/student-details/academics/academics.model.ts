@@ -1,9 +1,8 @@
 export interface AcademicsModel {
-  reference_id: number;
-  ref_code: number;
-  category: string;
-  ref_name: string;
-  description: string;
+  Reference_ID: number;
+  Category: string;
+  Ref_Name: string;
+  Description: string;
 }
 
 export interface Assessment {

@@ -10,24 +10,25 @@ export class AcademicsService {
   category = 'Session';
   constructor(private apollo: Apollo) { }
 
-  getSession(reference_id: number) {
+  getSession(Reference_ID: number) {
     const req = gql`
-    query courseReference($data: Course_Reference_Input) {
-      courseReference(data: $data) {
-        reference_id
-        ref_code
-        description
+    query personReference($data: Person_Reference_Input) {
+      personReference(data: $data){
+        Reference_ID
+        Category
+        Ref_Name
+        Description
       }
     }`;
     return this.apollo.watchQuery({
       query: req,
       variables: {
         data: {
-          category: this.category,
-          reference_id: reference_id
+          Category: this.category,
+          Reference_ID: Reference_ID
         }
       }
-    }).valueChanges.pipe(map((result: any) => JSON.parse(JSON.stringify(result.data.courseReference))));
+    }).valueChanges.pipe(map((result: any) => JSON.parse(JSON.stringify(result.data.personReference))));
   }
 
   getStudentCourses(json){

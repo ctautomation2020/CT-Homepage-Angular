@@ -60,7 +60,7 @@ export class AssignmentComponent implements OnInit {
             course_code: result[0].course_code,
             reg_no: this.reg_no,
             number: this.assign_num,
-            type: 0
+            type: 154
           }
           this.academicsService.getAssignment(new_query).subscribe((assignment_questions: any) => {
             

@@ -61,7 +61,7 @@ export class InternshipModelComponent implements OnInit {
       file: new FormControl("")
     });
     this.internshipForm.get('Stiphend_Option_Ref').valueChanges.subscribe(x => {
-      if(x==87)
+      if(x==90)
         this.internshipForm.controls.Stiphend_Amount.setValue(0);
     });
   }
